@@ -1,0 +1,66 @@
+page-creditscreen {
+font-size: 13px;
+.nogrid .row, .nogrid .col,.nogrid .row:last-child{border: none; background: #fff;}
+/*.row{border: 1px solid #aaa; border-bottom: none;}
+.row.scheduled{background: #00A100 !important; color: #fff;}
+.row:first-child{font-weight: bold;}
+.row:last-child{border-bottom: 1px solid #aaa}
+.row:nth-child(odd) {background-color: #f2f2f2;}
+.col{border-right: 1px solid #aaa;padding: 10px 5px;}
+.col:last-child{ border-right: none; }*/
+p.star{color:#F2BF00;}
+.callbtn {color: #00A100; border:1px solid #00A100; padding: 5px 8px; border-radius: 50%; width: 40px;}
+.item-button.callbtn{height: 40px; font-size: 1.5rem;}
+
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+.toolbar-content ion-grid .col:first-child{border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+.bot_button{padding: 1px 5px;}
+.bot_button button{    border-radius: 4px;}
+/*.item .radio{    margin: 0px 10px 0px 0;}
+.item{width: 20px;    background: none;min-height: 2.4rem;
+    float: left;padding-left: 0px;}*/
+    
+    .list{margin: 0px;}
+ion-slides {
+
+    height: 200px; 
+}
+[col-5]{line-height: 24px;}
+.swiper-slide img {
+    width: 95%;
+    max-width: 100%;
+        height: 190px;
+    max-height: 100%;
+        border-radius: 5px;
+}
+.radio{
+   margin-right: 5px;
+    margin-bottom: -3px;
+}
+.table .row{border: 1px solid #aaa; border-bottom: none;font-size: 13px;}
+.table .row.scheduled{background: #00A100 !important; color: #fff;}
+.table .row:first-child{font-weight: bold;}
+.table .row:last-child{border-bottom: 1px solid #aaa}
+.table .row:nth-child(odd) {background-color: #f2f2f2;}
+.table .col{border-right: 1px solid #aaa;}
+.table .col:last-child{ border-right: none; }
+
+
+
+.package .card-content,.package .card-header{padding: 0}
+.package .item .radio[item-start]{margin: 10px;}
+.package .item{font-size: 1.4rem}
+
+/*.package:nth-child(odd) {background-color: #f9f9f9;}*/
+.package .item{padding-left: 0; background:transparent;}
+.package .col{padding:2px;}
+
+.package{box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); width: 96%; margin: 10px auto;}
+.package div{}
+
+.package:nth-child(3n){background-color: #d9edf7}
+.package:nth-child(3n+1){background-color: #f2dede}
+.package:nth-child(3n+2){background-color: #dff0d8}
+}

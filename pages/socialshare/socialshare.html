@@ -1,0 +1,90 @@
+<!--
+  Generated template for the SocialsharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+    <ion-title></ion-title>
+     <ion-buttons end (click)="gotoBack()">
+     <button  ion-button small >Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<!--  biplab phase2 0819
+  <div class="logo"><img src="assets/imgs/logo.png"></div>
+
+	<div padding text-center>	<h5 >I'm inviting you to use Service Sarkar App. Install and use code: {{refcode}} </h5>
+	<h5 >Refer & Earn Commission from Service Sarkar </h5>
+
+	<div padding text-center>
+    </div>
+-->
+
+
+  <ion-row>
+
+
+<ion-col col-12 text-right>
+  <button ion-button class="next_buton"   (click)="shareInfo(this.referalcode,this.price)">
+    Send Invite
+  </button>
+</ion-col>
+</ion-row>
+
+<h6> Check how it works?</h6>
+
+<img class="sctimg" src="{{page_image}}" style="height: 280px; width: 100%;    border-radius: 5px;">
+<!-- <img src="https://bsoinfotech.com/servicefinder/uploads/invite_others.JPG" style="width: 320px; height: 450px;margin: 1px 1px;" >
+https://bsoinfotech.com/servicefinder/uploads/invite_others.JPG
+-->
+
+<div>
+ <button class="next_buton1" ion-button (click)="goNextpage('TeamPage')">Check Your Rewards</button>
+</div>
+
+  <ion-row *ngIf="showcomm=='1'">
+    <h6>{{title}}</h6>
+  </ion-row>
+
+
+<!--<ion-grid *ngIf="showcomm=='1'"> -->
+    <ion-grid class="table" padding-top *ngIf="showcomm=='1'">
+          <ion-row class="bg_h1">
+              <ion-col col-7 >
+                Category Name
+              </ion-col>
+			        <ion-col col-5 >
+                Commision(%) on total invoice amt
+              </ion-col>
+
+          </ion-row>
+
+          <ion-row  class="tablerow" *ngFor="let ord of custcomm">
+              <ion-col col-8>
+              {{ord.cat_name}}
+              </ion-col>
+              <ion-col col-4>
+             {{ord.cust_sup_comm}}%
+              </ion-col>
+          </ion-row>
+  </ion-grid>
+
+  <ion-grid  *ngFor="let st of ssterms">
+      <ion-row *ngIf="st.linetype=='h'">
+        <h6>
+        <b>{{st.hdr_desc}} </b>
+        </h6>
+      </ion-row>
+      <ion-row  class="tablerow" *ngIf="st.linetype=='d'">
+         {{st.hdr_desc}}
+      </ion-row>
+  </ion-grid>
+
+</ion-content>

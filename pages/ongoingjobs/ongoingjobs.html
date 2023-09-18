@@ -1,0 +1,269 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Job</ion-title>
+
+ <ion-buttons end (click)="gotoBack()">
+     <button  ion-button small >Home</button>
+ </ion-buttons>
+
+
+  </ion-navbar>
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid>
+		<ion-row>
+			<ion-col >
+				<button ion-button block small clear>Ongoing</button>
+			</ion-col>
+			<ion-col (click)="goJobhistory()">
+				<button ion-button block small clear>History</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+
+</ion-header>
+<!-----------------------------------------
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+    <ion-title></ion-title>
+     <ion-buttons end (click)="gotoBack()">
+     <button  ion-button small >Home</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+----------------------------------------->
+
+<ion-content>
+	<ion-card *ngFor="let job of ongoingjobs">
+		<ion-card-header>
+			{{job.category}}
+
+			<div float-right>
+			<small class="job_pos">{{job.status}}</small>
+			</div>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row class="bor1">
+					<!-- <ion-col  col-12>
+						<p>{{job.custnote}}</p>
+					</ion-col> -->
+					<ion-col  col-2>
+						<img *ngIf="job.prstatus==true" src="{{job.image}}">
+					</ion-col>
+					<!-- <ion-col  col-6 >
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==5)">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+						</p>
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==4) ">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==3) ">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==2) ">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==1) ">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(job.prstatus==true) && (job.overall_rating==0) ">
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						 <span *ngIf="job.prstatus==true">{{job.rating_count}} reviews</span>
+					</ion-col> -->
+
+					<ion-col  col-6 >
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==5.00)">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating>=4.50) && (job.overall_rating<5.00)">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star-half"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==4.00) ">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+
+<p *ngIf="(job.prstatus==true) && (job.overall_rating>=3.50) && (job.overall_rating<4.00)">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star-half"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==3.00) ">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+
+<p *ngIf="(job.prstatus==true) && (job.overall_rating>=2.50) && (job.overall_rating<3.00)">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star-half"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==2.00) ">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating>=1.50) && (job.overall_rating<2.00)">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star-half"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==1.00) ">
+	<ion-icon name="ios-star"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating>=0.50) && (job.overall_rating<1.00)">
+	<ion-icon name="ios-star-half"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+<p *ngIf="(job.prstatus==true) && (job.overall_rating==0.00) ">
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+	<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+</p>
+ <span *ngIf="job.prstatus==true">{{job.rating_count}} reviews</span>
+</ion-col>
+
+					<ion-col (click)="viewProject(job.order_num,job.sp_id,job.cat_id)" col-4>
+						<button ion-button block small clear>View Job</button>
+					</ion-col>
+				</ion-row>
+
+					<!-- <ion-row>
+					<ion-col (click)="cancelJob(job.order_num)">
+						<button ion-button block small clear>Cancel</button>
+					</ion-col>
+
+				</ion-row> -->
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<ion-card *ngIf="nval==false">
+		<ion-card-header>
+			<h3>No Jobs are available</h3>
+		</ion-card-header>
+	</ion-card>
+
+	<!-- <ion-card>
+		<ion-card-header>
+			Plumber Service
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<p>Booking Inprogress</p>
+					</ion-col>
+					<ion-col>
+						<button ion-button block small clear>View Project</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-header>
+			AC Repair Service
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<p>Booking Inprogress</p>
+					</ion-col>
+					<ion-col>
+						<button ion-button block small clear>View Project</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card> -->
+
+</ion-content>
+<ion-footer>
+  <!--
+  <ion-grid class="footer_block">
+
+    <ion-row>
+
+      <ion-col col-3 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-briefcase"></ion-icon>My Bookings</ion-col>
+      <ion-col col-2> <ion-icon name="ios-people-outline" (click)="goNextpage('CustomercarePage')"></ion-icon> Help</ion-col>
+      <ion-col col-3> <ion-icon name="ios-people-outline" (click)="goNextpage('TeamPage')"></ion-icon>Rewards </ion-col>
+      <ion-col col-2> <ion-icon name="ios-cash-outline" (click)="goNextpage('WalletPage')"></ion-icon> Wallet</ion-col>
+      <ion-col col-2> <ion-icon name="ios-person-outline" (click)="goNextpage('ProfilePage')"></ion-icon> Profile</ion-col>
+
+
+
+
+    </ion-row>
+
+</ion-grid>
+-->
+</ion-footer>

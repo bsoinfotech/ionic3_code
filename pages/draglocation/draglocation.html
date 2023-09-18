@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Service Location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<ion-item>
+	<ion-input type="text" [(ngModel)]='loc' name='loc'></ion-input>
+</ion-item>
+
+ <ion-col col-12>
+         	    <div #mapele id="mapele" style="height:88%;"></div>
+         </ion-col>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar text-center>
+    <button ion-button round (click)="useLocation(this.loc,this.radiuss,this.lat1,this.lng1)">Use this location</button>
+  </ion-toolbar>
+</ion-footer>

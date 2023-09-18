@@ -1,0 +1,17 @@
+page-otp {
+.content{background:#042e54;}
+.scroll-content{ padding: 16px 50px;}
+.logo{ width: 50%; margin: 20px auto; margin-top: 80px; }
+form{margin-top: 75px;}
+.item{padding: 0 10px; margin-bottom: 10px; border-radius: 30px;}
+.list .item-block .item-inner{border-bottom: none; padding-left: 10px;}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{border:none;box-shadow:none;}
+.item ion-icon[item-left]{margin: 0}
+.label{margin: 13px}
+.text-input{margin: 5px 0px}
+.button-round{padding: 2.3rem 2.6rem}
+.bottomlink{color:#fff;}
+.toolbar-background { background: transparent; ion-color-base: transparent !important;}
+.header::after{background-image:none;}
+.back-button-icon{color:#fff;}
+}

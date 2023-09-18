@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Change Delivery Date</ion-title>
+    <ion-buttons left>
+    	<button ion-button icon-only (click)="dismiss()">
+  <ion-icon name="md-arrow-back"></ion-icon>
+</button>
+      
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+  <ion-label>Delivery Date</ion-label>
+  <ion-datetime displayFormat="DD/MMMM/YYYY" [min]="enddate" [(ngModel)]="enddate" name="enddate" max="2025-10-31"></ion-datetime>
+</ion-item>
+</ion-content>
+<ion-footer>
+	<ion-toolbar color="darkblue">
+    <button ion-button full (click)="gotoNetScreen()" color="light" clear>Update</button>
+  </ion-toolbar>
+  
+</ion-footer>

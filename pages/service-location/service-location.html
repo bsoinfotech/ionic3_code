@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Service Location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="searchbox">
+
+<ion-grid>
+  <ion-row>
+   <!--  <ion-col col-3>
+      <ion-searchbar class="radiusinput" primary [(ngModel)]="radiuss" name="radiuss" (ionInput)="getRadius()" show-cancel="true" placeholder="KM">
+  </ion-searchbar>
+    </ion-col><ion-col col-12>
+      <div class="search-bar">
+    <ion-searchbar [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" placeholder="Enter Your Address" name="autocomplete.query" [ngModelOptions]="{standalone: true}"></ion-searchbar>
+    </div>
+    </ion-col> -->
+    <ion-col col-12>
+      <div class="search-bar">
+    <ion-searchbar [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" placeholder="Enter Your Address" name="autocomplete.query" [ngModelOptions]="{standalone: true}"></ion-searchbar>
+    </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  
+	
+</div>
+     
+		<ion-list class="location_search" [hidden]="value">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+          {{ item }}
+      </ion-item>
+  </ion-list>
+
+  <div #map id="map" style="width: 100%; height: 100%;"></div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar text-center>
+    <button ion-button round (click)="useLocation(this.attb_id)">Use this location</button>
+  </ion-toolbar>
+</ion-footer>

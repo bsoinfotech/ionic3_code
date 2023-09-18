@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Work Instruction For Partner</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content text-center>
+
+
+
+<div id="list">
+  <h5>How It Works For Partner:</h5>
+  <ul>
+
+  </ul>
+</div>
+
+	<ion-grid *ngFor="let th of terms_hdr">
+	
+	<ion-item *ngIf="th.linetype=='h'">
+		 <ion-label><li>{{th.hdr_desc}}</li></ion-label> 
+	</ion-item>
+	
+		<ion-row *ngIf="th.linetype=='d'">
+			<ion-col text-left>
+				{{th.hdr_desc}}
+			</ion-col>
+		</ion-row>
+	
+
+ 
+</ion-grid>
+
+
+</ion-content>
+

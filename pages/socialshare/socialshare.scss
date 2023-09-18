@@ -1,0 +1,74 @@
+page-socialshare {
+h5{line-height: 24px; margin:15px 0px 25px 0px!important;}
+.but_1{font-size: 14px;padding: 5px 8px;}
+.next_buton {
+    width: 140px;    margin-top: 10px;}
+
+    .logo{    background-color: #045411; text-align: center; padding:35px 0px;}
+       .logo img{width: 140px; margin: 0 auto;}
+
+    a{line-height: 24px; font-size: 16px;}
+
+.next_buton1 {
+        width: 300px;    margin-top: 20px;}
+
+        .logo{    background-color: #540404; text-align: center; padding:35px 0px;}
+           .logo img{width: 140px; margin: 0 auto;}
+
+        a{line-height: 24px; font-size: 16px;}
+
+
+.mypadding{ padding: 10px;}
+.banners{height: 125px; background-color: #e5e5e5;}
+.banners1{height: 90px; background-color: #e5e5e5;border: 4px solid #aeb7ca;}
+.swiper-container-horizontal > .swiper-pagination-bullets{}
+
+.card{margin: 0; width: 100%; min-height: 130px; background: #E5E5E5; box-shadow:none;}
+.card-content{padding: 5px; font-size: 1.3rem; min-height: 130px;}
+ion-card img{width: 65px; margin: 0 auto; height: 65px;}
+.card p{font-size: 1.2rem; margin: 10px 0}
+.grid{padding:5px}
+.swiper-slide img{width: 100%;}
+
+}
+.tabs .tab-button[aria-selected=true] .tab-button-icon,.tabs .tab-button[aria-selected=true] .tab-button-text{color: #000;}
+.toolbar-title-md{font-weight: normal; font-size: 1.5rem}
+.footer_block ion-icon{display: block;    margin-top: 3px;
+    padding-bottom: 4px;
+    min-width: 2.4rem;
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform-origin: 50% 150%;
+    transform-origin: 50% 150%;}
+.footer_block {background-color: #488aff;text-align: center; font-size: 1.2rem!important; padding-bottom: 1px!important;  color: rgba(255, 255, 255, 0.7);}
+.footer_block .active, .footer_block .active ion-icon{color: #000;
+
+  .toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+  .toolbar-content ion-grid .col:nth-child(1){border-bottom: 2px solid #042e54}
+  .tabstoolbar{padding: 0px; min-height: 37px;}
+  ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+
+  .bg_hed{background-color: #488aff; color: #FFF;}
+  .bg_hed .col{    font-size: 14px!important;}
+  .table .row{border: 1px solid #042e54; border-bottom: none;font-size: 13px;}
+  .table .row.scheduled{background: #00A100 !important; color: #fff;}
+  .table .row:first-child{font-weight: normal;text-transform: capitalize;}
+  .table .row:last-child{border-bottom: 1px solid #042e54}
+  /*.table .row:nth-child(odd) {background-color: #f2f2f2;}*/
+  .table .col{border-right: 1px solid #042e54;text-align: center;     font-size: 12px;    padding: 8px 5px;}
+  .table .col:last-child{ border-right: none; }
+  .bg_h1{background-color: #042e54; color:#fff;}
+  .bg_h1 .col {
+      font-weight: bold;
+      text-align: center;
+      font-size: 13px;}
+  .tablerow{background-color: #eee}
+  .tablerow:nth-child(even){background-color: #fff}
+
+
+
+}

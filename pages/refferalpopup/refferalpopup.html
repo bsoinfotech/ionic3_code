@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Invitation code</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+	<ion-item>
+    <ion-label color="darkblue" floating>Enter Invitation Code</ion-label>
+    <ion-input type="text" [(ngModel)]='refferalcode' name='refferalcode'></ion-input>
+  </ion-item>
+</ion-list>
+
+<div padding text-center>
+  <button ion-button small (click)="dismiss()">Back</button>
+  <button ion-button small (click)="goNext()">Submit</button>
+
+</div>
+</ion-content>

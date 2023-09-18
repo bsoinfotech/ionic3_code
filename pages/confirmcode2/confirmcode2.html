@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Reason for Job Completion Delay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+
+
+	<div >
+		<h5 text-center><b>Why partner needs additional time to complete the job ?</b></h5>
+		
+		<ion-list radio-group class="radiobtn" [(ngModel)]="cat" >
+		<ion-item *ngFor="let pc of popular">
+		<!-- <ion-label>{{pc.cancel_reason}}</ion-label> -->
+		
+		<ion-label class="ws">{{pc.cancel_reason}}</ion-label>
+	
+		<ion-radio value="{{pc.cancel_id}}" (click)="updateCucumber(pc.cancel_id,pc.cancel_reason)"></ion-radio> 
+		</ion-item>
+				
+		</ion-list>
+
+	</div>
+	
+	<div >
+		<h5 text-center><b>When you will complete the job ? (Ensure customer is okay with this time)</b></h5>
+		
+		<ion-list radio-group class="radiobtn" [(ngModel)]="cat1" >
+		<ion-item *ngFor="let pc1 of popular1">
+		
+		<ion-label class="ws">{{pc1.cancel_reason1}}</ion-label>
+	
+		<ion-radio value="{{pc1.cancel_id1}}" (click)="updateCucumber1(pc1.cancel_id1,pc1.cancel_reason1)"></ion-radio> 
+		</ion-item>
+				
+		</ion-list>
+
+	</div>
+	
+
+
+<div padding text-center>
+  <button ion-button small (click)="dismiss()">Back</button>
+  <button ion-button small (click)="submit_wipreason(this.order_num)">Submit</button>
+
+</div>
+</ion-content>

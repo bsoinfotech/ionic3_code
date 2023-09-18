@@ -1,0 +1,91 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Extra Charges</ion-title>
+    <ion-buttons end>
+      <button ion-button small (click)="dismiss()">Back</button>
+  </ion-buttons>
+  </ion-navbar>
+
+<ion-toolbar>
+  <b>Extra Charges: </b>  &nbsp; &nbsp;  <button ion-button round (click)="opennextpage()">Create extra charges</button>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+   
+
+  <ion-row class="but_11" *ngFor="let ec of extracrg" >    
+
+    
+      <ion-col col-9  no-padding *ngIf="ec.crg_name!=''">    
+        <h5>{{ec.crg_name}}</h5>     
+      </ion-col> 
+      <ion-col col-3>     
+        <ion-toggle [(ngModel)]="ec.status" slot="ec.status" (ionChange)="notify(ec.id,ec.status)"></ion-toggle>           
+      </ion-col> 
+  
+
+  <ion-row>
+
+      <ion-col col-12 no-padding *ngIf="ec.crg_type=='p'">    
+      <h6>  Charge in percent : {{ec.crg_value}}% </h6>
+        <small>({{ec.crg_value}}% will be added as {{ec.crg_name}} on the bill/invoice)</small>     
+  
+    </ion-col>
+  </ion-row>
+
+  
+
+
+    <ion-col col-12  no-padding *ngIf="ec.crg_type=='f'">    
+      <h6>Fixed Charge :{{curr_code}} {{ec.crg_value}} </h6>         
+      <small>( {{curr_code}} {{ec.crg_value}} will be added as {{ec.crg_name}} on the bill/invoice)</small>
+     
+    </ion-col>
+
+  <ion-row class="but_12">
+    <ion-col col-12  no-padding>    
+      Apply charge if invoice amout < {{curr_code}} {{ec.must_apply_amt}}
+    </ion-col>
+    
+  </ion-row>
+<ion-row class="but_12">
+    <ion-col col-12  no-padding>    
+      Waived the charge if invoice amout > {{curr_code}} {{ec.dont_apply_amt}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="but_12">
+    <ion-col col-12  no-padding>    
+      Applicable for {{ec.cat_list}}
+    </ion-col>
+  </ion-row>
+
+
+     
+  </ion-row>
+
+    <!--
+
+
+
+-->
+
+
+ 
+
+  </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <div>
+      <ion-row>
+     
+        <button ion-button color="primary" icon-end block (click)="dismiss()">Back <ion-icon ></ion-icon> </button>
+     </ion-row>
+    </div>
+    </ion-footer>

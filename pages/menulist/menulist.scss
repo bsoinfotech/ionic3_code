@@ -1,0 +1,26 @@
+page-menulist {
+
+    .item ion-thumbnail img{width: 65px; height: 65px; border-radius: 5px;}
+    .item ion-thumbnail{min-width: 65px; height: 85px}
+    .list .item-block .item-inner{border-bottom: none;}
+    .item{border-bottom: 1px solid #030236}
+    
+    .swiper-container-android .swiper-slide{border:1px solid #00BCD5; color:#00BCD5;border-radius: 20px; font-size: 14px; margin: 0 1px;}
+    .swiper-slide .label{ margin:5px 10px; }
+
+
+    .mypadding{ padding: 4px;}
+    .card{margin: 0; width: 100%; min-height: 40px; background: #f3eeee; box-shadow:none;}
+    .card-content{padding: 2px; font-size: 1.3rem; min-height: 40px;}
+    ion-card img{float: left;width: 60px; margin-left: 0px; height: 60px;}
+    .card p{text-align: left;font-size: 1.4rem; margin: 1px 0}
+    .grid{padding:0}
+    .swiper-slide img{width: 100%;}
+    .title-image {
+        vertical-align: middle;
+      }
+      .pull-right {
+        float: right;
+      }
+    }
+    

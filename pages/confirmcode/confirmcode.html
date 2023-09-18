@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Enter the job code to start the job</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+	<ion-item>
+    <ion-label color="darkblue" floating>Enter Job Code</ion-label>
+    <ion-input type="text" [(ngModel)]='random' name='random'></ion-input>
+  </ion-item>
+</ion-list>
+
+<div padding text-center>
+  <button ion-button small (click)="dismiss()">Back</button>
+  <button ion-button small (click)="addNewOrder()">Submit</button>
+
+</div>
+</ion-content>

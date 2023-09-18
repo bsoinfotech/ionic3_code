@@ -1,0 +1,15 @@
+page-selectforservice {
+.content{background:#f6f6f6;}
+h2{text-align: center; color: #042e54; font-size: 1.5rem; margin: 25px 0 !important;}
+.box{padding:10px; border-radius: 10px; border:2px solid #e5e5e5; background: #fff; margin-bottom: 10px; }
+.box .grid{padding: 0}
+.countinput{width: 100%; border-radius: 5px; border:1px solid #042e54; padding-left: 0}
+.countinput .text-input{margin: 0}
+.countinput .text-input{text-align: center; width: 40px;}
+.item ion-icon[item-left] + .item-inner{margin: 0; padding: 0}
+.item ion-icon[item-right],.item ion-icon[item-left]{margin: 0}
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+}

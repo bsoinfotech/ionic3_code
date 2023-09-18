@@ -1,0 +1,20 @@
+page-ongoingjobs {
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; }
+.toolbar-content ion-grid .col:first-child{border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+.bor1 img{border-radius: 50%;    width: 43px;
+    height: 43px;}
+.card-content{
+    padding: 13px 0px 0px 0px;}
+  .bor1  [col-6]{padding-top: 5px;}
+   .bor1 ion-icon{    padding-right: 5px;   color: #ffb200;}
+   .bor1 .button-clear{ padding-top: 8px;}
+  .bor1 [col-6] span {    color: #acacac;
+    font-size: 14px;
+}
+.job_pos{color: #fff;
+    background: #21c050;
+    padding: 5px 8px;
+    border-radius: 5px;}
+}

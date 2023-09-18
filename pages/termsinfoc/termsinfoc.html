@@ -1,0 +1,46 @@
+<ion-header >
+
+  <ion-navbar color="darkblue">
+    <ion-title>Terms of service</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-grid *ngFor="let th of terms_hdr">
+	
+	<ion-item *ngIf="th.linetype=='h'">
+		 <ion-label><b>{{th.hdr_desc}}</b></ion-label> 
+		 <hr style="border: 1px solid blue;" />
+		 
+		<!-- <ion-col col-14><p style="line-height: 20px;" >{{th.hdr_desc}}</p></ion-col>	
+			<ion-col text-left>
+				<h5> {{th.hdr_desc}} </h5>
+				
+			</ion-col>		
+			-->
+			 			
+			
+	</ion-item>
+	
+		<ion-row *ngIf="th.linetype=='d'">
+			<ion-col text-left>
+				{{th.hdr_desc}}
+			</ion-col>
+		</ion-row>
+	
+
+ 
+</ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button full (click)="refresh_screen()">Back</button>
+  
+
+</ion-footer>

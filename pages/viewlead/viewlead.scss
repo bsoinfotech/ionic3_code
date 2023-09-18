@@ -1,0 +1,27 @@
+page-viewlead {
+	font-size: 13px;
+.row{border: 1px solid #aaa; border-bottom: none;}
+.row.scheduled{background: #00A100 !important; color: #fff;}
+.row:first-child{font-weight: bold;}
+.row:last-child{border-bottom: 1px solid #aaa}
+.row:nth-child(odd) {background-color: #f2f2f2;}
+.col{border-right: 1px solid #aaa;}
+.col:last-child{ border-right: none; }
+p.star{color:#F2BF00;}
+.callbtn {color: #00A100; border:1px solid #00A100; padding: 5px 8px; border-radius: 50%; width: 40px;}
+.item-button.callbtn{height: 40px; font-size: 1.5rem;}
+
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+.toolbar-content ion-grid .col:first-child{border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+
+
+.table .row{border: 1px solid #aaa; border-bottom: none;font-size: 13px;}
+.table .row.scheduled{background: #00A100 !important; color: #fff;}
+.table .row:first-child{font-weight: bold;}
+.table .row:last-child{border-bottom: 1px solid #aaa}
+.table .row:nth-child(odd) {background-color: #f2f2f2;}
+.table .col{border-right: 1px solid #aaa;}
+.table .col:last-child{ border-right: none; }
+}

@@ -1,0 +1,24 @@
+page-teamscreen6 {
+
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+.toolbar-content ion-grid .col:nth-child(1){border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+
+.bg_hed{background-color: #488aff; color: #FFF;}
+.bg_hed .col{    font-size: 14px!important;}
+.table .row{border: 1px solid #042e54; border-bottom: none;font-size: 13px;} 
+.table .row.scheduled{background: #00A100 !important; color: #fff;}
+.table .row:first-child{font-weight: normal;text-transform: capitalize;}
+.table .row:last-child{border-bottom: 1px solid #042e54}
+/*.table .row:nth-child(odd) {background-color: #f2f2f2;}*/
+.table .col{border-right: 1px solid #042e54;text-align: center;     font-size: 12px;    padding: 8px 5px;}
+.table .col:last-child{ border-right: none; }
+.bg_h1{background-color: #042e54; color:#fff;}
+.bg_h1 .col { 
+    font-weight: bold; 
+    text-align: center;
+    font-size: 13px;}
+.tablerow{background-color: #eee}
+.tablerow:nth-child(even){background-color: #fff}
+}

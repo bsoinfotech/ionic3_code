@@ -1,0 +1,91 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Select user(s) whom you want to send </ion-title>
+
+ 
+  </ion-navbar>
+  <ion-toolbar>
+
+    <ion-row >
+      <ion-col col-2 > 
+        <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+       
+         <small> Basic details </small>
+    </ion-col>
+    <ion-col col-1 > 
+
+  </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+    <small> Select Campaign </small>
+    </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+      <small> Select Customers</small>
+    </ion-col>
+    <ion-col col-3 > 
+      <span class="count" [ngClass]="{'bu_show':(1==1)}">4</span>
+      <small> Preview & Send</small>
+    </ion-col>
+     </ion-row >
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+ 
+  <!--
+
+<ion-row >
+  <ion-col col-6 no-padding >      
+    <span item-left  style="background:rgba(33, 2, 68, 0.555); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 15px; font-weight: bold;"> Your credit balance:
+    </span>
+    </ion-col>
+  <ion-col col-6 no-padding >      
+    <span item-left  style="background:rgb(7, 196, 23); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 15px; font-weight: bold;">{{credit_bal}}
+    </span>
+    </ion-col>
+</ion-row>
+  -->
+
+
+
+<div class="mypadding">
+  <h4> Select Customer(s): </h4>
+	<ion-grid>   
+	  <ion-row  style="background:#ceb7b7; padding: 4px 6px; color: rgb(1, 1, 8); border-radius: 6px; margin-bottom: 6px;" *ngFor="let a of pushCmsg">
+    
+      <ion-col col-9 no-padding *ngIf="a.credit_count>0">      
+      <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{a.segment_title}} -->({{a.credit_count}})
+      </span>
+      </ion-col>
+
+    <ion-col  col-3 no-padding *ngIf="a.credit_count>0"> 
+    <button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+    (click)="nextpage(user_id,userstr,temp_id,credit_bal,a.segment_id,a.country_id,a.comm_type,a.msg_type,a.push_type,a.segment_title,a.p_unitcost,
+    a.wa_unitcost,a.sms_unitcost,a.email_unitcost,a.credit_count,a.segment_trigger_type,busi_phone,busi_whatsapp,company_id)">SELECT </button>
+    </ion-col>
+
+    <ion-card-content>
+      <div *ngIf="msg1!=''"> {{msg1}}</div>
+      <div *ngIf="msg2!=''"> {{msg2}}</div>
+        
+      </ion-card-content>
+
+    </ion-row>
+
+	
+	</ion-grid>
+	
+	</div>
+
+
+</ion-content>
+

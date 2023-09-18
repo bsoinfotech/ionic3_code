@@ -1,0 +1,129 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Coupon Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+<!--
+  <video src = "{{video?.video}}#t=0.1" controls="controls" controlsList="nofullscreen nodownload noremoteplayback" style=": 100%;"></video>
+  -->
+<ion-card>
+  <ion-row>
+
+  <ion-col  col-12 no-padding text-center style="padding: 6px; background-color: #488aff; color: #FFF;"> <strong>{{promohdr?.header}} {{promohdr?.promo_code}}</strong></ion-col>
+
+  </ion-row>
+
+  <ion-row *ngIf="promohdr?.desc1!=''">
+    <ion-col  col-12 no-padding text-center><strong>{{promohdr?.desc1}} {{promohdr?.desc2}}  </strong></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="promohdr?.desc3!=''">
+      <ion-col  col-12 no-padding text-center ><strong>{{promohdr?.desc3}} </strong></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="promohdr?.validity!=''">
+      <ion-col  col-12 no-padding text-center><strong>{{promohdr?.validity}} </strong></ion-col>
+  </ion-row>
+<!--
+  <ion-row *ngIf="promohdr?.ref1!=''">
+      <ion-col  col-12 no-padding text-center ><strong>{{promohdr?.ref1}} </strong></ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="promohdr?.ref2!=''">
+      <ion-col  col-12 no-padding text-center><strong>{{promohdr?.ref2}} </strong></ion-col>
+  </ion-row>
+  -->
+  <ion-row *ngIf="promohdr?.ref3!=''">
+      <ion-col  col-12 no-padding text-center><strong>{{promohdr?.ref3}} </strong></ion-col>
+  </ion-row>
+  <ion-row *ngIf="promohdr?.ref4!=''">
+      <ion-col  col-12 no-padding text-center><strong>{{promohdr?.ref4}} </strong></ion-col>
+  </ion-row>
+
+  <ion-grid class="table">
+    <ion-row class="tablerow">
+
+        <ion-col  col-12 no-padding text-center style="padding: 4px; background-color: #488aff; color: #FFF;"> <strong>{{promohdr?.ref5}} </strong></ion-col>
+
+    </ion-row>
+           <ion-row class="tablerow">
+             <ion-col col-6> {{promohdr?.ref6}} </ion-col>
+             <ion-col col-6> {{promohdr?.ref7}} </ion-col>
+           </ion-row>
+           <ion-row *ngFor="let pd of promodtl">
+             <ion-col col-6> {{pd.cat_name}}</ion-col>
+              <ion-col col-6> {{pd.note}}</ion-col>
+           </ion-row>
+  </ion-grid>
+
+</ion-card>
+
+<h3> How It works?</h3>
+<div padding-horizontal>
+
+  <ion-row *ngIf="wflow?.video !=''">
+  <video src = "{{wflow?.video}}#t=0.1" controls="controls" controlsList="nofullscreen nodownload noremoteplayback" style="width: 100%;"></video>
+  </ion-row>
+  <!---
+<ion-row *ngFor="let ll of wlist">
+	<ol>
+      <ion-row *ngIf="ll.record_type=='0'">
+        <li>
+        <h1>{{ll.parts_name}}</h1>
+        </li>
+      </ion-row>
+      <ion-row *ngIf="ll.record_type=='3'">
+        <li>
+      	<p>{{ll.parts_name}}</p>
+        </li>
+      </ion-row>
+	</ol>
+</ion-row>
+-->
+
+	<ol>
+
+        <li>
+        <h1>{{wflow?.h1}}</h1>
+        <p>{{wflow?.h1p1}}</p>
+        <p>{{wflow?.h1p2}}</p>
+        <p>{{wflow?.h1p3}}</p>
+        </li>
+        <li>
+        <h1>{{wflow?.h2}}</h1>
+        <p>{{wflow?.h2p1}}</p>
+        <p>{{wflow?.h2p2}}</p>
+        <p>{{wflow?.h2p3}}</p>
+        </li>
+        <li>
+        <h1>{{wflow?.h3}}</h1>
+        <p>{{wflow?.h3p1}}</p>
+        <p>{{wflow?.h3p2}}</p>
+        <p>{{wflow?.h3p3}}</p>
+        </li>
+        <li>
+        <h1>{{wflow?.h4}}</h1>
+        <p>{{wflow?.h4p1}}</p>
+        <p>{{wflow?.h4p2}}</p>
+        <p>{{wflow?.h4p3}}</p>
+        </li>
+
+	</ol>
+
+
+
+	<div text-center>
+		<button ion-button round block (click)="createProfile()">Back to Home</button>
+	</div>
+</div>
+</ion-content>

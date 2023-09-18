@@ -1,0 +1,100 @@
+<ion-header>
+
+  <ion-navbar  color="darkblue">
+    <ion-title *ngIf="pag=='out5'">On-Going Jobs</ion-title>
+    <ion-title *ngIf="pag=='out6'">OnGoing Jobs</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-grid class="package" *ngFor="let out of out5details">
+  <ion-row>
+    <ion-col style="border-bottom: 1px solid #666">
+      <b>Name: </b> <em>{{out.name}}</em>
+    </ion-col>
+    <ion-col text-right style="border-bottom: 1px solid #666">
+      <b>Job Count: </b><em>{{out.ongoing_job}}</em>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <b>SS ID: </b>
+	  <em>{{out.id}}</em>
+    <!--
+    <a href="tel:{{out.phonenumber}}" class="callbtn">
+
+    <ion-icon name="ios-call"></ion-icon>
+    {{out.phonenumber}}
+    </a>
+    -->
+    </ion-col>
+    <ion-col text-right>
+      <div (click)="goScreen4(out.name,out.id,out.ongoing_job,pag)" style="border:1px solid #000; border-radius: 5px; display: inline-block; padding:2px 5px;"><ion-icon name="ios-eye"></ion-icon> View Details</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngIf="nval==false">
+  <ion-row>
+    <ion-col text-center style="color:red">
+      No available Details
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+
+
+
+
+
+
+  <!-- <ion-grid class="table" padding-top>
+
+        <ion-row class="bg_h1">
+          <ion-col col-3>
+           Name
+          </ion-col>
+          <ion-col col-2>
+           ID#
+          </ion-col>
+          <ion-col col-3>
+          Ongoing jobs
+          </ion-col>
+
+           <ion-col col-4>
+           Job Done
+          </ion-col>
+
+
+        </ion-row>
+
+        <ion-row  class="tablerow" *ngFor="let out of out5details">
+          <ion-col col-3>
+           {{out.name}}
+          </ion-col>
+          <ion-col col-2>
+           {{out.id}}
+          </ion-col>
+          <ion-col col-3>
+           {{out.ongoing_job}}
+          </ion-col>
+           <ion-col col-4 (click)="goScreen4()">
+            <button ion-button>Details</button>
+          </ion-col>
+        </ion-row>
+        <ion-row  class="tablerow" *ngIf="nval==false">
+          <ion-col col-12>
+            <h3 style="text-align: center;color: red;">No available Details</h3>
+          </ion-col>
+        </ion-row>
+
+
+  </ion-grid> -->
+
+</ion-content>

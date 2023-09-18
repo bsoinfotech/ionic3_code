@@ -1,0 +1,14 @@
+page-homemap {
+
+
+.searchbox{background: transparent; width: 100%; z-index: 999; background: rgba(0,0,256,0.5)}
+.searchbox.searchbar{padding:0px;}
+.searchbox.radiusinput.searchbar-search-icon{ display: none;visibility: hidden; }
+.searchbox.radiusinput.searchbar-input{padding: 0px 1px;}
+
+
+.orpart{background: url(../assets/imgs/line-bg.png) center repeat-x; width: 100%; text-align: center; margin: 10px 0;}
+.orpart span{border: 1px solid #fff; border-radius: 50%; color: #fff; padding: 5px; background: #042e54}
+
+
+}

@@ -1,0 +1,14 @@
+page-custnotification {
+ion-label{white-space:normal;}
+ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+  }
+  .item [item-end]{margin: 0}
+  .list .item-block .item-inner{border-bottom: none;}
+  .item{border-bottom: 1px solid #dedede;}
+.item-md p{color: #000}
+  .readnotification{background: #f9f9f9;}
+.item-md.readnotification p{ font-weight: normal; color: #999;}
+}

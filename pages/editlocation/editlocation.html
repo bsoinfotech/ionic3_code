@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="darkblue">
+    <ion-title>Service Radius</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <!-- <ion-searchbar primary [(ngModel)]="radiuss" name="radiuss" (ionInput)="getRadius()" show-cancel="true" placeholder="Radius">
+  </ion-searchbar> -->
+  <h6>Adjust your service radius to receive leads within that area. </h6>
+
+  <div #radmap id="radmap" style="width: 100%; height: 60%;"></div>
+
+  <div text-center>
+  	<h3>{{radiuss}} Kms</h3>
+  	<p>Move the slider to change your area radius</p>
+  </div>
+  <ion-item>
+  <ion-range pin="true" [(ngModel)]="radiuss" name="radiuss" min="0" max="50" step="1" (ionChange)="getRadius()">
+   
+  </ion-range>
+</ion-item>
+
+</ion-content>
+
+
+
+<ion-footer>
+	<div>
+	  <ion-row>
+		<ion-col col-6>
+		 <button ion-button color="primary" icon-end block  (click)="dismiss()">Back <ion-icon ></ion-icon> </button>
+	   </ion-col>
+	   <ion-col col-6 text-right>
+		<button ion-button color="primary" icon-end block (click)="useLocation(this.location,this.radiuss,this.lat1,this.lng1)">Save <ion-icon ></ion-icon> </button>
+	   </ion-col>
+	 </ion-row>
+  </div>
+  </ion-footer>

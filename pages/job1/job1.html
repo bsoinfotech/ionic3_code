@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+
+    <ion-title>Select Category</ion-title>
+
+
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+
+<div class="mypadding">
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-4 *ngFor="let c of categories">
+    	<ion-card class="block" text-center (click)="checkpartscost(this.userid,c.id)">
+    		<ion-card-content>
+    			<!-- <img src="{{c.catpicture}}"> -->
+
+    			<p>{{c.cat_name}} </p>
+    		</ion-card-content>
+    	</ion-card>
+    </ion-col>
+
+  </ion-row>
+
+</ion-grid>
+
+</div>
+
+
+
+
+</ion-content>

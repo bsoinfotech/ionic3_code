@@ -1,0 +1,46 @@
+<ion-content padding>
+
+	     <ion-grid>
+
+  <ion-row>
+  <!--
+    <ion-col col-12>
+	<h2>NEW VERSION IS AVAILABLE <br/>
+	Please uninstall old version and reinstall new version from Google Play store</h2>
+	{{sms2}} --{{sms3}}
+	</ion-col>
+	-->
+
+		<ion-row *ngIf="(status =='2')">
+			<h2> {{sms2}}</h2>
+
+			 <a class="button" href="{{link}}" target="_blank" (click)="getUpdate()">Install Latest Version</a>
+
+			<br>
+			<br>
+
+
+			 <button ion-button full (click)="dismiss()">Skip For Now</button>
+
+		</ion-row>
+
+		<ion-row *ngIf="(status =='3')">
+			<h2> {{sms3}}</h2>
+			<br>
+			<br>
+			<a class="button" href="{{link}}" target="_blank" (click)="getUpdate()">Install Latest Version</a>
+
+		</ion-row>
+
+	<ion-col col-12>
+
+     <!-- <a class="button" href="https://play.google.com/store/apps/details?id=com.servicesarkar1.servicesarkar1" target="_blank" (click)="getUpdate()">Go to Play store</a>  -->
+	 <!-- <a class="button" href="https://bsoinfotech.com/servicefinder/apk/android-release.apk" target="_blank" (click)="getUpdate()">Update Now</a> -->
+
+       </ion-col>
+
+  </ion-row>
+
+</ion-grid>
+
+</ion-content>

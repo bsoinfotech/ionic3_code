@@ -1,0 +1,168 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Select item from below</ion-title>
+
+ 
+  </ion-navbar>
+  <ion-toolbar>
+    toolbar
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+ 
+
+  <ion-row *ngIf="partner_temp_count!='0'">
+    <h4> {{partner_hdr}}</h4>
+  </ion-row>
+<ion-row *ngIf="partner_temp_count=='0'">
+  <h6> {{partner_msg}}</h6>
+</ion-row>
+
+<div class="mypadding">
+
+	<ion-grid>   
+	  <ion-row  style="background:#ceb7b7; padding: 4px 6px; color: rgb(1, 1, 8); border-radius: 6px; margin-bottom: 6px;" *ngFor="let c of pushTmsg">
+    
+      <ion-col col-9 no-padding *ngIf="c.status=='1'">      
+        <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c.temp_desc}}
+        </span>
+        </ion-col>
+
+        <ion-col col-9 no-padding *ngIf="c.status=='0'">      
+          <span item-left  style="background:rgb(224, 7, 7); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c.temp_desc}}
+          </span>
+          </ion-col>
+
+          <ion-col  col-3 no-padding *ngIf="c.status=='0'">
+            <button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+                  (click)="savesetup(c.temp_id,userid,'',c.comm_type,c.status)">Turn On </button>
+      
+            </ion-col>
+            <ion-col  col-3 no-padding *ngIf="c.status=='1'">
+            <button style="padding: 5px; background-color:#fa1111; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+                  (click)="savesetup(c.temp_id,userid,'',c.comm_type,c.status)">Turn Off</button>
+      
+            </ion-col>
+
+       <ion-col col-8 >
+        <!--
+          <ion-col col-8 style="border-bottom: 5px solid #666">
+        -->
+        <strong>
+          Sample:
+        </strong>   
+        <!--
+    <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold; ">{{c.sample_msg}}
+        </span>
+        -->
+        <small>
+          {{c.sample_msg}}
+        </small>
+      </ion-col>
+      <ion-col col-4>
+        <div>
+        <span item-right>
+         
+            
+          <div class="profile-banner">
+            <b><small>Push image</small></b>
+          <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+          <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+          </div>
+          
+
+        </span>
+      </div>
+       </ion-col>
+
+
+    </ion-row>
+
+	
+	</ion-grid>
+	
+	</div>
+
+  
+ 
+   
+  <ion-row *ngIf="customer_temp_count !='0' ">
+    <h4> {{customer_hdr}}</h4>
+  </ion-row>
+
+  <ion-row *ngIf="customer_temp_count=='0' ||customer_temp_count=='' ">
+    <h6> {{customer_msg}}</h6>
+  </ion-row>
+  
+  <div class="mypadding">
+  
+    <ion-grid>   
+      <ion-row  style="background:#ceb7b7; padding: 4px 6px; color: rgb(1, 1, 8); border-radius: 6px; margin-bottom: 6px;" *ngFor="let c1 of pushCmsg">
+        {{c1.temp_desc}}
+        <ion-col col-9 no-padding *ngIf="c1.status=='1'">      
+          <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c1.temp_desc}}
+          </span>
+          </ion-col>
+
+          <ion-col col-9 no-padding *ngIf="c1.status=='0'">      
+            <span item-left  style="background:rgb(224, 7, 7); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c1.temp_desc}}
+            </span>
+            </ion-col>
+
+            <ion-col  col-3 no-padding *ngIf="c1.status=='0'">
+              <button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+                    (click)="applypromo(cat.promo_id,cat.promo_code,cat.desc3,cat.promo_amt)">Turn On </button>
+        
+              </ion-col>
+              <ion-col  col-3 no-padding *ngIf="c1.status=='1'">
+              <button style="padding: 5px; background-color:#fa1111; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+                    (click)="applypromo(cat.promo_id,cat.promo_code,cat.desc3,cat.promo_amt)">Turn Off</button>
+        
+              </ion-col>
+  
+         <ion-col col-8 >
+          <!--
+            <ion-col col-8 style="border-bottom: 5px solid #666">
+          -->
+          <strong>
+            Sample:
+          </strong>   
+          <!--
+      <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold; ">{{c.sample_msg}}
+          </span>
+          -->
+          <small>
+            {{c.sample_msg}}
+          </small>
+        </ion-col>
+        <ion-col col-4>
+          <div>
+          <span item-right>
+           
+              
+            <div class="profile-banner">
+              <b><small>Push image</small></b>
+            <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+            <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+            </div>
+            
+  
+          </span>
+        </div>
+         </ion-col>
+  
+  
+      </ion-row>
+  
+    
+    </ion-grid>
+    
+    </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Select your order</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content >
+<h5> Select One Order at a time</h5>
+  <ion-grid *ngFor="let order of orderlist;let i=index;" [ngClass]="{'top_bg':(order.order_num!='')}">
+
+
+  <ion-row >
+
+      <ion-col  col-12><b>Order :{{order.order_num}} </b></ion-col>
+
+  </ion-row >
+    <ion-row >
+        <ion-col  col-9>{{order.order_display_note}}  </ion-col>
+        <button style="padding: 6px; background-color:#006400; color: #FFF; border-radius: 6px;line-height: 15px;font-size: 15px;"
+        (click)="doAccept(order.order_num,order.order_display_note)">Select</button>
+      </ion-row >
+        <ion-row >
+        <ion-col  col-12><small> {{order.status}} at {{order.order_act_sdttm}}</small></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <div text-center>
+  		<button ion-button round block (click)="dismiss()">Back</button>
+  	</div>
+</ion-footer>

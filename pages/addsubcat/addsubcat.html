@@ -1,0 +1,134 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Add Sub Category</ion-title>
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+
+
+
+
+<!-- 
+<ion-list>
+  <ion-list-header>
+    {{agencyid}} - {{agencyname}}
+  </ion-list-header>
+  <ion-item>
+<ion-row style="display: none; visibility: hidden;">
+	
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency ID" [(ngModel)]='agencyid' name='agencyid' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency Name" [(ngModel)]='agencyname' name='agencyname' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+</ion-row>
+<ion-row>
+	<ion-col>
+		<ion-input type="text" placeholder="Category" [(ngModel)]='category' name='category' readonly></ion-input>
+			<ion-input type="hidden" [(ngModel)]='cat_id' name='cat_id'></ion-input>
+	</ion-col>
+	</ion-row>
+  </ion-item>
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list> -->
+
+
+
+
+
+
+	<ion-list>
+
+    <ion-grid>
+      <ion-row >
+        <ion-col col-12>
+          <ion-label stacked>Sub Category Name</ion-label>
+          <ion-input type="text" placeholder="Enter Sub Category Name" [(ngModel)]='scatname' name='scatname'></ion-input>
+        </ion-col>  
+      </ion-row>
+    </ion-grid>
+
+<div class="profile-banner">
+  <ion-row> 
+
+
+  <ion-col col-12 no-padding > 
+    <h6> Sub Category Image</h6>
+    
+    <img (click)="presentActionSheet()" src="{{scatpicture}}" class="pro-pic">
+    <span item-left style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>  
+
+  </ion-col>  
+</ion-row>
+</div>
+<!--
+<ion-item>
+  <ion-label stacked>Set Image Hight</ion-label>
+<ion-select [(ngModel)]="ref1" name="ref1" interface="popover">
+<ion-option value="120">Hight: 120px</ion-option>
+<ion-option value="150">Hight: 150px</ion-option>
+<ion-option value="180">Hight: 180px</ion-option>
+<ion-option value="210">Hight: 210px</ion-option>
+<ion-option value="240">Hight: 240px</ion-option>
+<ion-option value="270">Hight: 270px</ion-option>
+<ion-option value="300">Hight: 300px</ion-option>
+
+</ion-select>
+</ion-item>
+-->
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Page Header</ion-label>
+      <ion-input type="text" placeholder="Enter Page Header" [(ngModel)]='scatnextscreendesc' name='scatnextscreendesc'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+<ion-row>
+  <ion-col col-10>
+    Enable/Disable?
+  </ion-col>
+  <ion-col col-2>
+    <ion-toggle [(ngModel)]="status" slot="status" ></ion-toggle>
+  </ion-col>    
+</ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Special Note on Sub Cat tab</ion-label>
+      <ion-input type="text" placeholder="Special Note (promo/deals)" [(ngModel)]='ref3' name='ref3'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+
+	</ion-list>
+
+
+
+</ion-content>
+
+<ion-footer>
+	<div>
+	  <ion-row>
+   
+      <button ion-button color="primary" icon-end block (click)="savesubcat()">NEXT <ion-icon ></ion-icon> </button>
+	 </ion-row>
+  </div>
+  </ion-footer>

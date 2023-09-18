@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ViewimagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <!-- <ion-title>View Images</ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+       <h2 text-center>Album {{cnt}}</h2>
+
+	<ion-grid>
+  
+  <ion-row>
+  	
+    <ion-col col-4 *ngFor="let ph of photos">
+    	<div>
+        <ion-icon name="md-trash" (click)="deleteImage(ph.photo_id)"></ion-icon>
+
+		<img src="{{ph.photo_image}}" style="width: 100px; height: 100px;margin: 10px 5px;" (click)="showFullview(ph.photo_image)">
+	</div>
+
+    </ion-col>
+
+    <ion-col col-4 class="fir_1"  (click)="uploadmultipleImages()"> <ion-icon name="add"></ion-icon></ion-col>
+    
+  </ion-row>
+</ion-grid>
+
+</ion-content>

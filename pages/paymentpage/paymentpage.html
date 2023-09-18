@@ -1,0 +1,101 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Payments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<!-- <ul id="accordion">
+    <li>
+        <h2><img src="assets/imgs/pay.png"> Credit/Debit Cards</h2>
+        <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </div>
+    </li>
+    <li>
+        <h2><img src="assets/imgs/pay1.png"> Netbanking</h2>
+        <div class="content">
+            Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+        </div>
+    </li>
+    <li>
+        <h2><img src="assets/imgs/paytm.png"> Paytm</h2>
+        <div class="content">
+            Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+        </div>
+    </li>
+    <li>
+        <h2><img src="assets/imgs/paa.png"> Pay after service (Cash/Online)</h2>
+        <div class="content">
+          <ion-list radio-group [(ngModel)]="cashafterservice">
+          <ion-item>
+            <ion-label><img src="assets/imgs/pay2.png"> Pay online after service</ion-label>
+            <ion-radio value="payonline" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label><img src="assets/imgs/pay3.png"> Pay with cash</ion-label>
+            <ion-radio value="paycash"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <div class="infobar">
+          INR 10,000 insurance on online payment
+        </div>
+
+        </div>
+    </li>
+</ul> -->
+
+<!-- <h2><img src="assets/imgs/paa.png"> Pay after service (Cash/Online)</h2>
+        <div class="content">
+          <ion-list radio-group [(ngModel)]="cashafterservice">
+          <ion-item>
+            <ion-label><img src="assets/imgs/pay2.png"> Pay online after service</ion-label>
+            <ion-radio value="payonline" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label><img src="assets/imgs/pay3.png"> Pay with cash</ion-label>
+            <ion-radio value="paycash"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <div class="infobar">
+          INR 10,000 insurance on online payment
+        </div>
+
+        </div> -->
+
+<ion-list radio-group [(ngModel)]="cashafterservice">
+    <ion-list-header>
+      Select Payment Type
+    </ion-list-header>
+
+    <ion-item *ngFor="let pay of payments">
+      <ion-label>{{pay.paymode_desc}}</ion-label>
+      <ion-radio value="{{pay.paymode_id}}"></ion-radio>
+    </ion-item>
+</ion-list> 
+</ion-content>
+<ion-footer>
+  
+	<ion-grid>
+		<ion-row>
+			<ion-col col-6>
+				<div class="price">Rs.{{price}}<br/><span>View Details</span></div>
+			</ion-col>
+			<ion-col col-6 text-right>
+				 
+<button ion-button color="darkblue" (click)="gotoNetScreen()">Continue</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-footer>

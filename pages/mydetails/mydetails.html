@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>MY details</ion-title>
+  </ion-navbar>
+
+</ion-header> 
+
+<ion-content>
+	<ion-list>
+			<!-- <h2 text-center>My details</h2> -->
+<ion-item>
+  <ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Choose Gender</ion-label>
+  <ion-select [(ngModel)]="gender" name="gender" interface="popover">
+    <ion-option value="m">Male</ion-option>
+    <ion-option value="f">Female</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-input type="tel" maxlength='10' placeholder="Age" [(ngModel)]='age' name='age'></ion-input>
+</ion-item>
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-input type="tel" maxlength='10' placeholder="Your Experience in year" [(ngModel)]='experience' name='experience'></ion-input>
+</ion-item>
+
+<!-- <ion-item>
+	<ion-label><ion-icon name="logo-whatsapp" item-left></ion-icon></ion-label>
+	<ion-input type="tel" maxlength='10' placeholder="Contact number" [(ngModel)]='whatsappnumber' name='whatsappnumber'></ion-input>
+</ion-item> -->
+
+<ion-item>
+	 <ion-label><ion-icon name="home" item-left></ion-icon></ion-label>
+	<ion-input type="text" placeholder="Shop name / business name " [(ngModel)]='shopname' name='shopname'></ion-input>
+</ion-item>
+<!--
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-input type="text" placeholder="Registration Number " [(ngModel)]='registrationnum' name='registrationnum'></ion-input>
+</ion-item>
+
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-input type="text" placeholder="GST registration number" [(ngModel)]='gstnum' name='gstnum'></ion-input>
+</ion-item>
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-input type="tel" placeholder="AAdhar number" [(ngModel)]='aadharnumber' name='aadharnumber'></ion-input>
+</ion-item>
+-->
+<ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-textarea placeholder="About me" [(ngModel)]='aboutme' name="aboutme"></ion-textarea>
+</ion-item>
+
+
+		<div>
+        <button ion-button color="primary" round block (click)="updateDetails(this.attb_id)">Update</button>
+      </div>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,101 @@
+<!--
+  Generated template for the SelectdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>AC Service and Repair</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<h2>Select Date 
+</h2>
+<div class="datebox">
+	<div [ngClass]="changeclass ? 'daybox' : 'daybox active'"  (click)="changeDateClass(1)">
+		{{ today | date : 'EEE' }}<br/>
+		{{ today | date : 'dd' }}
+	</div>
+	<div [ngClass]="changeclass1 ? 'daybox' : 'daybox active1'" (click)="changeDateClass(2)">
+		{{ date | date : 'EEE' }}<br/>
+		{{ date | date : 'dd' }}
+	</div>
+	<div [ngClass]="changeclass2 ? 'daybox' : 'daybox active2'" (click)="changeDateClass(3)">
+		{{ date1 | date : 'EEE'}}<br/>
+		{{ date1 | date : 'dd' }}
+	</div>
+	<div [ngClass]="changeclass3 ? 'daybox' : 'daybox active3'" (click)="changeDateClass(4)">
+		{{ date2 | date : 'EEE' }}<br/>
+		{{ date2 | date : 'dd' }}
+	</div>
+	<div [ngClass]="changeclass4 ? 'daybox' : 'daybox active4'" (click)="changeDateClass(5)">
+		{{ date3 | date : 'EEE' }}<br/>
+		{{ date3 | date : 'dd' }}
+	</div>
+<div class="cl"></div>
+</div>
+
+<h2>Select Time
+</h2>
+
+<div [ngClass]="changetimeclass1 ? 'timebox' : 'timebox active1'"  (click)="changeTimeClass(1)" *ngIf="this.currentdate >= 0200">
+	02:30pm - 03:00pm
+</div>
+<div [ngClass]="changetimeclass2 ? 'timebox' : 'timebox active2'"  (click)="changeTimeClass(2)" *ngIf="this.currentdate >= 0300">
+	03:00pm - 03:30pm
+</div>
+<div [ngClass]="changetimeclass3 ? 'timebox' : 'timebox active3'"  (click)="changeTimeClass(3)" *ngIf="this.currentdate >= 0330">
+	03:30pm - 04:00pm
+</div>
+<div [ngClass]="changetimeclass4 ? 'timebox' : 'timebox active4'"  (click)="changeTimeClass(4)" *ngIf="this.currentdate >= 0400">
+	04:00pm - 04:30pm
+</div>
+<div [ngClass]="changetimeclass5 ? 'timebox' : 'timebox active5'"  (click)="changeTimeClass(5)" *ngIf="this.currentdate >= 0430">
+	04:30pm - 05:00pm
+</div>
+<div [ngClass]="changetimeclass6 ? 'timebox' : 'timebox active6'"  (click)="changeTimeClass(6)" *ngIf="this.currentdate >= 0500">
+	05:00pm - 05:30pm
+</div>
+<div [ngClass]="changetimeclass7 ? 'timebox' : 'timebox active7'"  (click)="changeTimeClass(7)" *ngIf="this.currentdate >= 0530">
+	05:30pm - 06:00pm
+</div>
+<div [ngClass]="changetimeclass8 ? 'timebox' : 'timebox active8'"  (click)="changeTimeClass(8)" *ngIf="this.currentdate >= 0600">
+	06:00pm - 06:30pm
+</div>
+<div [ngClass]="changetimeclass9 ? 'timebox' : 'timebox active9'"  (click)="changeTimeClass(9)" *ngIf="this.currentdate >= 0630">
+	06:30pm - 07:00pm
+</div>
+<div [ngClass]="changetimeclass10 ? 'timebox' : 'timebox active10'"  (click)="changeTimeClass(10)" *ngIf="this.currentdate >= 0700">
+	07:00pm - 07:30pm
+</div>
+<div [ngClass]="changetimeclass11 ? 'timebox' : 'timebox active11'"  (click)="changeTimeClass(11)" *ngIf="this.currentdate >= 0730">
+	07:30pm - 08:00pm
+</div>
+<div [ngClass]="changetimeclass12 ? 'timebox' : 'timebox active12'"  (click)="changeTimeClass(12)" *ngIf="this.currentdate >= 0800">
+	08:00pm - 08:30pm
+</div>
+<div [ngClass]="changetimeclass13 ? 'timebox' : 'timebox active13'"  (click)="changeTimeClass(13)" *ngIf="this.currentdate >= 0830">
+	08:30pm - 09:00pm
+</div>
+<div [ngClass]="changetimeclass14 ? 'timebox' : 'timebox active14'"  (click)="changeTimeClass(14)" *ngIf="this.currentdate >= 0900">
+	09:00pm - 09:30pm
+</div>
+<div [ngClass]="changetimeclass15 ? 'timebox' : 'timebox active15'"  (click)="changeTimeClass(15)" *ngIf="this.currentdate >= 0930">
+	09:30pm - 10:00pm
+</div>
+<div [ngClass]="changetimeclass16 ? 'timebox' : 'timebox active16'"  (click)="changeTimeClass(16)" *ngIf="this.currentdate >= 0100">
+	10:00pm - 10:30pm
+</div>
+
+</ion-content>
+<ion-footer>
+  <button ion-button full (click)="gotoNetScreen()">Next</button>
+</ion-footer>

@@ -1,0 +1,91 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<ion-buttons left>
+   <button ion-button clear color="light" icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+  </ion-buttons>
+    <ion-title>Cancelled Leads</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid>
+		<ion-row>
+			<!-- <ion-col (click)="goleadsmangement()">
+				All Leads
+			</ion-col> -->
+			<ion-col (click)="gonewLead()">
+				New
+			</ion-col>
+			<ion-col (click)="gopendingLead()">
+				Pending<span>&nbsp;</span>
+			</ion-col>
+			<ion-col>
+				Cancelled ({{allleadcount}})
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<!-- <div padding-top text-center><small><b>Note:</b> Click on the Order Number to view project.</small></div> -->
+<ion-grid class="table" padding-top>
+
+				<ion-row  class="bg_h1">
+					<ion-col col-3>
+						Est. Start Date
+					</ion-col>
+					<ion-col col-2>
+						Order No.
+					</ion-col>
+					<ion-col col-3>
+						Order Desc
+					</ion-col>
+					<ion-col col-2>
+						Bid Reqd
+					</ion-col>
+					<ion-col col-2>
+						Status
+					</ion-col>
+				</ion-row>
+
+				<div *ngFor="let ord of orderdetails" class="tablerow">
+				<ion-row>
+					<ion-col col-3>
+						{{ord.order_est_sdttm}}
+					</ion-col>
+					<ion-col col-2>
+						{{ord.order_num}}
+					</ion-col>
+					<ion-col col-3>
+						{{ord.description | slice:0:30}}
+					</ion-col>
+					<ion-col col-2>
+						{{ord.bid}}
+					</ion-col>
+					<ion-col col-2>
+						{{ord.status}}
+					</ion-col>
+
+				</ion-row>
+				<ion-row>
+					<ion-col col-7>
+						--
+					</ion-col>
+					<ion-col col-5>
+						<button ion-button small color="secondary" (click)="goviewLead(ord.order_num)" color="dark">View Project</button>
+					</ion-col>
+					
+				</ion-row>
+			</div>
+			<div *ngIf="nval==false">
+				<ion-row>
+					<ion-col col-12 style="color: red;">No Leads</ion-col>
+				</ion-row>
+			</div>
+
+
+

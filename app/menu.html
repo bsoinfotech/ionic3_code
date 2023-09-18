@@ -1,0 +1,74 @@
+<!-- <ion-header class="dis-none">
+   <div class="profile">
+        <img class="profile-picture" src="assets/img/main-logo.png" />
+    </div>
+  </ion-header> -->
+<ion-menu [content]="content" *ngIf="menutype=='c'" side="left">
+
+       <ion-header class="bar-profile">
+      <div class="profile">
+        <img class="profile-picture" src="assets/imgs/logo.png" />
+        
+    </div> 
+      
+    </ion-header>
+        <ion-content class="menu_list">    
+
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p,'')">
+          <!-- <img src="assets/img/{{p.icon}}" /> -->
+            {{p.title}}
+          </button>
+      </ion-list>
+
+      <!--  <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages1" (click)="openPage(p,'')">
+          
+            {{p.title}}
+          </button>
+      </ion-list> -->
+
+
+  </ion-content>
+
+</ion-menu>
+
+
+
+<!---
+<ion-menu *ngIf="menutype=='p'" [swipeEnabled]="false">
+
+</ion-menu>
+-->
+
+<ion-menu [content]="content" *ngIf="menutype=='p'" side="left">
+
+       <ion-header class="bar-profile">
+      <div class="profile">
+        <img class="profile-picture" src="assets/imgs/logo.png" />
+        
+    </div> 
+      
+    </ion-header>
+        <ion-content class="menu_list">    
+
+      <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages1" (click)="openPage(p,'')">
+          <!-- <img src="assets/img/{{p.icon}}" /> -->
+            {{p.title}}
+          </button>
+      </ion-list>
+
+      <!--  <ion-list>
+        <button menuClose ion-item *ngFor="let p of pages1" (click)="openPage(p,'')">
+          
+            {{p.title}}
+          </button>
+      </ion-list> -->
+
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

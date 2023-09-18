@@ -1,0 +1,226 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Team</ion-title>
+    <ion-buttons end>
+      <button ion-button class="nn_1" (click)="shareInfo(referalcode,rfbamt)">
+        Invite Others
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row *ngIf="showpromosection>0">
+  <h5 style="text-align: center;">{{title}}</h5>
+  </ion-row>
+
+  <div class="mypadding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let c of promoinfo">
+      	<ion-card class="block" text-center (click)="gopromopage(c.promo_code)">
+      		<ion-card-content>
+      			<h4><b>{{c.promo_code}}</b></h4>
+            <small> {{c.promo_bal_amt_text}} <br>{{c.expiry_date_text}}</small>
+
+      		</ion-card-content>
+      	</ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+  </div>
+
+
+  <ion-grid class="table" padding-top>
+
+        <ion-row class="bg_h1">
+          <ion-col col-12 text-center>
+           Your Team Summary
+          </ion-col>
+
+
+
+
+        </ion-row>
+
+        <ion-row  class="tablerow">
+          <ion-col col-8 text-left>
+           Team Size Limit
+          </ion-col>
+          <ion-col col-3>
+             {{out_data?.v2_out1}}
+          </ion-col>
+            <button style="padding: 5px; background-color:#444400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;" (click)="goPopuppage()">Increase team size limit</button>
+		  <!--
+          <ion-col col-3>
+             {{out_data?.v2_out2}}
+          </ion-col>
+			-->
+        </ion-row>
+
+          <ion-row  class="tablerow">
+          <ion-col col-8 text-left>
+           Current Team Size
+          </ion-col>
+          <ion-col col-3 (click)="gopageOut3('out3')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+             {{out_data?.v2_out3}}
+          </ion-col>
+		  <!--
+          <ion-col col-3 (click)="gopageOut3('out4')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+            {{out_data?.v2_out4}}
+          </ion-col>
+		  -->
+
+        </ion-row>
+
+
+          <ion-row  class="tablerow">
+          <ion-col col-8 text-left>
+           Work In Progress Jobs
+          </ion-col>
+          <ion-col col-3 (click)="gopageOut5('out5')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+             {{out_data?.v2_out5}}
+          </ion-col>
+		  <!--
+          <ion-col col-3 (click)="gopageOut5('out6')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+              {{out_data?.v2_out6}}
+          </ion-col>
+		  -->
+
+        </ion-row>
+		<!--
+		<ion-row  class="tablerow">
+          <ion-col col-9>
+           Leads in Provider Queqe:
+          </ion-col>
+
+          <ion-col col-3 (click)="gopageOut5('out6')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+              {{out_data?.v2_out6}}
+          </ion-col>
+
+        </ion-row>
+		-->
+
+
+          <ion-row  class="tablerow">
+          <ion-col col-8 text-left>
+           Job Completed - Commision Paid
+          </ion-col>
+
+		  <ion-col col-3 (click)="gopageOut5('comp')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+             {{out_data?.v2_comp}}
+          </ion-col>
+
+		  <!--
+          <ion-col col-3>
+               {{out_data?.v2_out8}}
+          </ion-col>
+		  -->
+
+        </ion-row>
+
+		          <ion-row  class="tablerow">
+          <ion-col col-8 text-left>
+           Job Completed - Commision Pending
+          </ion-col>
+          <ion-col col-3 (click)="gopageOut5('pend')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+             {{out_data?.v2_pend}}
+          </ion-col>
+		  <!--
+          <ion-col col-3 (click)="gopageOut3('out4')" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">
+            {{out_data?.v2_out4}}
+          </ion-col>
+		  -->
+
+        </ion-row>
+
+
+</ion-grid>
+
+
+<!--
+        <h5 style="text-align: center;">Leads Pending with Provider</h5>
+
+<ion-grid class="box_gri">
+
+         <ion-row *ngFor="let wal of pending_leads">
+		 <ion-col col-12> ---------------------------------------------------------------------------------</ion-col>
+           <ion-col col-12> {{wal.order_display_note}} - {{wal.order_num}} </ion-col>
+
+
+			<ion-col col-12 >
+			Scheduled Time :
+			<strong>{{wal.order_est_sdttm}}</strong>
+			</ion-col>
+
+			<ion-col col-12 >
+			<b> Address:</b>{{wal.cust_address}}
+			</ion-col>
+			<ion-col col-4 >
+			<b> Pending with:</b> {{wal.sp_name}}
+			</ion-col>
+
+			<ion-col col-2 >
+				<a href="tel:{{wal.sp_phone}}" class="callbtn" >
+						<ion-icon name="ios-call"></ion-icon></a>
+			</ion-col>
+
+
+           <ion-col col-3 style="border-right: 0px;" col-4><button ion-button (click)="govieworderPage(wal.order_num,wal.order_display_note,wal.status,wal.sp_id)">Lead Detail</button> </ion-col>
+
+         </ion-row>
+
+
+</ion-grid>
+
+-->
+
+
+<ion-grid class="table">
+         <ion-row class="tablerow">
+           <ion-col col-12> <b> Commision Net Bal: Rs {{total_comm_net}} </b> <br>
+               Commision Credited Rs {{total_comm_cr}} <br> Commision Debited Rs {{total_comm_dr}}
+           </ion-col>
+         </ion-row>
+<button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;" (click)="getbankscreen(total_comm_net,min_trans_amt,pending_amt)">Transfer amt from wallet to your bank</button>
+
+
+</ion-grid>
+<h5 style="text-align: center;">Mini Statements of Commision</h5>
+<ion-grid class="table">
+  <ion-row >
+    <ion-col col-3><b> Date </b></ion-col>
+    <ion-col col-6> <b>Order Number </b></ion-col>
+     <ion-col col-3><b> Amount </b></ion-col>
+ </ion-row>
+         <ion-row *ngFor="let wal of comm">
+           <ion-col col-4> {{wal.created_dttm}} </ion-col>
+            <ion-col col-4>{{wal.order_num}}</ion-col>
+            <ion-col col-4> {{wal.amt}} {{wal.cr_dr}}</ion-col>
+        </ion-row>
+
+
+</ion-grid>
+
+
+</ion-content>
+<!-- <ion-footer>
+
+  <ion-grid class="footer_block">
+    <ion-row>
+           <ion-col col-3 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-briefcase"></ion-icon> Job</ion-col>
+            <ion-col col-3 (click)="goNextpage('TeamPage')" class="active"> <ion-icon name="ios-people-outline" ></ion-icon> Team</ion-col>
+             <ion-col col-3 (click)="goNextpage('WalletPage')"> <ion-icon name="ios-cash-outline" ></ion-icon> Wallet</ion-col>
+              <ion-col col-3 (click)="goNextpage('ProfilePage')"> <ion-icon name="ios-person-outline" ></ion-icon> Profile</ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-footer> -->

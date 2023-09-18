@@ -1,0 +1,13 @@
+page-chooseservice {
+.content{background:#f6f6f6;}
+h2{text-align: center; color: #042e54; font-size: 1.5rem; margin: 25px 0 !important;}
+.box{padding:10px; border-radius: 10px; border:2px solid #e5e5e5; background: #fff; margin-bottom: 10px; }
+.box .item{padding:0px; }
+.box .item.item .checkbox{margin-right: 9px;}
+.box .item.item-block .item-inner{border-bottom: none;}
+.box ion-label{font-size: 1.4rem;}
+.box ul{margin: 0}
+.box ul li{line-height: 24px; color: #959595;}
+
+}
+.footer::before{height:0; top:0;}

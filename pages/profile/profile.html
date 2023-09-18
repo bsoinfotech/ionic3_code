@@ -1,0 +1,132 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Customer Profile</ion-title>
+
+     <ion-buttons end>
+
+      <button class="top_but" (click)="editProfile()">
+         Edit
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-grid>
+	<ion-row>
+    <ion-col col-4>ID</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.id}}</ion-col>
+	</ion-row>
+
+  <ion-row>
+    <ion-col col-4>Full Name</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.first_name}}</ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-4>Email Address</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.email}}</ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-4>Phone Number</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>+91-{{uinfo?.phone}}</ion-col>
+  </ion-row>
+
+    <ion-row>
+    <ion-col col-4>Whatsapp Number</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>+91-{{uinfo?.whatsappnumber}}</ion-col>
+  </ion-row>
+<!--
+  <ion-row>
+    <ion-col col-4>Zip code</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.pincode}}</ion-col>
+  </ion-row>
+
+    <h2>Bank details</h2>
+
+  <ion-row>
+    <ion-col col-4>Account Number</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.accountnumber}}</ion-col>
+  </ion-row>
+
+   <ion-row>
+    <ion-col col-4>IFSC Code</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.ifsccode}}</ion-col>
+  </ion-row>
+
+   <ion-row>
+    <ion-col col-4>PAN Id</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.pan_id}}</ion-col>
+  </ion-row>
+
+   <ion-row>
+    <ion-col col-4>Country</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.country}}</ion-col>
+  </ion-row>
+
+   <ion-row>
+    <ion-col col-4>State/province</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.state}}</ion-col>
+  </ion-row>
+
+   <ion-row>
+    <ion-col col-4>City</ion-col>
+     <ion-col col-1>:</ion-col>
+      <ion-col col-7>{{uinfo?.city}}</ion-col>
+  </ion-row>
+  -->
+
+</ion-grid>
+<br>
+
+
+<ion-grid>
+
+  <a class="button"  (click)="goNextpage1('Termsinfoc1Page')">How it works for Customer</a>
+</ion-grid>
+
+<ion-grid>
+  <a class="button"  (click)="goNextpage1('TermsinfocPage')">Terms of service</a>
+</ion-grid>
+
+<ion-grid>
+  	<a class="button" href="{{partnerappslink}}"  (click)="donothing()">Register As Partner</a>
+</ion-grid>
+
+<ion-grid>
+  	<a class="button" (click)="shareInfo1()">Share BsoApp Apps</a>
+</ion-grid>
+
+
+</ion-content>
+
+<!--
+<ion-footer>
+
+  <ion-grid class="footer_block">
+    <ion-row>
+           <ion-col col-3 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-briefcase"></ion-icon> Job</ion-col>
+            <ion-col col-3 (click)="goNextpage('TeamPage')" > <ion-icon name="ios-people-outline" ></ion-icon> Team</ion-col>
+             <ion-col col-3 (click)="goNextpage1('WalletPage')"> <ion-icon name="ios-cash-outline" ></ion-icon> Wallet</ion-col>
+              <ion-col col-3 (click)="goNextpage('ProfilePage')" class="active"> <ion-icon name="ios-person-outline" ></ion-icon> Profile</ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-footer>
+-->

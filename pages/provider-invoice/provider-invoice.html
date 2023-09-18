@@ -1,0 +1,196 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Invoice</ion-title>
+
+    <ion-buttons end (click)="dismiss()" *ngIf="back=='back'">
+     <button  ion-button small >Back</button>
+	
+
+    </ion-buttons>
+	
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<ion-grid>
+	<ion-row>
+<ion-col><button full ion-button color="vibrant" (click)="checkpartscost(sp_id,cat_id)">Check Rate Card </button></ion-col> 
+
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			{{invoice?.category}} ,  Order#:{{invoice?.order_num}} 
+		</ion-col>
+		
+
+	</ion-row>
+	
+	<ion-row>
+		<ion-col>
+			Bill To:
+		</ion-col>
+		
+		<ion-col>
+			Bill From:
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			{{invoice?.c_first_name}} {{invoice?.c_last_name}} 
+			{{invoice?.cust_address1}},{{invoice?.cust_address2}} 
+		</ion-col>
+		<ion-col>
+			{{invoice?.sp_first_name}} {{invoice?.sp_last_name}} ,
+			
+			{{invoice?.city}},{{invoice?.pincode}}
+		</ion-col>
+	</ion-row>
+
+</ion-grid>
+<!-- <p style="font-size: 12px; color: #f00">Note: If you want to modify the Item, Please click on <b>Service - Item</b></p> -->
+
+<ion-grid>
+<ion-row style="background: #042e54; color: #fff">
+				
+					<ion-col col-3>
+						Item
+					</ion-col>
+					<ion-col col-2>
+						Total Price
+					</ion-col>
+					<ion-col col-2>
+						Total Qty.
+					</ion-col>
+					
+					<ion-col col-2>
+						Total Dis.
+					</ion-col>
+					<ion-col col-3>
+						Net Amt.
+					</ion-col>
+					
+			</ion-row>
+			<ion-row *ngFor="let ord of orderhdrdtl">
+				
+					<ion-col col-3 >
+						<span style="color: #488aff">{{ord.itemname}}  </span>
+					</ion-col>
+					<ion-col col-2>
+						{{ord.itemprice}} 
+					</ion-col>
+					<ion-col col-2>
+						{{ord.Item_qty}} 
+					</ion-col>					
+					<ion-col col-2 text-right>
+						{{ord.disc_price}} 
+					</ion-col>
+					<ion-col col-3 text-right>
+						{{ord.comp_item_price}} 
+						 <button style="padding: 4px; background-color:#006400; color: #FFF; border-radius: 4px;line-height: 14px;font-size: 12px;" (click)="modifyLine(this.order_num,ord.itemname,ord.service,ord.itemprice,ord.Item_qty,ord.disc_price,ord.item_number)">Modify</button>
+					</ion-col>
+			</ion-row>
+
+
+
+	</ion-grid>
+				<div text-right>
+			 <button style="padding: 4px; background-color:#C71585; color: #FFF; border-radius: 4px;line-height: 14px;font-size: 12px;" (click)="AddNewline(this.order_num)">Add New Item</button>
+				
+			</div>
+
+
+	<ion-grid>
+
+<ion-row>
+				
+					<ion-col col-9 text-right>
+						<strong>Total Price</strong>
+					</ion-col>
+					<ion-col col-3 text-right>
+						<strong>{{invoice?.comp_price}}</strong>
+					</ion-col>
+					
+			</ion-row>
+			<ion-row>
+				
+					<ion-col col-9 text-right>
+						<strong>Total Discount</strong>
+					</ion-col>
+					<ion-col col-3 text-right>
+						<strong>{{invoice?.discount}}</strong>
+					</ion-col>
+					
+			</ion-row>
+			<ion-row>
+				
+					<ion-col col-9 text-right>
+						<strong>Net amt to Pay</strong>
+					</ion-col>
+					<ion-col col-3 text-right>
+						<strong>{{invoice?.netpay}}</strong>
+					</ion-col>
+					
+			</ion-row>
+
+			<ion-row>
+				
+					<ion-col col-9 text-right>
+						<strong>Payment Received</strong>
+					</ion-col>
+					<ion-col col-3 text-right>
+						<strong> {{paidamount}}</strong>
+					</ion-col>
+					
+			</ion-row>
+
+			<ion-row>
+					<ion-col col-9 text-right>
+						<strong>Pending Balance</strong>
+					</ion-col>
+					<ion-col col-3 text-right>
+						<strong> {{invoice?.pendingbal}}</strong>
+					</ion-col>
+					
+			</ion-row>
+</ion-grid>	
+
+<ion-grid>
+	<h3>Payment History</h3>
+			<ion-row *ngFor="let pay of paymenttype">
+				
+					<ion-col col-4>
+						<span style="color: #488aff">{{pay.create_dttm}} </span>
+					</ion-col>
+					<ion-col col-4>
+						{{pay.payment}} 
+					</ion-col>
+					<ion-col col-4>
+						{{pay.amt}} 
+					</ion-col>					
+					
+			</ion-row>
+
+
+	</ion-grid>
+
+</ion-content>
+<ion-footer>
+
+<ion-grid no-border>
+	<ion-row no-border>
+	<div text-center>
+	 <button full style="padding: 6px; background-color:#800000; color: #FFF; border-radius: 6px;line-height: 15px;font-size: 15px;" (click)="gopaymentPage(this.order_num)">Receive Payment</button>
+
+	
+	</div>
+	</ion-row>
+		<ion-row no-border>	
+
+	<button full ion-button color="red" (click)="confirmcomplete(this.order_num)">Complete the job </button>
+	</ion-row>
+</ion-grid>
+</ion-footer>

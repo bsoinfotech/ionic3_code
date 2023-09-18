@@ -1,0 +1,28 @@
+<!--
+  Generated template for the ChooseserviceenddatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Service End date & time</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+  <ion-label>End Date</ion-label>
+  <ion-datetime displayFormat="DD/MMMM/YYYY" [min]="enddate" [(ngModel)]="enddate" name="enddate" max="2025-10-31"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label>End Time</ion-label>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="endtime" name="endtime"></ion-datetime>
+</ion-item>
+</ion-content>
+<ion-footer>
+  <button ion-button full (click)="gotoNetScreen()">Next</button>
+</ion-footer>

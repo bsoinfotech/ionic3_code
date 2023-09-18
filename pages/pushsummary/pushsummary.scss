@@ -1,0 +1,76 @@
+page-pushsummary {
+
+    .profile-banner{height: 80px; background: rgba(176, 201, 135, 0.747); text-align: center; color: rgb(150, 17, 17); padding: 1px 0;}
+.pro-pic{width:70px; height: 60px; border-radius: 80%;}
+h2{font-weight: normal; font-size: 20px; margin-top: 0.5rem; margin-bottom: 0.5rem}
+p{font-size: 15px; font-weight: normal;}
+ion-list ion-icon{color: #4a8bfc; font-size: 26px;}
+.cl{clear: both;}
+ion-list span.count{width: 21px; height: 21px; line-height: 21px; display: inline-block; font-size: 12px; text-align: center; background: #b3d3ec; border-radius: 50%}
+ion-list .label{line-height: 32px; margin: 5px 15px;}
+.item{padding-left: 1}
+.bu_show{display:none !important;}
+
+
+
+
+    .item ion-thumbnail img{width: 65px; height: 65px; border-radius: 5px;}
+    .item ion-thumbnail{min-width: 65px; height: 85px}
+    .list .item-block .item-inner{border-bottom: none;}
+    .item{border-bottom: 1px solid #030236}
+    
+    .swiper-container-android .swiper-slide{border:1px solid #00BCD5; color:#00BCD5;border-radius: 20px; font-size: 14px; margin: 0 1px;}
+    .swiper-slide .label{ margin:5px 10px; }
+
+
+    .mypadding{ padding: 4px;}
+    .card{margin: 0; width: 100%; min-height: 40px; background: #f3eeee; box-shadow:none;}
+    .card-content{padding: 2px; font-size: 1.3rem; min-height: 40px;}
+    ion-card img{float: left;width: 30px; margin-left: 0px; height: 30px;}
+    .card p{text-align: left;font-size: 1.4rem; margin: 1px 0}
+    .grid{padding:0}
+    .swiper-slide img{width: 100%;}
+    .title-image {
+        vertical-align: middle;
+      }
+      .pull-right {
+        float: right;
+      }
+
+      h2{font-size: 18px!important; text-align:center;}
+
+
+      .new_block1{    box-shadow: 0px 0px 6px #ccc;
+     margin: 10px;}
+
+
+     ion-list ion-icon{color: #4a8bfc; font-size: 26px;}
+     ion-list span.count{width: 21px; height: 21px; line-height: 21px; display: inline-block; font-size: 12px; text-align: center; background: #b3d3ec; border-radius: 50%}
+     .item{padding-left: 0}
+     .bu_show{display:none !important;}
+
+ 
+    
+p{text-align: justify; line-height: 22px; color: #000000;}
+.wat_1{width: 100%;}
+}
+.next_buton{
+	width: 127px;
+    height: 43px;
+    color: white;
+    border-radius: 5px;
+    background-color: #01102b;
+
+}
+.next_buton1{
+	width: 100%;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+		margin-top: 5px;
+    background-color: #1E90FF;
+
+    
+}
+
+

@@ -1,0 +1,16 @@
+page-detail-address {
+
+.logo{ width: 120px; margin: 0 auto; margin-top: 20px; margin-bottom: 20px;}
+
+
+.content{background:#042e54;}
+.scroll-content{ padding: 16px 20px;}
+h2{color:#fff; font-size:20px;}
+.item{padding: 0 10px; margin-bottom: 10px; border-radius: 10px;}
+.list .item-block .item-inner{border-bottom: none;}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{border:none;box-shadow:none;}
+.item ion-icon[item-left]{margin: 0}
+.label{margin: 3px}
+.text-input{margin: 5px 0px}
+.button-round{padding: 2.3rem 2.6rem}
+}

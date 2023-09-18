@@ -1,0 +1,280 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Edit Catalog</ion-title>
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+
+
+<ion-content>
+
+	<ion-list>
+
+
+<div class="profile-banner">
+  <ion-row> 
+  <ion-col col-12 no-padding > 
+    <h5> {{cat_name}}</h5>    
+    <img (click)="presentActionSheet()" src="{{catpicture}}" class="pro-pic">
+    <span item-left style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>  
+  </ion-col>  
+</ion-row>
+</div>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-10>
+      Set Customer Note?
+
+     
+    </ion-col>
+    <ion-col col-2>
+      <ion-toggle class="aqua" [(ngModel)]="ref1" slot="ref1" ></ion-toggle>    
+    </ion-col>  
+    <ion-textarea class="aqua" *ngIf="ref1" rows="8" cols="100" placeholder="Enter Customer Note" [(ngModel)]='custnote' name="custnote"></ion-textarea>
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-10>
+      Set Min. Order Price?
+      <ion-input class="aqua" *ngIf="checkminordprice" type="number" placeholder="Enter min order price" [(ngModel)]='minorderprice' name='minorderprice'></ion-input>
+    </ion-col>
+    <ion-col col-2>
+      <ion-toggle class="aqua" [(ngModel)]="checkminordprice" slot="checkminordprice" ></ion-toggle>    
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<!--
+<ion-item no padding>
+  <ion-label stacked> <b><h5>Setup Admin screen flow for item setup</h5></b></ion-label>
+  <ion-select class="aqua" [(ngModel)]="flowcountno" name="flowcountno" interface="popover">
+    <ion-option value="1">*L1: Items</ion-option>
+    <ion-option value="2">*L2: Sub Cat1->Items</ion-option>
+    <ion-option value="3">*L3: Sub Cat1->Sub Cat1.1->Items</ion-option>
+  </ion-select> 
+</ion-item>
+<ion-grid>
+    <ion-col no padding style="text-align: left;padding: 1px;border-right: 0px; color:green" col-12>
+    <small>
+      <b> *L1:</b> Category->Items <br>
+      <b> *L2:</b> Category->Sub Category->Items <br>
+      <b> *L3:</b> Category->Sub Cat1->Sub Cat1.x->Items <br> 
+    </small>
+    </ion-col>  
+  </ion-grid>
+
+
+<ion-item no padding>
+  <ion-label stacked> <b><h5> Select Catalog flow </h5></b></ion-label>
+  <ion-select class="aqua" [(ngModel)]="subcat_level" name="subcat_level" interface="popover">
+    <ion-option value="1">*P1: One Page (P1)</ion-option>
+    <ion-option value="2">*P2: Two Pages (P2)</ion-option>
+    <ion-option value="0">*P3: Three Pages (P3)</ion-option>
+  </ion-select> 
+</ion-item>
+
+<ion-grid>
+    <ion-col no padding style="text-align: left;padding: 1px;border-right: 0px; color:green" col-12>
+      <small>
+      <b> *(P1):</b> Display items in page 1 <br>
+      <b> *(P2):</b> Sub Category in page 1 and Items in Page 2 <br>
+      <b> *(P3):</b> Sub Category in page 1&2 and Items in Page 3 <br> 
+    </small>
+    </ion-col>  
+  </ion-grid>
+-->
+<ion-item no padding>
+  <ion-label stacked> <b><h5>Setup category/product hierarchy </h5></b></ion-label>
+  <ion-select [(ngModel)]="flowcountno" name="flowcountno" interface="popover">
+    <ion-option value="1">Level 1 </ion-option>
+    <ion-option value="2">Level 2</ion-option>
+    <ion-option value="3">Level 3</ion-option>
+  </ion-select> 
+</ion-item>
+
+
+<ion-grid>
+    <ion-col no padding style="text-align: left;padding: 1px;border-right: 0px; color:green" col-12>
+      <b> Level 1 flow:</b> Category->Items <br>
+      <b> Level 2 flow:</b> Category->Sub Category->Items <br>
+      <b> Level 3 flow:</b> Category->Sub Category->Sub Sub Category->Items <br> 
+    </ion-col>  
+  </ion-grid>
+
+<ion-item no padding>
+  <ion-label stacked> <b><h5> Show the category/product to your customer in  </h5></b></ion-label>
+  <ion-select [(ngModel)]="subcat_level" name="subcat_level" interface="popover">
+    <ion-option value="1"> 1 Page</ion-option>
+    <ion-option value="4">2 Pages</ion-option>
+    <ion-option value="0"> 3 Pages</ion-option>
+  </ion-select> 
+</ion-item>
+
+
+<ion-grid>
+    <ion-col no padding style="text-align: left;padding: 1px;border-right: 0px; color:green" col-12>
+
+      <p>
+        You can show your catalog to customer in multiple ways..
+        <br>
+        1 Page) All categories,sub catagoris and items in one page.
+        <br>
+        2 Pages) All categories in first page and then rest in 2nd page.
+        <br>
+        3 Pages) Categories in first page,sub catagoryies in 2nd page and items in 3rd Page      
+      </p>
+    </ion-col>  
+  </ion-grid>
+
+
+<ion-grid>
+<ion-row>
+  <ion-col col-10>
+    Don't allow job posting outside your service area?
+  </ion-col>
+  <ion-col col-2>
+    <ion-toggle class="aqua" [(ngModel)]="sp_check" slot="sp_check" ></ion-toggle>
+  </ion-col>    
+</ion-row>
+</ion-grid>
+
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      Show Key message in the Catalog tab
+    </ion-col>
+    <ion-input class="aqua" type="text" placeholder="Key Info" [(ngModel)]='ref7' name='ref7'></ion-input>
+  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      Next Page Title:
+    </ion-col>
+    <ion-input class="aqua" type="text" placeholder="Title for Next Page" [(ngModel)]='nextscreendesc' name='nextscreendesc'></ion-input>
+  
+  </ion-row>
+</ion-grid>
+<!--
+<ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      Set instruction title for Partner:
+    </ion-col>
+    <ion-input class="aqua" type="text" placeholder="Instruction title for Partner" [(ngModel)]='ref3' name='ref3'></ion-input>
+  
+  </ion-row>
+</ion-grid>
+-->
+
+
+	</ion-list>
+
+</ion-content>
+
+
+
+
+
+<!--
+
+
+<ion-content>
+
+
+
+
+
+	<ion-list>
+
+<div class="profile-banner">
+  <ion-row> 
+
+
+  <ion-col col-12 no-padding > 
+    <h5> {{cat_name}}</h5>
+    
+    <img (click)="presentActionSheet()" src="{{catpicture}}" class="pro-pic">
+    <span item-left style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>  
+
+  </ion-col>
+  
+</ion-row>
+</div>
+
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-10>
+      Set Customer Note?
+      <ion-textarea *ngIf="ref1" rows="8" cols="75" placeholder="Enter Customer Note" [(ngModel)]='custnote' name="custnote"></ion-textarea>
+    </ion-col>
+    <ion-col col-2>
+      <ion-toggle [(ngModel)]="ref1" slot="ref1" ></ion-toggle>    
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-10>
+      Set Min. Order Price?
+      <ion-input *ngIf="checkminordprice" type="number" placeholder="Enter min order price" [(ngModel)]='minorderprice' name='minorderprice'></ion-input>
+    </ion-col>
+    <ion-col col-2>
+      <ion-toggle [(ngModel)]="checkminordprice" slot="checkminordprice" ></ion-toggle>    
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+<ion-row>
+  <ion-col col-10>
+    Accept job based on Service Provider availability?
+  </ion-col>
+  <ion-col col-2>
+    <ion-toggle [(ngModel)]="sp_check" slot="sp_check" ></ion-toggle>
+  </ion-col>    
+</ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      Display Key message (i.e Promo/Deals) on the category tab
+    </ion-col>
+    <ion-input type="text" placeholder="Key Info" [(ngModel)]='ref7' name='ref7'></ion-input>
+  
+  </ion-row>
+</ion-grid>
+
+
+	</ion-list>
+
+
+
+</ion-content>
+-->
+
+<ion-footer>
+	<div>
+	  <ion-row>
+   
+      <button ion-button color="primary" icon-end block (click)="savecat()">Save <ion-icon ></ion-icon> </button>
+	 </ion-row>
+  </div>
+  </ion-footer>

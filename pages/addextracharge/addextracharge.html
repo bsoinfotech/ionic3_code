@@ -1,0 +1,91 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Add Extra Charge </ion-title>
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+
+<ion-list>
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Extra Charge Name</ion-label>
+      <ion-input type="text" placeholder="Enter Charge Name" [(ngModel)]='crg_name' name='crg_name'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Extra Charge Description</ion-label>
+      <ion-input type="text" placeholder="Enter Charge Description" [(ngModel)]='crg_desc' name='crg_desc'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-item>
+  <ion-label stacked> Extra Charge Type (Fixed OR Percentage)</ion-label>
+  <ion-select [(ngModel)]="crg_type" name="crg_type" interface="popover">
+  <ion-option value="p">Percentage of Bill amt </ion-option>
+  <ion-option value="f">Fixed amt </ion-option>
+
+  </ion-select>
+</ion-item>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Charge Amount </ion-label>
+      <ion-input type="number" placeholder="Enter Charge Amount" [(ngModel)]='crg_value' name='crg_value'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Apply this charge if amt < below Min Value</ion-label>
+      <ion-input type="number" maxlength="4" placeholder="Enter Min Value" [(ngModel)]='must_apply_amt' name='must_apply_amt'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Waive this charge if amt > below Max Value</ion-label>
+      <ion-input type="number" maxlength="8" placeholder="Enter Max value" [(ngModel)]='dont_apply_amt' name='dont_apply_amt'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-item>
+  <ion-label stacked>Select Category </ion-label>
+  <ion-select [(ngModel)]="cat_id" name="cat_id" interface="popover" >
+    <ion-option *ngFor="let ccc of catlist" value="{{ccc.cat_id}}" >{{ccc.cat_name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+
+	</ion-list>
+
+
+
+</ion-content>
+
+<ion-footer>
+	<div>
+	  <ion-row>
+   
+      <button ion-button color="primary" icon-end block (click)="saveextracharge()">Submit <ion-icon ></ion-icon> </button>
+	 </ion-row>
+  </div>
+  </ion-footer>

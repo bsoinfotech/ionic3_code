@@ -1,0 +1,161 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Accepted jobs</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid>
+		<ion-row>
+			<ion-col>
+				Accepted
+			</ion-col>
+			<ion-col (click)="gotodayPage()">
+				Today
+			</ion-col>
+			<ion-col (click)="gotomorrowPage()">
+				Tomorrow
+			</ion-col>
+			<ion-col (click)="gocancelPage()">
+				Closed/Cancelled
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<!-- <div padding-top text-center><small><b>Note:</b> Click on the Order Number to view project.</small></div> -->
+<ion-grid class="table" padding-top>
+
+				<ion-row class="bg_h1">
+					<ion-col col-3>
+						scheduled_Sdttm
+					</ion-col>
+					<ion-col col-2>
+						Order No.
+					</ion-col>
+					<ion-col col-3>
+						Order Desc
+					</ion-col>
+					<ion-col col-2>
+						Status
+					</ion-col>
+					<ion-col col-2>
+						
+					</ion-col>
+					
+				</ion-row>
+
+				<ion-row class="bg_hed">
+					<ion-col col-12>
+						Today and ongoing
+					</ion-col>
+				</ion-row>
+
+
+				
+				<ion-row *ngFor="let today of todayjobs" class="tablerow">
+					<ion-col col-3>
+						{{today.order_est_sdttm}}
+					</ion-col>
+					<ion-col col-2>
+						{{today.order_num}}
+					</ion-col>
+					<ion-col col-3>
+						{{today.description | slice:0:30}}
+					</ion-col>
+					<ion-col col-2>
+						{{today.status}}
+					</ion-col>
+					<ion-col col-2>
+						<b (click)="goviewproject(today.order_num)">View Project</b>
+					</ion-col>
+				</ion-row>
+				<ion-row *ngIf="nval==false">
+					<ion-col col-12 style="text-align: center; color: red; font-weight: bold;">
+						No Jobs Available
+					</ion-col>
+				</ion-row>
+
+				
+
+				<ion-row class="bg_hed">
+					<ion-col col-12>
+						Tomorrow onwards
+					</ion-col>
+				</ion-row>
+
+
+				
+				<ion-row *ngFor="let tomorrow of tomorrowjob" class="tablerow">
+					<ion-col col-3>
+						{{tomorrow.order_est_sdttm}}
+					</ion-col>
+					<ion-col col-2>
+						{{tomorrow.order_num}}
+					</ion-col>
+					<ion-col col-3>
+						{{tomorrow.description | slice:0:30}}
+					</ion-col>
+					<ion-col col-2>
+						{{tomorrow.status}}
+					</ion-col>
+					<ion-col col-2>
+						<b (click)="goviewproject(tomorrow.order_num)">View Project</b>
+					</ion-col>
+				</ion-row>
+				<ion-row *ngIf="nval1==false">
+					<ion-col col-12 style="text-align: center; color: red; font-weight: bold;">
+						No Jobs Available
+					</ion-col>
+				</ion-row>
+				
+
+
+
+				<ion-row class="bg_hed">
+					<ion-col col-12>
+						Closed/Cancelled
+					</ion-col>
+				</ion-row>
+
+
+				
+				
+				<ion-row *ngFor="let cancel of canceljobs" class="tablerow">
+					<ion-col col-3>
+						{{cancel.order_est_sdttm}}
+					</ion-col>
+					<ion-col col-2>
+						{{cancel.order_num}}
+					</ion-col>
+					<ion-col col-3>
+						{{cancel.description | slice:0:30}}
+					</ion-col>
+					<ion-col col-2>
+						{{cancel.status}}
+					</ion-col>
+					<ion-col col-2>
+						<b (click)="goviewproject(cancel.order_num)">View Project</b>
+					</ion-col>
+				</ion-row>
+				<ion-row *ngIf="nval2==false">
+					<ion-col col-12 style="text-align: center; color: red; font-weight: bold;">
+						No Jobs Available
+					</ion-col>
+				</ion-row>
+				
+			
+			
+
+
+
+
+</ion-grid>
+
+
+</ion-content>

@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar color="darkblue">
+    <ion-title>View Lead</ion-title>
+
+    <ion-buttons end (click)="dismiss()">
+     <button  ion-button small >Back</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid>
+
+		<p *ngIf="pending!='pending'">If you want to change the Proposed start dttm click on <strong>Proposed start dttm</strong></p>
+		<ion-row *ngIf="pending!='pending'">
+		<ion-col col-5 (click)="goChangedate(orderheader?.order_num)" style="color: #488aff">Proposed start dttm</ion-col>
+		<ion-col col-7 (click)="goChangedate(orderheader?.order_num)" style="color: #488aff">{{orderheader?.propose_sdttm}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="pending=='pending'">
+		<ion-col col-5>Proposed start dttm</ion-col>
+		<ion-col col-7>{{orderheader?.propose_sdttm}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Order No</ion-col>
+		<ion-col col-7>{{orderheader?.order_num}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Bid Requrd</ion-col>
+		<ion-col col-7>{{orderheader?.bid}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="(orderheader?.startscreen=='Y') || (orderheader?.startscreen=='y')">
+		<ion-col col-5>Est Job Starting dttm</ion-col>
+		<ion-col col-7>{{orderheader?.starttime}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="(orderheader?.endscreen=='Y') || (orderheader?.endscreen=='y')">
+		<ion-col col-5>Est Job End dttm</ion-col>
+		<ion-col col-7>{{orderheader?.endtime}} </ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Company Price</ion-col>
+		<ion-col col-7>{{orderheader?.comp_price}}</ion-col>
+	</ion-row>
+	  <ion-row>
+		<ion-col col-5>Provider Price</ion-col>
+		<ion-col col-7>{{orderheader?.sp_price}}</ion-col>
+	</ion-row> 
+</ion-grid>
+<ion-grid>
+	<p *ngIf="pending!='pending'">If you want to change the your price click on <strong>Provider price</strong></p>
+	<ion-row style="background: #042e54; color: #fff">
+		<ion-col col-4>Item Desc</ion-col>
+		<ion-col col-2>Qty</ion-col>
+		<ion-col col-3>Company Price</ion-col>
+		<ion-col col-3>Provider Price</ion-col>
+	</ion-row>
+	<ion-row *ngFor="let od of orderdtl">
+		<ion-col col-4>{{od.custnote}}</ion-col>
+		<ion-col col-2 text-center>{{od.itemqty}}</ion-col>
+		<ion-col col-3 text-center>{{od.comp_item_price}}</ion-col>
+
+		<ion-col col-3 text-center *ngIf="pending=='pending'">{{od.sp_item_price}}</ion-col>
+
+		<ion-col col-3 text-center *ngIf="pending!='pending'" (click)="changePrice(orderheader?.order_num,od.item_number,od.sp_item_price)" style="color: #488aff">{{od.sp_item_price}}</ion-col>
+
+	</ion-row>
+
+	<!-- <ion-row>
+		<ion-col>
+			AC Servicing and Repair-> Window AC -> LG -> 1 TON -> Complete diagnosis & Repair
+		</ion-col>
+		<ion-col text-center>1</ion-col>
+		<ion-col text-center>500</ion-col>
+		<ion-col text-center>500</ion-col>
+	</ion-row> -->
+</ion-grid>
+
+
+<div>
+		<p *ngIf="orderheader?.note_title!=''">{{orderheader?.note_title}}</p>
+	    <p *ngIf="orderheader?.note_value!=''">{{orderheader?.note_value}}</p>
+	</div>
+	
+</ion-content>
+<ion-footer *ngIf="pending!='pending'">
+
+<ion-grid no-border>
+	<ion-row no-border>
+		<ion-col no-border><button ion-button full (click)="doReject(orderheader?.order_num)">Reject</button></ion-col>
+		<ion-col no-border><button ion-button color="darkblue" full (click)="doAccept(orderheader?.order_num,orderheader?.sp_price,orderheader?.popupstatus)">Accept</button></ion-col>
+	</ion-row>
+</ion-grid>
+
+
+  <!-- <ion-toolbar> -->
+	   <!-- <div class="buttonbox">
+	   		<div class="btn"></div>
+	   		<div class="btn"></div>
+	   	</div> -->
+  <!-- </ion-toolbar> -->
+</ion-footer>

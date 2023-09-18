@@ -1,0 +1,59 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Modify Line</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-list>
+
+	<ion-item>
+    <ion-label color="darkblue" floating>Order Number</ion-label>
+    <ion-input type="text" readonly="true" [(ngModel)]='order_num' name='order_num'></ion-input>
+  </ion-item>
+
+<ion-item>
+    <ion-label color="darkblue" floating>Item Name</ion-label>
+    <ion-input type="text"  [(ngModel)]='itemname' name='itemname'></ion-input>
+</ion-item>
+
+  <ion-item>
+    <ion-label color="darkblue" floating>Service Type</ion-label>
+    <ion-input type="text" readonly="True" [(ngModel)]='service' name='service'></ion-input>
+  </ion-item>
+  
+<ion-item *ngIf="edit_item=='1'">
+    <ion-label color="darkblue" floating>Item Total Price  </ion-label>
+    <ion-input type="number"  [(ngModel)]='itemprice' name='itemprice'></ion-input>	
+</ion-item>
+
+<ion-item *ngIf="edit_item!='1'">	
+    <ion-label color="darkblue" floating>Item Total Price  </ion-label>
+    <ion-input type="number" readonly="true" [(ngModel)]='itemprice' name='itemprice'></ion-input>
+</ion-item>
+
+  <ion-item>
+    <ion-label color="darkblue" floating>Item Total Qty</ion-label>
+    <ion-input type="number" [(ngModel)]='qty' name='qty'></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="darkblue" floating>Total Discount Price</ion-label>
+    <ion-input type="number" [(ngModel)]='discount' name='discount'></ion-input>
+  </ion-item>
+
+
+
+</ion-list>
+
+<div padding>
+	<button ion-button small (click)="dismiss()">Back</button>
+  <button ion-button small (click)="editOrder()">Save</button>
+
+</div>
+</ion-content>

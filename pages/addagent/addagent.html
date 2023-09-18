@@ -1,0 +1,197 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Add Agent</ion-title>
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+
+
+
+
+<!-- 
+<ion-list>
+  <ion-list-header>
+    {{agencyid}} - {{agencyname}}
+  </ion-list-header>
+  <ion-item>
+<ion-row style="display: none; visibility: hidden;">
+	
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency ID" [(ngModel)]='agencyid' name='agencyid' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency Name" [(ngModel)]='agencyname' name='agencyname' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+</ion-row>
+<ion-row>
+	<ion-col>
+		<ion-input type="text" placeholder="Category" [(ngModel)]='category' name='category' readonly></ion-input>
+			<ion-input type="hidden" [(ngModel)]='cat_id' name='cat_id'></ion-input>
+	</ion-col>
+	</ion-row>
+  </ion-item>
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list> -->
+
+
+
+
+
+
+	<ion-list>
+		
+<ion-row>
+	<ion-col>
+		<ion-item class="top_1">
+		<h5>Agency Name: ({{agencyid}})-{{agencyname}}</h5>
+		</ion-item>
+	</ion-col>
+</ion-row>
+
+<ion-row style="display: none;">
+	
+	<ion-col>
+		<ion-item class="top_1">
+			<ion-input type="hidden" placeholder="Agency ID" [(ngModel)]='agencyid' name='agencyid' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency Name" [(ngModel)]='agencyname' name='agencyname' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+</ion-row>
+
+<!--
+  
+
+		<ion-item style="color: #000; margin-bottom: 30px;font-weight: 500;">
+			
+			<ion-input type="text" placeholder="Category" [(ngModel)]='category' name='category' readonly></ion-input>
+			<ion-input type="hidden" [(ngModel)]='cat_id' name='cat_id'></ion-input>
+		</ion-item>
+
+
+		<ion-item>
+			<ion-label stacked>Sub Cat1</ion-label>
+			  <ion-select [(ngModel)]="subcat1" name="subcat1" interface="popover">
+			    <ion-option *ngFor="let subcat1 of subcategorylist1" value="{{subcat1.value_id}}">{{subcat1.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Sub Cat2</ion-label>
+			  <ion-select [(ngModel)]="subcat2" name="subcat2" interface="popover">
+			    <ion-option *ngFor="let subcat2 of subcategorylist2" value="{{subcat2.value_id}}" (ionSelect)="getCat(subcat2.value_id)">{{subcat2.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+	
+
+
+  <ion-item>
+	<ion-label stacked>Sub Cat1</ion-label>
+	  <ion-select [(ngModel)]="subcat1" name="subcat1" interface="popover">
+		<ion-option *ngFor="let subcat1 of subcategorylist1" value="{{subcat1.value_id}}">{{subcat1.value_desc}}</ion-option>
+	  </ion-select>
+</ion-item>
+-->	
+
+<ion-item>
+	<ion-label stacked>Agent name</ion-label>
+	<ion-input type="text" placeholder="Agent Name" [(ngModel)]='agentname' name='agentname'></ion-input>
+</ion-item>
+
+
+	<ion-item>
+		<ion-input type="text" placeholder="Agent Phone" [(ngModel)]='phone' name='phone'></ion-input>
+	</ion-item>
+	<ion-item>
+		<div (click)="agentPhoto()">
+			<ion-icon name="camera"></ion-icon> Agent photo
+		</div>
+		<div *ngIf="aphoto!=''">
+			<img src="{{aphoto}}" class="up_img">
+		</div>
+		
+	</ion-item>
+	<ion-item>
+		<div (click)="agentIDproof()"> 
+			<ion-icon name="camera"></ion-icon> Agent ID proof
+		</div>
+		<div *ngIf="aproof!=''">
+			<img src="{{aproof}}" class="up_img">
+
+		</div>
+
+	</ion-item>
+	
+				<h6>NOTE:</h6>
+  
+   <p> Agent background verification is agency resposibility. 
+	Agency will be held responsible and accountable if any 
+	thing goes wrong for his agent</p>
+	
+    <!--<ion-checkbox color="dark" (click)="selectMember(member)" [(ngModel)]="member.checked"></ion-checkbox> -->
+ 
+	
+<!--
+	<ion-item>
+		<ion-label stacked>UOM</ion-label>
+		  <ion-select [(ngModel)]="uom" name="uom" interface="popover">
+		    <ion-option *ngFor="let um of getuom" value="{{um.value_id}}">{{um.value_desc}}</ion-option>
+		  </ion-select>
+	</ion-item>
+
+	<ion-item>
+		<ion-input type="text" placeholder="Experience" [(ngModel)]='experience' name='experience'></ion-input>
+	</ion-item>
+
+	<ion-item style="margin-top: 5px;">
+		<ion-label stacked>Experience Level</ion-label>
+		  <ion-select [(ngModel)]="exp_level" name="exp_level" interface="popover">
+		    <ion-option *ngFor="let exp of getexp_level" value="{{exp.value_id}}">{{exp.value_desc}}</ion-option>
+		  </ion-select>
+	</ion-item>
+		
+
+
+
+			<h6>Specialisation</h6>
+  <ion-item *ngFor="let member of getspecial">
+    <ion-label>{{member?.exp_attb_desc || 'N/A'}}</ion-label>
+    <ion-checkbox color="dark" (click)="selectMember(member)" [(ngModel)]="member.checked"></ion-checkbox>
+  </ion-item>
+
+-->
+  <!-- <ion-item *ngFor="let sp of getspecial">
+	    <ion-label>{{sp.exp_attb_desc}}</ion-label>
+	    <ion-checkbox slot="end" [(ngModel)]="specialization" name="specialization"(click)="getSpecial(sp.exp_attb_id,sp.exp_attb_desc)"></ion-checkbox>
+  </ion-item> -->
+
+
+<!--   <ion-item>
+    <ion-label stacked>Status</ion-label>
+    <ion-select [(ngModel)]="status">
+      <ion-option value="1">Free</ion-option>
+      <ion-option value="2">Booked</ion-option>
+      <ion-option value="0">Inactive</ion-option>
+    </ion-select>
+  </ion-item>
+		 -->
+	  <div>
+	  	
+       <div align="center"> <button ion-button small color="primary" round (click)="saveAgentDetails()">Save</button></div>
+      </div>
+	</ion-list>
+</ion-content>

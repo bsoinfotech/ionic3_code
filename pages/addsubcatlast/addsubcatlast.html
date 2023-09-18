@@ -1,0 +1,227 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Edit Product/Service </ion-title>
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+
+
+
+
+<!-- 
+<ion-list>
+  <ion-list-header>
+    {{agencyid}} - {{agencyname}}
+  </ion-list-header>
+  <ion-item>
+<ion-row style="display: none; visibility: hidden;">
+	
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency ID" [(ngModel)]='agencyid' name='agencyid' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+	<ion-col>
+		<ion-item style="color: #000;">
+			<ion-input type="hidden" placeholder="Agency Name" [(ngModel)]='agencyname' name='agencyname' readonly></ion-input>
+		</ion-item>
+	</ion-col>
+</ion-row>
+<ion-row>
+	<ion-col>
+		<ion-input type="text" placeholder="Category" [(ngModel)]='category' name='category' readonly></ion-input>
+			<ion-input type="hidden" [(ngModel)]='cat_id' name='cat_id'></ion-input>
+	</ion-col>
+	</ion-row>
+  </ion-item>
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list> -->
+
+
+
+
+
+
+	<ion-list>
+
+    <ion-grid>
+      <ion-row >
+        <ion-col col-12>
+          <ion-label stacked>Product/Service Name</ion-label>
+          <ion-input type="text" placeholder="Enter Product/Service Name" [(ngModel)]='scatname' name='scatname'></ion-input>
+        </ion-col>  
+      </ion-row>
+    </ion-grid>
+
+<div class="profile-banner">
+  <ion-row> 
+
+
+  <ion-col col-12 no-padding > 
+    <h6> Product/Service Image</h6>
+    
+    <img (click)="presentActionSheet()" src="{{scatpicture}}" class="pro-pic">
+    <span item-left style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>  
+
+  </ion-col>
+  
+</ion-row>
+</div>
+
+<ion-item>
+  <ion-label stacked>Image Position & Layout</ion-label>
+<ion-select [(ngModel)]="layout" name="layout" interface="popover">
+    <ion-option value="1"><p>Left ,WxH:(160x160)px</p></ion-option>
+    <ion-option value="2"><p>Middle,WxH:(370x220)px</p></ion-option>
+    <ion-option value="3"><p>Middle,Original Image Size</p></ion-option>
+    <ion-option value="4"><p>Don't show Image</p></ion-option>
+</ion-select>
+</ion-item>
+<!-------
+<ion-item>
+  <ion-label stacked>Image Hight</ion-label>
+<ion-select [(ngModel)]="ref1" name="ref1" interface="popover">
+<ion-option value="80">Hight: 80px</ion-option>
+<ion-option value="120">Hight: 120px</ion-option>
+<ion-option value="160">Hight: 160px</ion-option>
+<ion-option value="200">Hight: 200px</ion-option>
+<ion-option value="240">Hight: 240px</ion-option>
+<ion-option value="260">Hight: 260px</ion-option>
+<ion-option value="280">Hight: 280px</ion-option>
+<ion-option value="300">Hight: 300px</ion-option>
+<ion-option value="320">Hight: 320px</ion-option>
+<ion-option value="340">Hight: 340px</ion-option>
+<ion-option value="360">Hight: 360px</ion-option>
+<ion-option value="380">Hight: 380px</ion-option>
+<ion-option value="400">Hight: 400px</ion-option>
+<ion-option value="420">Hight: 420px</ion-option>
+<ion-option value="450">Hight: 450px</ion-option>
+
+</ion-select>
+</ion-item>
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Page Header</ion-label>
+      <ion-input type="text" placeholder="Enter Page Header" [(ngModel)]='scatnextscreendesc' name='scatnextscreendesc'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+<ion-row>
+  <ion-col col-10>
+    Enable/Disable?
+  </ion-col>
+  <ion-col col-2>
+    <ion-toggle [(ngModel)]="status" slot="status" ></ion-toggle>
+  </ion-col>    
+</ion-row>
+</ion-grid>
+-->
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Original Price (in {{currency_id}})</ion-label>
+      <ion-input type="number" placeholder="Original Price" [(ngModel)]='scatprice' name='scatprice'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Current Price (in {{currency_id}})</ion-label>
+      <ion-input type="number" placeholder="Current Price" [(ngModel)]='scattotalprice' name='scattotalprice'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+<!--
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Unit of Measure </ion-label>
+      <ion-input type="text" placeholder="Unit Of Measure" [(ngModel)]='scatdisunitname' name='scatdisunitname'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+<ion-grid>
+-->
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Unit of Measure </ion-label>
+    	<ion-select [(ngModel)]="scatdisunitname" name="scatdisunitname" interface="popover">
+        <ion-option *ngFor="let s of uom" [selected]="s.id == scatdisunitname" value="{{s.id}}" >{{s.uom_name}}</ion-option>
+        </ion-select>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+
+<ion-item>
+  <ion-label stacked>Product Type</ion-label>
+  <ion-select [(ngModel)]="service_type" name="service_type" interface="popover">
+  <ion-option value="1">Service </ion-option>
+  <ion-option value="2">Parts/Product</ion-option>
+  <ion-option value="3">Lead</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-grid>
+  <ion-row >
+    <ion-col col-12>
+      <ion-label stacked>Order Display note </ion-label>
+      <ion-input type="text" placeholder="Order Display note" [(ngModel)]='subcatorderdispnote' name='subcatorderdispnote'></ion-input>
+    </ion-col>  
+  </ion-row>
+</ion-grid>
+        
+<ion-grid>
+  Edit Note 
+  <ion-row > 
+      <ion-input type="text" placeholder="Note1" [(ngModel)]='text1' name='text1'></ion-input>
+  </ion-row>
+  <ion-row > 
+    <ion-input type="text" placeholder="Note2" [(ngModel)]='text2' name='text2'></ion-input>
+  </ion-row>
+  <ion-row > 
+    <ion-input type="text" placeholder="Note3" [(ngModel)]='text3' name='text3'></ion-input>
+  </ion-row>
+  <ion-row > 
+    <ion-input type="text" placeholder="Note4" [(ngModel)]='text4' name='text4'></ion-input>
+  </ion-row>
+  <ion-row > 
+    <ion-input type="text" placeholder="Note5" [(ngModel)]='text5' name='text5'></ion-input>
+  </ion-row>
+  <ion-row > 
+    <ion-input type="text" placeholder="Note6" [(ngModel)]='text6' name='text6'></ion-input>
+  </ion-row>
+</ion-grid>
+	
+
+
+	</ion-list>
+
+
+
+</ion-content>
+
+<ion-footer>
+	<div>
+	  <ion-row>
+   
+      <button ion-button color="primary" icon-end block (click)="savesubcat()">Submit <ion-icon ></ion-icon> </button>
+	 </ion-row>
+  </div>
+  </ion-footer>

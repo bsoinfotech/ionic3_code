@@ -1,0 +1,24 @@
+page-addsubcatlast {
+
+    .table .col{border-right: 1px solid #042e54;text-align: center;     font-size: 12px;    padding: 8px 5px;}
+    .table .col:last-child{ border-right: none; }
+    .bg_h1{background-color: #042e54; color:#fff;}
+    .bg_h1 .col {
+        font-weight: bold;
+        text-align: center;
+        font-size: 13px;}
+    .tablerow{background-color: #eee}
+    .tablerow:nth-child(even){background-color: #fff}
+
+.profile-banner{height: 200px; background: #4a8bfc; text-align: center; color: #fff; padding: 2px 0;}
+
+.pro-pic{width: 130px; height: 130px; border-radius: 10%;}
+h2{font-weight: normal; font-size: 20px; margin-top: 0.5rem; margin-bottom: 0.5rem}
+p{font-size: 15px; font-weight: normal;}
+ion-list ion-icon{color: #c70b0b; font-size: 21px;}
+.cl{clear: both;}
+ion-list span.count{width: 21px; height: 18px; line-height: 18px; display: inline-block; font-size: 12px; text-align: center; background: #b3d3ec; border-radius: 50%}
+ion-list .label{line-height: 18px; margin: 5px 10px;}
+.item{padding-left: 1}
+.bu_show{display:none !important;}
+}

@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Option to select your service provider</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-card *ngIf="biddingstatus=='Q'">
+  <ion-list radio-group [(ngModel)]="bidding" name="bidding">
+
+  <ion-item>
+    <ion-label>Choose Service Provider From Market Place?<br/><small>(This will go thru bidding process-->You will receive Quotations from Service Providers--> Select & Award Professional As Per Your Preference)</small></ion-label>
+    <ion-radio value="1" item-start></ion-radio>
+  </ion-item>
+
+</ion-list>
+</ion-card>
+<ion-card *ngIf="biddingstatus=='B'">
+  <ion-list radio-group [(ngModel)]="bidding" name="bidding">
+
+  <ion-item>
+    <ion-label>Go with Service Sarkar rate?<br/><small>(Professional will be assigned by Service Sarkar)</small></ion-label>
+    <ion-radio value="0" item-start></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Choose Service Provider From Market Place?<br/><small>(This will go thru bidding process-->You will receive Quotations from Service Providers--> Select & Award Professional As Per Your Preference)</small></ion-label>
+    <ion-radio value="1" item-start></ion-radio>
+  </ion-item>
+
+</ion-list>
+</ion-card>
+
+<ion-row>
+	<ion-col text-center>
+		<button ion-button round outline (click)="gosuccesspage(this.price)">ok</button>
+	</ion-col>
+	</ion-row>
+</ion-content>

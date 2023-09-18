@@ -1,0 +1,38 @@
+page-paymentpage {
+.content{background:#f6f6f6;}
+ion-footer{background:#387ef5;}
+.price{text-align: center; color: #fff; margin-top: 5px;}
+.price span{font-size: 12px;}
+
+#accordion{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#accordion h2{
+    font-size: 12pt;
+    margin: 0px;
+    padding: 10px;
+    background: #fff;
+    border: 2px solid #e5e5e5;
+     border-radius: 8px;
+     color: #042e54;
+}
+#accordion h2 img,.item-radio img{ width: 30px; height: 30px;vertical-align:middle }
+#accordion li{margin: 5px 0; border-radius: 10px;}
+#accordion li div.content{
+    display: none;
+    padding: 10px;
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-top: 0px;
+    margin-top: -6px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.infobar{background:url(../assets/imgs/info.png) right center no-repeat #daedff; background-size: 30px 30px; padding: 10px; border-radius: 8px;}
+#accordion li:hover div.content{
+    display: inherit;
+}
+}

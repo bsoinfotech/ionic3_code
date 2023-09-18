@@ -1,0 +1,66 @@
+page-provider-vieworder {
+	
+	.tab_block .datetime-text{    font-size: 12px;}
+	.tab_block .datetime {
+    padding: 1px 2px 1px 0px;
+}
+.tab_block  .item-datetime .label, .item-select .label  {
+    color: #000;
+}
+.label{
+    margin: 0px 8px 2px 0;
+        font-size: 13px;
+}
+.select {
+    padding: 1px 8px 0px 16px;
+}
+.ne_11  .item{    padding-left: 0px;}
+.tab_block .item-block{    min-height: 2.4rem; margin-bottom: 5px;}
+.tab_block  .label {
+    margin: 5px 8px 5px 2px;
+}
+.row:nth-child(odd) .item{    background-color: #f2f2f2;}
+.ne_11 {font-size: 13px;
+    font-weight: normal;}
+.ne_11 [col-6] {border-top: 1px solid #aaa; padding-bottom:0px;}
+
+.list {
+    margin: -1px 0 0px;
+}
+.tab_block  .item.item-block .item-inner {
+    padding-right: 0px;
+    border: 1px solid #dedede;font-size: 12px;
+}
+.tab_block  .item{    padding-left: 5px;}
+.tab_block ion-select{    max-width: 100%;}
+	.tab_block  .select {
+    padding: 6px 0px 5px 0px;
+    font-size: 12px;
+}
+.tab_block .select .select-icon .select-icon-inner{    left: 1px;}
+.row{border: 1px solid #aaa; border-bottom: none;}
+.row.scheduled{background: #00A100 !important; color: #fff;}
+.row:first-child{font-weight: bold;}
+.row:last-child{border-bottom: 1px solid #aaa}
+.row:nth-child(odd) {background-color: #f2f2f2;}
+.col{border-right: 1px solid #aaa;}
+.col:last-child{ border-right: none; }
+p.star{color:#F2BF00;}
+.callbtn {color: #00A100; border:1px solid #00A100; padding: 5px 8px; border-radius: 50%; width: 40px;}
+.item-button.callbtn{height: 40px; font-size: 1.5rem;}
+
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+.toolbar-content ion-grid .col:first-child{border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+
+
+.table .row{border: 1px solid #aaa; border-bottom: none;font-size: 13px;}
+.table .row.scheduled{background: #00A100 !important; color: #fff;}
+.table .row:first-child{font-weight: bold;}
+.table .row:last-child{border-bottom: 1px solid #aaa}
+.table .row:nth-child(odd) {background-color: #f2f2f2;}
+.table .col{border-right: 1px solid #aaa;}
+.table .col:last-child{ border-right: none; }
+}
+

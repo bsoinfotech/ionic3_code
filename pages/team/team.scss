@@ -1,0 +1,54 @@
+page-team {
+
+	.content{padding: 8px;}
+.toolbar-content ion-grid, .toolbar-content ion-grid .col{padding:0px; line-height:37px; text-align: center; color: #488aff }
+.toolbar-content ion-grid .col:nth-child(1){border-bottom: 2px solid #042e54}
+.tabstoolbar{padding: 0px; min-height: 37px;}
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+.nn_1 .button-inner {color: #000;}
+.nn_1{background: #fff}
+.bg_hed{background-color: #488aff; color: #FFF;}
+.bg_hed .col{    font-size: 14px!important;}
+
+.table{box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); width: 96%;}
+.table .row{border-bottom: none;font-size: 13px;}
+.table .row.scheduled{background: #00A100 !important; color: #fff;}
+.table .row:first-child{font-weight: normal;text-transform: capitalize;}
+/*.table .row:last-child{border-bottom: 1px solid #042e54}*/
+/*.table .row:nth-child(odd) {background-color: #f2f2f2;}*/
+.table .col{text-align: center;     font-size: 14px;    padding: 8px 5px;}
+.table .col:last-child{ border-right: none; }
+.bg_h1{background-color: #042e54; color:#fff;}
+.bg_h1 .col {
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;}
+.tablerow{background-color: #fff}
+.tablerow:nth-child(3n){background-color: #d9edf7}
+.tablerow:nth-child(3n+1){background-color: #f2dede}
+.tablerow:nth-child(3n+2){background-color: #dff0d8}
+
+
+.mypadding{ padding: 10px;}
+.banners3{height: 100px;width: 50%; background-color: #e5e5e5;border: 1px solid #aeb7ca;}
+.card{margin: 0; width: 100%; min-height: 90px; background: 	#00FF00; box-shadow:none;}
+.card-content{padding: 5px; font-size: 1.3rem; min-height: 90px;}
+ion-card img{width: 65px; margin: 0 auto; height: 65px;}
+.card p{font-size: 1.2rem; margin: 10px 0}
+.grid{padding:0}
+
+.footer_block ion-icon{display: block;    margin-top: 1px;
+    padding-bottom: 0px;
+    min-width: 1.0rem;
+    font-size: 1.0rem;
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform-origin: 50% 150%;
+    transform-origin: 50% 150%;}
+
+
+
+}

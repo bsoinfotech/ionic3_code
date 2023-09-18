@@ -1,0 +1,82 @@
+ <ion-header>
+ 	<ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <!-- <ion-title>details</ion-title> -->
+  </ion-navbar>
+</ion-header> 
+
+
+<ion-content>
+<form (submit)="updateDetails()">
+	<ion-list>
+			<h2 text-center>Customer Details</h2>
+		<!-- <ion-item>	
+		<ion-item>
+  <ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Choose Country</ion-label>
+  <ion-select [(ngModel)]="country" name="country" interface="popover">
+    <ion-option *ngFor="let c of counties" value="{{c.id}}" (ionSelect)="getStates(c.id)">{{c.country}}</ion-option>
+  </ion-select>
+</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Choose State</ion-label>
+  <ion-select [(ngModel)]="state" name="state" interface="popover">
+    <ion-option *ngFor="let s of states" value="{{s.id}}" (ionSelect)="getCities(s.id)">{{s.state}}</ion-option>
+  </ion-select>
+		</ion-item>
+		
+			<ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Choose City</ion-label>
+  <ion-select [(ngModel)]="city" name="city" interface="popover">
+    <ion-option *ngFor="let ci of cities" value="{{ci.id}}">{{ci.city}}</ion-option>
+  </ion-select>
+		</ion-item> 
+
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="*Entet City" [(ngModel)]='city' name='city'></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="*Pin Code" [(ngModel)]='pincode' name='pincode'></ion-input>
+		</ion-item>
+	-->
+		<ion-item>
+			<ion-label><ion-icon name="logo-whatsapp" item-left></ion-icon></ion-label>
+			<ion-input type="tel" maxlength='10' placeholder="Whatsapp number" [(ngModel)]='whatsappnumber' name='whatsappnumber'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Email:" [(ngModel)]='email' name='email'></ion-input>
+		</ion-item>
+
+	<!--
+		<h2 text-center>Bank Details</h2>
+		<ion-item>
+			<ion-label><ion-icon name="ios-podium-outline" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Bank Name" [(ngModel)]='bankname' name='bankname'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-person-outline" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Bank A/C. Name" [(ngModel)]='bankactname' name='bankactname'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-person-outline" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Account Number" [(ngModel)]='accountnumber' name='accountnumber'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="IFSC Code" [(ngModel)]='ifsccode' name='ifsccode'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-card" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="PAN ID" [(ngModel)]='pan_id' name='pan_id'></ion-input>
+		</ion-item>
+	-->
+		<div>
+        <button ion-button color="primary" round block>Update</button>
+      </div>
+	</ion-list>
+</form>
+</ion-content>

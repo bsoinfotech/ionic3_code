@@ -1,0 +1,20 @@
+page-editmsg {
+
+    .profile-banner{height: 80px; background: rgba(176, 201, 135, 0.747); text-align: center; color: rgb(150, 17, 17); padding: 1px 0;}
+.pro-pic{width:70px; height: 60px; border-radius: 80%;}
+
+      ion-input{
+        border-radius: 10px !important;
+        padding-right: 30px;
+        font-size: 0.9em;
+        border: 1px solid #1b0233 !important;
+        --background: rgb(219,219,219) !important;
+        /* height: 10%; */
+        /* width: 41%; 
+        max-width: 50vw; // this is applying perfectly
+        max-height: 10vh;
+        */
+    }
+
+}
+

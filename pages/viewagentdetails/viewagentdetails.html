@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar  color="darkblue">
+    <ion-title>Agent Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content >
+  <ion-grid>
+  <ion-row>
+    <ion-col col-12 >
+     <b>{{agentdetails?.agency_id}} - {{agentdetails?.agencyname}}</b>
+    </ion-col>
+  </ion-row>
+<!---
+   <ion-row>
+    <ion-col>
+     <b>Category :</b> {{agentdetails?.cat_name}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+     <b>Sub Cat1 :</b> {{agentdetails?.sub_cat1}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <b>Sub Cat2 :</b> {{agentdetails?.sub_cat2}}
+    </ion-col>
+  </ion-row>
+-->
+  <ion-row>
+    <ion-col>
+       <b>Agent Name :</b> {{agentdetails?.agent_name}}
+    </ion-col>
+  </ion-row>
+   <ion-row>
+    <ion-col>
+        <b>Agent Phone : </b> {{agentdetails?.agent_phone}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <div><b>Agent Photo :</b></div>
+  <div class="big_img1"> <img src="{{agentdetails?.agent_photo}}" class="up_img" ></div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <div> <b>Agent IDProof :</b></div>
+    <div class="big_img"> <img src="{{agentdetails?.agent_id_proof}}" class="up_img" ></div>
+    </ion-col>
+  </ion-row>
+  <!---
+  <ion-row>
+    <ion-col>
+        <b>UOM :</b> {{agentdetails?.uom}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+       <b>Experience :</b> {{agentdetails?.exp_yrs}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+        <b>Experience Level :</b> {{agentdetails?.exp_level}}
+    </ion-col>
+  </ion-row>
+   <ion-row>
+    <ion-col>
+      <b>Specialization :</b><br>
+       <span *ngFor="let sp of special">{{sp.exp_attb_desc}}<br></span> 
+           
+    </ion-col>
+  </ion-row>
+-->
+
+</ion-grid>
+
+</ion-content>

@@ -1,0 +1,114 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+    <ion-buttons left>
+   <button ion-button clear color="light" icon-only (click)="goHome(ref2)">
+        <ion-icon name="home"></ion-icon>
+      </button>
+  </ion-buttons>
+
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button style="background: #4a8bfc" (click)="logOut()">
+        Logout
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<div class="profile-banner">
+<img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+<span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+<h2>{{userdata?.username}} (Partner ID:{{user_id}})</h2>
+<!-- <p>You are few steps away from <br/> completing your profile.</p> -->
+
+
+<div class="cl">
+   <span pull-right style="color: red" >{{this.ref5}}</span> 
+</div>
+</div>
+
+
+<ion-list>
+<ion-item text-right>
+  Status :
+  <span pull-right style="color: red" *ngIf="status_code=='10'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='9'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='8'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='7'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='6'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='5'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='4'">{{this.status_desc}}</span>
+  <span pull-right style="color: red" *ngIf="status_code=='3'">{{this.status_desc}}</span>
+  <span pull-right style="color: green" *ngIf="status_code=='2'">{{this.status_desc}}</span>
+  <span pull-right style="color: green" *ngIf="status_code=='1'">{{this.status_desc}}</span>
+</ion-item>
+
+  <!-- [ngClass]="{'fullwidth':(prod.imgvideo=='videos')}" -->
+  <div text-center *ngIf="status_code!='0'">
+  <ion-item  *ngFor="let pd of profiledata" (click)="detailAddressPage(pd.id,pd.cat_id,pd.attb_name,user_id)">
+   <ion-icon [ngClass]="{'bu_show':(pd.status==false)}"  name="ios-checkmark-circle"></ion-icon>
+   <span class="count" [ngClass]="{'bu_show':(pd.status==true && pd.id==pd.condition)}">{{pd.inc}}</span> {{pd.attb_name}}
+  </ion-item>
+  </div>
+</ion-list>
+
+
+<!-- <div text-center *ngIf="stats?.status=='two'"> -->
+
+<div text-center *ngIf="status_code=='3'">
+  <button ion-button round (click)="saveProfile()">Submit for Approval</button>
+</div>
+
+<div text-center *ngIf="status_code=='2'">
+  <button ion-button round>Submit for Approval</button>
+</div>
+<div text-center *ngIf="status_code=='1'">
+  <button ion-button round (click)="savecat_gohome()">Next</button>
+</div>
+<br>
+
+
+<!--
+<div text-center >
+  <button ion-button round (click)="save_section()">Section setup</button>
+</div>
+
+
+<div text-center >
+  <button ion-button round (click)="calendar_setup()">Calendar setup</button>
+</div>
+-->
+<!--
+<div text-center >
+    <button ion-button round style="padding: 6px; background-color:#32CD32; color: #FFF; border-radius: 8px;line-height: 12px;font-size: 12px;" (click)="goPopuppage()">Work Instruction for Partner</button>
+</div>
+<div text-center >
+  <button ion-button round style="padding: 6px; background-color:#c50e0e; color: #FFF;
+   border-radius: 8px;line-height: 12px;font-size: 12px;" (click)="approve_profile(user_id)"> approve profile</button>
+</div>
+
+<div text-center >
+  <button ion-button round style="padding: 6px; background-color:#c50e0e; color: #FFF;
+   border-radius: 8px;line-height: 12px;font-size: 12px;" (click)="sitelink_setup(user_id)"> setup website</button>
+</div>
+
+<div text-center >
+  <button ion-button round style="padding: 6px; background-color:#c50e0e; color: #FFF;
+   border-radius: 8px;line-height: 12px;font-size: 12px;" (click)="site_misc_setup(user_id)"> setup banners/ads/cstory</button>
+</div>
+-->
+
+
+
+</ion-content>
+

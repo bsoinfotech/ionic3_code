@@ -1,0 +1,123 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Assign your Agent</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content >
+
+	<ion-grid class="bot_part" >
+  		<ion-row class="bor1" *ngFor="let agent of agentList">
+  			<ion-col  col-4 text-center>
+						<img src="{{agent.agent_photo}}" style="width: 50px; height: 50px;">
+						<p *ngIf="agent.overall_rating=='5'">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+						</p>
+						<p *ngIf="agent.overall_rating=='4'">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+						</p>
+						<p *ngIf="agent.overall_rating=='3'">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+						</p>
+						<p *ngIf="agent.overall_rating=='2'">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+						</p>
+						<p *ngIf="agent.overall_rating=='1'">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+						</p>
+						<p *ngIf="agent.overall_rating=='0'">
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+							<ion-icon name="ios-star" class="inactive"></ion-icon>
+						</p>
+											
+					</ion-col>
+  		
+  			  <ion-col  col-7>
+
+  				<div class="ratin_1">
+							<p><b>{{agent.agent_name}}</b></p>
+							<p>Ph: {{agent.agent_phone}}  
+								<a href="tel:{{agent.agent_phone}}" class="callbtn" > 
+						<ion-icon name="ios-call"></ion-icon></a>
+						</p>
+						
+						
+						<!--	<p>Status: {{agent.status}}  {{agent.astatus}}</p> -->
+							
+							     <ion-item *ngIf="agent.astatus=='true'">
+								 
+							<b>	 <p><font color="green">Currently Assigned</font></p></b>
+								
+
+								</ion-item>
+
+						</div>
+						
+						 
+  				</ion-col>
+  			
+  				<ion-col  col-1>
+  					<div style="padding-top: 5px;" > 
+		  				
+												
+		  				<ion-radio checked="true" radio-group [(ngModel)]="agentid" name="agentid" (click)="getAgentid(agent.agent_id,agent.status)" value="{{agent.agent_id}}"></ion-radio> 
+
+		  			</div> 
+				</ion-col> 
+				
+					
+					
+				</ion-row>
+			
+
+			</ion-grid>
+
+</ion-content>
+
+
+
+<ion-footer>
+
+  <ion-grid class="footer_block">
+    <ion-row style="box-shadow: inherit;    margin-top: 0;">
+           
+            <ion-col col-6 (click)="dismiss()"> <ion-icon name="ios-arrow-back"></ion-icon> Back</ion-col>
+			<!-- biplab test 12 14 assign later option removed. agency has to assign first time
+			
+			<ion-radio checked="true" radio-group [(ngModel)]="agentid" name="agentid" (click)="getAgentid(agent.agent_id,agent.status)" value="{{agent.astatus}}"></ion-radio>
+			
+            <ion-col col-4 (click)="doLater(this.order_num,this.yourprice,providerstatus)"> <ion-icon name="document" ></ion-icon> Assign Later</ion-col>
+			-->
+             <ion-col col-6 (click)="doAccept(this.order_num,this.yourprice,agentid)"><ion-icon name="ios-arrow-forward"></ion-icon> Next</ion-col>
+            
+    </ion-row>
+</ion-grid>
+ 
+</ion-footer>

@@ -1,0 +1,86 @@
+<!--
+  Generated template for the PhotosWorkPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Upload photos of your</ion-title>
+    <!-- <ion-buttons end>
+      <button class="bg_but" ion-button icon-only>
+       Save
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<!-- <div>
+      <div class="top_n">
+
+           <ion-slides slidesPerView="2" spaceBetween="0">
+            <ion-slide >
+              <button ion-button round>Wedding Photographer</button>
+            </ion-slide
+
+             <ion-slide >
+              <button ion-button round>Baby Photographer</button>
+            </ion-slide>
+
+             <ion-slide >
+              <button ion-button round>Wedding Photographer</button>
+            </ion-slide>
+      </ion-slides>
+    </div>
+</div> -->
+
+  <p text-center>You need upload  Photos in 4 albums</p>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-6 (click)="uploadmultipleImages()">
+    	<div class="mid_1"><ion-icon name="add"></ion-icon>
+             Add max 20 photos</div>
+
+             <h4>Work Photos</h4>
+             <!-- <span>0 Photos</span> -->
+    </ion-col>
+
+    <ion-col col-6 *ngFor="let ph of allphotos" (click)="getPhotos(ph.doc_hdr_id,ph.value,this.attb_id,this.cat_id)">
+    	<div class="mid_1"> <ion-icon class="siz_1" name="md-images"></ion-icon>
+           <!--   Add 20 photos --></div>
+
+             <h4>Album {{ph.value}}</h4>
+             <span>{{ph.imgcount}} Photos</span>
+    </ion-col>
+
+    <!-- <ion-col col-6>
+    	<div class="mid_1"><ion-icon name="add"></ion-icon>
+             Add min 20 photos</div>
+
+             <h4>Album 2</h4>
+             <span>0 Photos</span>
+    </ion-col>
+
+
+    <ion-col col-6>
+    	<div class="mid_1"><ion-icon name="add"></ion-icon>
+             Add min 20 photos</div>
+
+             <h4>Album 3</h4>
+             <span>0 Photos</span>
+    </ion-col> -->
+  </ion-row>
+ 
+</ion-grid>
+
+
+
+
+
+</ion-content>

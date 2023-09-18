@@ -1,0 +1,553 @@
+			<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>View Projects</ion-title>
+    		<ion-buttons end (click)="dismiss()" *ngIf="not=='notification'">
+			     <button  ion-button small >Back</button>
+			 </ion-buttons>
+
+  </ion-navbar>
+   <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid class="top_grid">
+		<ion-row>
+			<ion-col>
+				View Project
+			</ion-col>
+			<ion-col (click)="govieworderPage(this.order_num,viewprojectstatus?.code_desc,viewprojectstatus?.jobstatus,this.spid)">
+				View Order
+			</ion-col>
+			<ion-col (click)="goinvoicePage(this.order_num)">
+				Invoice
+			</ion-col>
+			<ion-col (click)="gopaymentPage(this.order_num)">
+				Payment
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="order"> 
+      View Order
+    </ion-segment-button>
+    <ion-segment-button value="Reschedule">
+     Reschedule
+    </ion-segment-button>
+     <ion-segment-button value="Cancel">
+      Cancel
+    </ion-segment-button>
+</ion-segment>
+
+<div [ngSwitch]="pet" padding>
+  <ion-list *ngSwitchCase="'order'">
+    	<div padding>
+			<ol>
+				<li *ngFor="let vp of viewproject">
+					<h1>{{vp.status}}</h1>
+				</li>
+			</ol>
+		</div>
+<h5 style="padding-left: 15px; margin-top: 0px;">{{viewprojectstatus?.category}} </h5>
+<ion-grid class="box_gri">
+					<ion-row>
+					<ion-col col-4 >
+						{{viewprojectstatus?.code_desc}}
+					</ion-col>
+					<ion-col col-1 *ngIf="viewprojectstatus?.code_desc!=''">
+						  at
+					</ion-col>
+				<ion-col col-7 text-left>
+					{{viewprojectstatus?.mod_dttm}}
+				</ion-col>
+
+				<ion-col col-5 >
+						Scheduled Time :
+					</ion-col>
+					<ion-col col-7>
+						
+						<strong>{{viewprojectstatus?.order_est_sdttm}}</strong>
+					</ion-col>
+
+				<ion-col col-12>
+					<p>{{viewprojectstatus?.note_cust}}<strong *ngIf="(viewprojectstatus?.jobstatus==40) || (viewprojectstatus?.jobstatus==50)"> {{viewprojectstatus?.random}} </strong></p>
+					<hr>
+				</ion-col>
+
+				</ion-row>
+				<!--
+				<ion-row *ngIf="viewprojectstatus?.sp_id!=''">
+				-->
+				<ion-row *ngIf="(viewprojectstatus?.jobstatus>=50) && (viewprojectstatus?.jobstatus <99) ">
+					<ion-col col-3 *ngIf="viewprojectstatus?.provider_type=='provider'">				 
+						<img src="{{viewprojectstatus?.image}}"> 
+					</ion-col>
+
+					<ion-col col-7 *ngIf="viewprojectstatus?.provider_type=='provider'">
+						<h4>{{viewprojectstatus?.provider}}</h4>
+						<!-- <span style="font-size: 14px;">{{viewprojectstatus?.agencyname}}</span> -->
+						<div class="rat_1"><ion-icon name="ios-star"></ion-icon>{{viewprojectstatus?.overall_rating}}</div>
+					</ion-col>
+					
+					<ion-col col-2 *ngIf="(viewprojectstatus?.jobstatus>=50) && (viewprojectstatus?.jobstatus <99) && (viewprojectstatus?.provider_type=='provider') ">
+						<a href="tel:{{viewprojectstatus?.phonenumber}}" class="callbtn" > 
+						<ion-icon name="ios-call"></ion-icon></a>						
+					</ion-col>
+						
+					<!--   Agency detail from here start------------------------>
+					<ion-col col-3 *ngIf="viewprojectstatus?.provider_type=='agent' && viewprojectstatus?.show_agency=='1'">				 
+						<img src="{{viewprojectstatus?.image}}"> 
+					</ion-col>
+
+
+					<ion-col col-7 *ngIf="viewprojectstatus?.provider_type=='agent' && viewprojectstatus?.show_agency=='1'">
+						<h6>{{viewprojectstatus?.agencyname}}  </h6><br>
+						
+						<div class="rat_1"><ion-icon name="ios-star"></ion-icon>{{viewprojectstatus?.overall_rating}}</div>
+					</ion-col>
+					
+					<ion-col col-2 *ngIf="(viewprojectstatus?.jobstatus>=50) && (viewprojectstatus?.jobstatus <99) && (viewprojectstatus?.provider_type=='agent') && (viewprojectstatus?.show_agency=='1')  ">
+						<a href="tel:{{viewprojectstatus?.phonenumber}}" class="callbtn" > 
+						<ion-icon name="ios-call"></ion-icon></a>						
+					</ion-col>
+					
+					<!--   Agency detail from here end------------------------>
+					<ion-col col-12 text-center *ngIf="viewprojectstatus?.jobstatus=='70'">
+						<div *ngIf="viewprojectstatus?.provider_type=='agent'">
+						<!-- biplab test 1214
+						<button class="but_1" ion-button (click)="goAgentReview(this.order_num,viewprojectstatus?.agentid,this.catid)">Provide yy your feedback</button>
+						
+						-->
+						</div>
+					
+					</ion-col>
+
+
+						<ion-col col-12><hr></ion-col>
+
+							<ion-grid padding *ngIf="viewprojectstatus?.setstatus=='agent'">
+  		<ion-row  style="border-bottom: 1px solid #ccc;">
+				
+			<ion-col  col-12><h3>* {{agent_label}} *</h3></ion-col>
+					
+					<ion-col  col-7 *ngIf="(viewprojectstatus?.agentid >0 ) ">
+						<div><b>{{viewprojectstatus?.agent_name}}</b> </div>
+						<div><img src="{{viewprojectstatus?.agentimage}}" style="width: 50px; height:50px;">
+							<div class="ratin_1">
+							
+							
+  					<p *ngIf="(viewprojectstatus?.agentrating==5) && (viewprojectstatus?.agentid >0 )">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+						</p>
+						<p *ngIf="(viewprojectstatus?.agentrating==4) && (viewprojectstatus?.agentid >0 )">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(viewprojectstatus?.agentrating==3) && (viewprojectstatus?.agentid >0 )">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(viewprojectstatus?.agentrating==2) && (viewprojectstatus?.agentid >0 )">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(viewprojectstatus?.agentrating==1) && (viewprojectstatus?.agentid >0 )">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="(viewprojectstatus?.agentrating==0) && (viewprojectstatus?.agentid >0 )">
+						
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+  				</div>
+						</div>
+
+					</ion-col>
+					<!--<ion-col  col-6> -->
+					<ion-col  col-2 *ngIf="(viewprojectstatus?.agentid >0 ) ">					
+								
+<a href="tel:{{viewprojectstatus?.agent_phone}}" class="callbtn" > 
+						<ion-icon name="ios-call"></ion-icon></a>	<br>				
+					<!--	biplab test 1214
+					 <div> <b>             </b><br>
+					 
+					 <b>Specialisation :</b><br>
+					 <span *ngFor="let sp of special">* {{sp.exp_attb_desc}}<br></span> 
+					</div>
+					-->
+
+					</ion-col>
+					
+					
+
+				
+			</ion-row>
+		</ion-grid>
+
+
+						<!-- <ion-col col-12>
+							<ion-col col-6>
+
+							</ion-col>
+							<ion-col col-6>
+								
+							</ion-col>
+							<ion-col col-6>
+								
+							</ion-col>
+							<ion-col col-6>
+								
+							</ion-col>
+							<ion-col col-6>
+								
+							</ion-col>
+						</ion-col> -->
+
+				</ion-row>
+         
+				
+				
+				
+				<ion-row>
+					<ion-col col-12 text-center *ngIf="viewprojectstatus?.jobstatus==30">
+						<div *ngIf="viewprojectstatus?.act_name!=''">
+						 <button class="but_1" ion-button (click)="showProviderDetails('show')">{{viewprojectstatus?.act_name}}</button>
+						 <!-- biplab phase2 added on 0810 
+						 <h2 text-center>2 service providers have not submitted the quotation yet <small> ( optional ) </small></h2>
+						 -->
+						 <br> <h5 text-center>Out of {{viewprojectstatus?.total_bid}}, {{viewprojectstatus?.accepted_bid}} Service Providers have responded so far </h5>
+						</div>
+					</ion-col>
+
+					
+				</ion-row>
+
+				 <ion-row *ngIf="viewprojectstatus?.jobstatus=='70'">
+					<ion-col col-12 text-center *ngIf="viewprojectstatus?.provider_type=='provider'">
+						<div>
+						 <button class="but_1" ion-button (click)="goReview(this.order_num,this.spid)">Provide your feedback</button>
+						</div>
+					</ion-col>
+
+					<ion-col col-12 text-center *ngIf="viewprojectstatus?.jobstatus=='70'">
+						<div  *ngIf="viewprojectstatus?.provider_type=='agent'">
+						 <!-- biplab test 1241
+						 <button class="but_1" ion-button (click)="goReviewforagency(this.order_num,this.spid)">Rating xx for {{viewprojectstatus?.agencyname}}</button>
+						 -->
+						  <button class="but_1" ion-button (click)="goAgentReview(this.order_num,viewprojectstatus?.agentid,this.catid)">Provide your feedback</button>
+						</div>
+					</ion-col>
+
+					
+				</ion-row> 
+
+
+				
+
+
+
+	</ion-grid>
+
+				<!-- <ion-row>
+					<button ion-button small (click)="showProviderDetails('show')">Check the Quotion From Provider</button>
+				</ion-row> -->
+
+				<div *ngIf="sstatus=='show'">
+				<div *ngFor="let pd of providerdata">
+					<div class="boxer" *ngIf="pd.propose_sdttm!=''">
+					<div>
+					
+
+<ion-grid class="bot_part">
+  		<ion-row class="bor1"  style="border-bottom: 0px;" >
+  			<ion-col  col-8><div style="padding-top: 5px;">
+
+  				<ion-radio color="dark" radio-group [(ngModel)]="name" name="name" value="{{pd.sp_id}}" item-start> </ion-radio> {{pd.provider}} 
+
+  			</div></ion-col>
+  			<ion-col  col-4><div><button ion-button small color="secondary" (click)="goDetails(this.order_num,pd.sp_id)">View Detail</button>	</div></ion-col>
+  			<ion-col  col-4 text-center>
+						<img src="{{pd.image}}">
+
+						<div class="ratin_1">
+  					<p *ngIf="pd.overall_rating==5">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+						</p>
+						<p *ngIf="pd.overall_rating==4">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.overall_rating==3">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.overall_rating==2">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.overall_rating==1">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.overall_rating==0">
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+  				</div>
+						
+					</ion-col>
+  			<ion-col  col-8>
+  				
+
+  			
+
+  				<div style="line-height:2.6rem;padding: 5px">
+	Price: {{pd.sp_price}} <br/>  {{pd.ref2}}<br/><strong >Proposed start time:</strong><br> <b style="color: #488aff;">{{pd.propose_sdttm}} </b>
+</div>
+
+  			</ion-col>
+   
+					
+					
+				</ion-row>
+			</ion-grid>
+
+</div>
+
+
+				</div>
+
+				<ion-grid padding>
+  		<ion-row  style="border-bottom: 1px solid #ccc;" *ngIf="pd.setstatus=='agent'">
+				
+			<ion-col  col-12><h3> > {{agent_label}} </h3></ion-col>
+					
+					<ion-col  col-6>
+						<div><b>{{pd.agent_name}}</b> </div>
+						<div><img src="{{pd.agentimage}}" style="width: 50px; height:50px;">
+							<div class="ratin_1">
+  					<p *ngIf="pd.agentrating==5">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+						</p>
+						<p *ngIf="pd.agentrating==4">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.agentrating==3">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.agentrating==2">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.agentrating==1">
+							<ion-icon name="ios-star"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+						<p *ngIf="pd.agentrating==0">
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+							<ion-icon name="ios-star" style="color:grey;"></ion-icon>
+						</p>
+  				</div>
+						</div>
+
+					</ion-col>
+					<ion-col  col-6>
+					<div>Ph:{{pd.agent_phone}}</div><hr>
+					 <div><b>Specialisation :</b><br>
+					 <span *ngFor="let sp of special">{{sp.exp_attb_desc}}<br></span> 
+					</div>
+
+
+					</ion-col>
+					
+					
+
+				
+			</ion-row>
+		</ion-grid>
+			</div>
+			<div style="width:50%; float: left; padding: 5px">
+					<button ion-button small block (click)="awardtheBid(this.agent)">Award the Bid</button>
+				</div>
+				<div style="width:50%; float: right; padding: 5px">
+					<button ion-button small block color="danger" (click)="awardClose()">Hide Quotions</button>
+				</div>
+			
+		</div>
+
+
+  </ion-list>
+  
+<!--- added by biplab on April 03 20202 start -->
+<ion-grid class="box_gri1" *ngIf="viewprojectstatus?.jobstatus=='20'||viewprojectstatus?.jobstatus=='30'||viewprojectstatus?.jobstatus=='50'||viewprojectstatus?.jobstatus=='60'||viewprojectstatus?.jobstatus=='70'||viewprojectstatus?.jobstatus=='80'">
+					<ion-row *ngIf="viewprojectstatus?.jobstatus=='20'||viewprojectstatus?.jobstatus=='30'||viewprojectstatus?.jobstatus=='50'||viewprojectstatus?.jobstatus=='60'||viewprojectstatus?.jobstatus=='70'||viewprojectstatus?.jobstatus=='80'">
+					<ion-col col-9 >
+						<b>Chat with Customer Care for any issue </b>
+					</ion-col>
+					
+					<a href="https://api.whatsapp.com/send?phone=91{{whatsappno}}">
+					<img src="assets/img/whatsapp4.png">
+					</a>
+					</ion-row>
+</ion-grid>				
+<!--- added by biplab on April 03 20202 end -->
+
+  <ion-list *ngSwitchCase="'Reschedule'">
+
+
+<div  *ngIf="viewprojectstatus?.showdata!='true'">
+<h5 text-center>When would you<br/> like your service?</h5>
+  <div>
+    <ion-slides slidesPerView="4" spaceBetween="10">
+      <ion-slide  *ngFor="let d of calenderdays" (click)="selectedDate(d.weekday,d.dates)" [ngClass]="{'slid_active': checked==d.weekday}" >
+        <div text-center class="block">
+          <div class="day">{{d.week}}</div>
+          <div class="date">{{d.day}}</div>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+  <h5 text-center>At What time should the professional arrive?</h5>
+
+
+
+<ion-grid *ngIf="nval==true">
+  <ion-row>
+    <ion-col col-6  *ngFor="let cl of calenderslots" (click)="saveDate(cl.slots);">
+    	<div text-center class="block" [ngClass]="{'slid_active' : (checkedtime==cl.slots)}">{{cl.slots}}</div>
+    </ion-col>
+     
+  </ion-row>
+</ion-grid>
+
+<ion-grid *ngIf="nval==false">
+   <ion-row >
+    <ion-col col-12><div text-center class="block">No available slots</div></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<div padding text-center>
+<button ion-button full (click)="gotoNetScreen()">Reschedule</button>
+</div>
+
+</div>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'Cancel'">
+	<!--
+  		<ion-col col-12 *ngIf="viewprojectstatus?.showdata!='true'">
+     		<button ion-button color="danger" (click)="doCanceljob(this.order_num)">Cancel</button>
+    	</ion-col>		
+	-->
+	 
+	<div  *ngIf="viewprojectstatus?.showdata!='true'">
+		<h5 text-center><b>Reason For Cancellation ?</b></h5>
+		
+		<ion-list radio-group class="radiobtn" [(ngModel)]="cat" >
+		<ion-item *ngFor="let pc of popular">
+		<!-- <ion-label>{{pc.cancel_reason}}</ion-label> -->
+		
+		<ion-label class="ws">{{pc.cancel_reason}}</ion-label>
+	
+		<ion-radio value="{{pc.cancel_id}}" (click)="updateCucumber(pc.cancel_id,pc.cancel_reason)"></ion-radio> 
+		</ion-item>
+		
+		
+		
+		
+		</ion-list>
+
+	</div>
+	
+	<!-- <button ion-button color="danger" (click)="doCanceljob(this.order_num)">Cancel</button> -->
+	 <button ion-button full color="danger" (click)="doCanceljob(this.order_num)">Cancel</button>
+
+  </ion-list>
+  <!-- <ion-list *ngSwitchCase="'Payment'">
+
+  			
+  </ion-list> -->
+</div>
+
+
+	
+
+		
+</ion-content>
+
+
+ 
+  
+
+
+
+		

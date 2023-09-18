@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="darkblue">
+    <ion-title>View Lead</ion-title>
+
+    <ion-buttons end (click)="dismiss()">
+     <button  ion-button small >Back</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+<ion-content>
+	<ion-grid>
+	<ion-row>
+		<ion-col col-5>Order No</ion-col>
+		<ion-col col-7>{{orderheader?.order_num}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Bid Requrd</ion-col>
+		<ion-col col-7>{{orderheader?.bid}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Est Job Starting dttm</ion-col>
+		<ion-col col-7>{{orderheader?.starttime}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Est Job End dttm</ion-col>
+		<ion-col col-7>{{orderheader?.endtime}} </ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5>Comp Price</ion-col>
+		<ion-col col-7>{{orderheader?.comp_price}}</ion-col>
+	</ion-row>
+	<!-- <ion-row>
+		<ion-col col-5>Your Price</ion-col>
+		<ion-col col-7>{{orderheader?.sp_item_price}}</ion-col>
+	</ion-row> -->
+</ion-grid>
+<ion-grid>
+	<ion-row style="background: #042e54; color: #fff">
+		<ion-col col-7>Item Desc</ion-col>
+		<ion-col col-2>Qty</ion-col>
+		<ion-col col-3>Comp Price</ion-col>
+		<!-- <ion-col col-3>Your Price</ion-col> -->
+	</ion-row>
+	<ion-row *ngFor="let od of orderdtl">
+		<ion-col col-7>{{od.custnote}}</ion-col>
+		<ion-col col-2 text-center>{{od.itemqty}}</ion-col>
+		<ion-col col-3 text-center>{{od.comp_item_price}}</ion-col>
+		<!-- <ion-col col-3 text-center>{{od.sp_item_price}}</ion-col> -->
+	</ion-row>
+
+	<!-- <ion-row>
+		<ion-col>
+			AC Servicing and Repair-> Window AC -> LG -> 1 TON -> Complete diagnosis & Repair
+		</ion-col>
+		<ion-col text-center>1</ion-col>
+		<ion-col text-center>500</ion-col>
+		<ion-col text-center>500</ion-col>
+	</ion-row> -->
+</ion-grid>
+</ion-content>
+<ion-footer *ngIf="pending!='pending'">
+
+<ion-grid no-border>
+	<ion-row no-border>
+		<ion-col no-border><button ion-button full (click)="doReject(orderheader?.order_num)">Reject</button></ion-col>
+
+		<ion-col no-border><button ion-button color="darkblue" full (click)="doAccept(orderheader?.order_num,orderheader?.sp_price,orderheader?.popupstatus)">Accept</button></ion-col>
+	</ion-row>
+</ion-grid>
+
+
+  <!-- <ion-toolbar> -->
+	   <!-- <div class="buttonbox">
+	   		<div class="btn"></div>
+	   		<div class="btn"></div>
+	   	</div> -->
+  <!-- </ion-toolbar> -->
+</ion-footer>

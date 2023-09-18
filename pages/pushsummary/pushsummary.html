@@ -1,0 +1,187 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Review and broadcast the campaign </ion-title>
+
+ 
+  </ion-navbar>
+  <ion-toolbar>
+
+    <ion-row >
+      <ion-col col-2 > 
+        <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+       
+         <small> Basic details </small>
+    </ion-col>
+    <ion-col col-1 > 
+
+  </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+    <small> Select Campaign </small>
+    </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+      <small> Select Customers</small>
+    </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+      <small> Preview & Broadcast</small>
+    </ion-col>
+     </ion-row >
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+  <ion-content>
+   
+
+<!--
+<ion-row >
+  <ion-col col-6 no-padding >      
+    <span item-left  style="background:rgba(33, 2, 68, 0.555); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 15px; font-weight: bold;"> Your credit balance:
+    </span>
+    </ion-col>
+  <ion-col col-6 no-padding >      
+    <span item-left  style="background:rgb(7, 196, 23); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 15px; font-weight: bold;">{{credit_bal}}
+    </span>
+    </ion-col>
+</ion-row>
+-->
+
+<div class="mypadding">
+  <ion-grid>  
+
+    <ion-row >
+      <ion-col col-12 no-padding *ngIf="credit_bal=='0'">
+        <h6> Your balance credit: 0 credit </h6>
+      
+      </ion-col>
+      <ion-col col-12 no-padding *ngIf="credit_bal!=''">
+        <h6> Your balance credit: {{credit_bal}} credits </h6>
+      
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col col-12 no-padding>      
+        <h6> Your campaign cost : {{total_cost}} credits </h6>
+      
+      </ion-col>
+    </ion-row>
+ 
+ 
+  </ion-grid> 
+
+  
+  <ion-grid>  
+    <h6> Preview Campaign </h6>    
+      <ion-row *ngIf="comm_type=='W'">
+        <ion-col col-12 *ngIf="image!=''">
+              <img class="sctimg" src="{{image}}" style="height: 100px; width: 80%;    border-radius: 5px;">
+        </ion-col>  
+        <ion-col col-10 >      
+              <span item-left  style="background:rgb(168, 219, 168); padding: 4px 6px; color: rgb(8, 0, 0); border-radius: 6px; font-size: 12px; ">{{d_body}}
+              </span>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="comm_type=='S'">
+
+      <ion-col col-12 >      
+            <span item-left  style="background:rgb(168, 219, 168); padding: 4px 6px; color: rgb(8, 0, 0); border-radius: 6px; font-size: 12px; ">{{d_body}}
+            </span>
+      </ion-col>
+      </ion-row>
+      <ion-row *ngIf="comm_type=='P'">
+      <ion-col col-12 *ngIf="image!=''">
+          <img class="sctimg" src="{{image}}" style="height: 100px; width: 80%;    border-radius: 5px;">
+      </ion-col>  
+      <ion-col col-10 >      
+          <span item-left  style="background:rgb(168, 219, 168); padding: 4px 6px; color: rgb(8, 0, 0); border-radius: 6px; font-size: 12px; ">{{d_body}}
+          </span>
+      </ion-col>
+      </ion-row>
+
+  </ion-grid>
+	
+</div>
+
+<ion-grid>  
+<div class="mypadding">
+  <h6> Customers </h6>
+
+  
+
+	  <ion-row >
+      <ion-col col-12 no-padding>      
+        {{segment_title}} ({{credit_count}})
+      
+      </ion-col>
+    </ion-row>
+	
+	</div>
+</ion-grid>
+
+  <div text-center>
+    <ion-row *ngIf="comm_type=='W'">
+        <button style="padding: 4px; background-color:#C71585; color: #FFF; border-radius: 4px;line-height: 18px;font-size: 16px;" 
+        (click)="submit_whatsapp('',d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+        phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+        temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Send a test message to my mobile</button>
+    </ion-row>
+    <ion-row *ngIf="comm_type=='S'">
+      <button style="padding: 4px; background-color:#C71585; color: #FFF; border-radius: 4px;line-height: 18px;font-size: 16px;" 
+      (click)="submit_sms('',d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+      phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+      temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Send a test message to my mobile</button>
+    </ion-row>
+    <ion-row *ngIf="comm_type=='P'">
+      <button style="padding: 4px; background-color:#C71585; color: #FFF; border-radius: 4px;line-height: 18px;font-size: 16px;" 
+      (click)="submit_push('',d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+      phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+      temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Send a test message to my mobile</button>
+    </ion-row>
+
+  </div>
+
+                                      
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid class="footer_block">
+    <div text-center>
+
+      	<ion-col col-12  *ngIf="comm_type=='W'">
+       	<button class="next_buton1" (click)="submit_whatsapp(userstr,d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+         phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+         temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Submit</button>
+       	</ion-col>
+
+         <ion-col col-12  *ngIf="comm_type=='S'">
+ 
+
+          <button class="next_buton1" (click)="submit_sms(userstr,d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+          phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+          temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Submit</button>
+          </ion-col>
+
+          <ion-col col-12  *ngIf="comm_type=='P'">
+            <button class="next_buton1" (click)="submit_push(userstr,d_body,df1,df2,df3,df4,df5,df6,df7,dv1,dv2,dv3,dv4,dv5,dv6,dv7,
+            phone,whatsapp,company_name,real_image,temp_name,broadcast_name,credit_bal,unitcost,credit_count,    
+            temp_id,segment_id,country_id,comm_type,company_id,busi_phone,busi_whatsapp,busi_email,title)">Submit</button>
+          </ion-col>
+
+
+
+   </div>
+</ion-grid>
+
+</ion-footer>

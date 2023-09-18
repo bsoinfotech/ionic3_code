@@ -1,0 +1,259 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+
+    <ion-title>BsoApp</ion-title>
+
+<!--
+     <ion-buttons end>
+-->
+      <!--
+      <button ion-button icon-only (click)="gotoSearch();">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      -->
+      <ion-buttons end  *ngIf="ssphone>0">
+        <a href="tel:{{ssphone}}" class="callbtn" >
+        <ion-icon name="ios-call"></ion-icon></a>
+     </ion-buttons>
+
+    <ion-buttons end>
+
+      <button id="notifi-btn" ion-button icon-only (click)="gotoNotification();">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-badge id="notifi-badge">{{not_count}}</ion-badge>
+      </button>
+
+       <button ion-button icon-only (click)="exitapp();">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+		<ion-col col-1 text-right>
+
+			<p><img src="assets/img/map_icon.png" style="width: 20px;" (click)="custsetaddress()" alt=""> </p>
+		</ion-col>
+
+		<ion-col col-14><p style="line-height: 20px;" (click)="custsetaddress()">{{location}}</p></ion-col>
+
+
+    </ion-row>
+
+
+</ion-grid>
+
+<!--
+
+ <p>  <button ion-button color="danger" clear (click)="custsetaddress()"> Click here to change delivery location</button></p>
+
+<ion-col col-14><p style="line-height: 20px;" (click)="custsetaddress()">{{location}}</p></ion-col>
+//	  <ion-col col-14> <p> <ion-label>{{location}}</ion-label>
+	//  <button ion-button color="danger" clear (click)="custsetaddress()"> xx</button></p></ion-col>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-1 text-right>
+        <p><img src="assets/img/map_icon.png" style="width: 20px;" alt=""> </p>
+      </ion-col>
+       <ion-col col-14><p style="line-height: 20px;">{{location}}</p></ion-col>
+    </ion-row>
+</ion-grid>
+
+-->
+ <!--
+
+<ion-grid>
+  <ion-row>
+    <ion-col text-center>
+      <p> <ion-label>If increase team size limit</ion-label> <button ion-button color="danger" clear (click)="goPopuppage()">click here...</button></p>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row>
+    <ion-col text-center>
+      <button ion-button style="background: #4a8bfc" (click)="goPopuppage()">  Team size Limit</button>
+    </ion-col>
+  </ion-row> -->
+
+<!--
+<div class="banners">
+	<ion-slides pager>
+
+  <ion-slide *ngFor="let b of banners">
+   <img src="{{b.image}}">
+  </ion-slide>
+
+</ion-slides>
+</div>
+-->
+<div class="banners">
+	<ion-slides pager>
+
+  <ion-slide *ngFor="let b of banners">
+		<ion-row *ngIf="(b.status !='0')">
+
+			<img src="{{b.image}}"  (click)="gotoSubCat(b.cat_id,b.ref1,b.status,b.endpoint)">
+
+
+			<!-- <img src="{{b.image}}" style="width: 320px; height: 80px;margin: 1px 1px;" (click)="gotoSubCat(b.cat_id,b.ref1,b.status,b.endpoint)">
+			-->
+
+		</ion-row>
+  </ion-slide>
+
+</ion-slides>
+</div>
+<!--
+<ion-row *ngIf="(showrefer=='1')">
+<div class="banners1">
+<img src="https://bsoinfotech.com/servicefinder/uploads/refer_earn.JPG"  (click)="refer()">
+<br>
+</div>
+</ion-row>
+-->
+
+<ion-col col-12 *ngIf="(showrefer=='1')">
+  <img class="sctimg" src={{jobimage}} style="height: 100px; width: 100%;    border-radius: 5px;"(click)="refer()">
+<br>
+  </ion-col>
+
+
+<div class="mypadding">
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-4 *ngFor="let c of categories">
+    	<ion-card class="block" text-center (click)="gotoSubCat(c.id,c.ref1,c.status,c.endpoint)">
+    		<ion-card-content>
+    			<img src="{{c.catpicture}}">
+    			<p>{{c.cat_name}}</p>
+    		</ion-card-content>
+    	</ion-card>
+    </ion-col>
+
+  </ion-row>
+
+</ion-grid>
+
+</div>
+
+<!--------------------------<ion-icon name="trophy-sharp"></ion-icon>------------------->
+
+<ion-row *ngIf="showpromosection>0">
+<h5 style="text-align: center;">{{title}}</h5>
+</ion-row>
+
+<div class="banners3" *ngIf="showpromosection>0">
+	<ion-slides pager>
+
+  <ion-slide *ngFor="let cat of promoinfo;let i=index;" [ngClass]="{'top_bg':(cat.show_promo=='Y')}">
+    <ion-row>
+
+    <ion-col  col-5 no-padding  style="padding: 4px"> {{cat.header}}</ion-col>
+    <button style="padding: 5px; background-color:#008000; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;" (click)="gopromopage(cat.promo_code)">{{cat.promo_code}}</button>
+  <!--  <ion-col  style="padding: 4px; background-color:#006400; color: #FFF; border-radius: 4px;line-height: 14px;font-size: 14px;" col-3> <b> {{cat.coupon_status}} </b></ion-col> -->
+
+  <ion-col *ngIf="cat.showbuyoption=='0'">
+      <button style="float: right; padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 13px;" (click)="checkpromoorder()">{{cat.button_label}} </button>
+  </ion-col>
+  <ion-col *ngIf="cat.showbuyoption=='1'">
+    <button style="float: right; padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 13px;" (click)="buycoupon(cat.promo_code,cat.package_id)">{{cat.button_label}} </button>
+    <!--    <ion-col  style="padding: 0px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;" col-3> <b> {{cat.button_label}} </b></ion-col> -->
+  </ion-col>
+
+
+
+    </ion-row>
+
+    <ion-row *ngIf="cat.desc1!=''">
+      <ion-col  col-12 no-padding ><small>{{cat.desc1}} {{cat.desc2}}  </small></ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="cat.desc3!=''">
+        <ion-col  col-12 no-padding ><small>{{cat.desc3}} </small></ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="cat.promo_bal_amt>0">
+        <ion-col  col-8 no-padding text-left> <small>{{cat.promo_bal_amt_text}} </small></ion-col>
+
+      <!--  <button style="float: right; padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 13px;" (click)="checkpromoorder()">{{cat.button_label}} </button> -->
+
+    </ion-row>
+
+    <ion-row *ngIf="cat.expiry_date_text!=''">
+      <ion-col  col-8 no-padding text-left> <small> {{cat.expiry_date_text}} </small></ion-col>
+    </ion-row>
+
+  </ion-slide>
+
+</ion-slides>
+</div>
+<!------------------------------------------------------------->
+
+<ion-row *ngIf="(currentdeals!='')">
+  <h5 style="text-align: center;">{{currentdeals}}</h5>
+</ion-row>
+
+
+<ion-col col-12 *ngFor="let ads of adslist">
+  <img class="sctimg" src={{ads.image}} style="height: 100px; width: 100%; border: 1px solid #aeb7ca;   border-radius: 4px;"(click)="getscreen1(ads.page,ads.input1,ads.input2,ads.input3)">
+
+  <ion-row *ngIf="ads.video !=''">
+  <video src = "{{ads.video}}#t=0.1" controls="controls" controlsList="nofullscreen nodownload noremoteplayback" style="width: 100%;"></video>
+  </ion-row>
+</ion-col>
+
+<!---------------SS promise------------ -->
+
+<ion-row *ngIf="(showsspromise!='')">
+  <h5 style="text-align: center;">{{showsspromise}}</h5>
+    <img class="sctimg" src={{promiseimage}} style="height: 340px; width: 100%;    border-radius: 5px;">
+</ion-row>
+
+<h5 style="text-align: center;">Customer Stories</h5>
+<div class="banners2">
+	<ion-slides pager>
+
+  <ion-slide *ngFor="let b1 of cstory">
+		<ion-row *ngIf="(b1.status !='0')">
+			<img src="{{b1.image}}">
+    <!--    <img class="sctimg" src={{b1.image}} style="height: 100%; width: 100%;    border-radius: 5px;"> -->
+		</ion-row>
+  </ion-slide>
+
+</ion-slides>
+</div>
+<br>
+
+
+
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid class="footer_block">
+    <ion-row>
+      <ion-col col-3 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-briefcase"></ion-icon>Bookings</ion-col>
+      <ion-col col-2> <ion-icon name="ios-people-outline" (click)="goNextpage('CustomercarePage')"></ion-icon> Help</ion-col>
+      <ion-col col-3> <ion-icon name="ios-people-outline" (click)="goNextpage('TeamPage')"></ion-icon>Rewards </ion-col>
+
+      <ion-col col-2> <ion-icon name="ios-cash-outline" (click)="goNextpage('WalletPage')"></ion-icon> Wallet</ion-col>
+      <ion-col col-2> <ion-icon name="ios-person-outline" (click)="goNextpage('ProfilePage')"></ion-icon> Profile</ion-col>
+
+    </ion-row>
+</ion-grid>
+
+</ion-footer>

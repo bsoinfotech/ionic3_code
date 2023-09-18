@@ -1,0 +1,98 @@
+page-dashboard {
+  .mypadding{ padding: 10px;}
+  .banners{height: 200px; background-color: #e5e5e5;}
+  .banners1{height: 90px;width: 100%; background-color: #e5e5e5;border: 4px solid #aeb7ca;}
+  .banners2{height: 200px;width: 100%; background-color: #e5e5e5;border: 1px solid #aeb7ca;}
+  .banners3{height: 180px;width: 100%; background-color: #e5e5e5;border: 1px solid #aeb7ca;}
+  
+  .swiper-container-horizontal > .swiper-pagination-bullets{}
+  
+  .card{margin: 0; width: 100%; min-height: 140px; background: #E5E5E5; box-shadow:none;}
+  .card-content{padding: 5px; font-size: 1.3rem; min-height: 140px;}
+  ion-card img{width: 65px; margin: 0 auto; height: 65px;}
+  .card p{font-size: 1.2rem; margin: 10px 0}
+  .grid{padding:0}
+  .swiper-slide img{width: 100%;}
+
+.box{width: 100%; height: 60px; border: 1px solid #fff; border-radius: 8px; color: #fff; font-size: 15px; font-weight: bold; padding: 10px;}
+.box img{width: 40px; height: 40px; margin: 10px auto; display: block; }
+.color1{background: #4D97EB}
+.color2{background: #E4911E}
+.color3{background: #B4D600}
+.color4{background: #53CACE}
+.color5{background: #E9702F}
+.color6{background: #F369A8}
+.color7{background: #b66afb}
+.color8{background: #c2185b}
+.color9{background: #000080}
+.color10{background: #c2185b}
+.color11{background: #FF7F50}
+.color12{background: #008000}
+.color13{background: #FF0000}
+.color14{background: #6B8E23}
+
+ion-card-header{border-bottom: 1px solid #dedede; font-weight: bold;}
+.nn_1 .button-inner {color: #000;}
+.nn_1{background: #008000}
+.bg_hed{background-color: #488aff; color: #FFF;}
+.bg_hed .col{    font-size: 14px!important;}
+
+.notifi-badge1 {
+  position: absolute;
+    top: -1px;
+    right: 0px;
+    text-align: left;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 28px;
+    color:white;    
+    padding: 0px;
+    padding-top: 4px;
+}
+
+#notifi-badge {
+  position: absolute;
+    top: -5px;
+    right: 0px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 11px;
+    height: 18px;
+    width: 18px;
+    padding: 0px;
+    padding-top: 4px;
+}
+.grid[no-padding] > .row > .col{padding:3px;}
+
+.profilelogo{background: #042e54; text-align: left;}
+.profilelogo img{width:10px; height: 10px; margin: 10px 0;}
+
+.tabs .tab-button[aria-selected=true] .tab-button-icon,.tabs .tab-button[aria-selected=true] .tab-button-text{color: #000;}
+.up_img{    width: 32px;
+  height: 30px;
+  float: left;
+  margin-top: 10px;
+  }
+.footer_block ion-icon{display: block;    margin-top: 2px;
+    padding-bottom: 0px;
+    min-width: 1.0rem;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform-origin: 50% 150%;
+    transform-origin: 50% 150%;}
+.footer_block {background-color: #488aff;text-align: center; font-size: 1.3rem!important; padding-bottom: 0px!important;  color: rgba(255, 255, 255, 0.7);}
+.footer_block .active, .footer_block .active ion-icon{color: #000;}
+
+
+.valid_till {color: rgba(247, 45, 45, 0.7);}
+.package_name {color: rgba(247, 45, 45, 0.7);}
+.uplan {background-color: #c8f32d;text-align: center; font-size: 1.1rem!important; padding-bottom: 0px!important;  color: rgba(243, 16, 16, 0.7);}
+
+
+
+
+}

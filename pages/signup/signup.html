@@ -1,0 +1,86 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-header>
+
+  <ion-navbar [hideBackButton]="false">
+
+    </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <div class="logo">
+    <img src="assets/imgs/logo.png">
+  </div>
+  <form (submit)="doUserSignup()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Select Country</ion-label>
+        <ion-select [(ngModel)]="signup.isd_code" name="isd_code" interface="popover">
+            <ion-option *ngFor="let ci of counties" value="{{ci.isd_code}}">{{ci.countryname}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-icon name="ios-person-outline" item-left></ion-icon></ion-label>
+        <ion-input type="text" placeholder="*Full Name" [(ngModel)]='signup.first_name' name='first_name'></ion-input>
+      </ion-item>
+	  <ion-item>
+        <ion-label><ion-icon name="ios-call-outline" item-left></ion-icon></ion-label>
+        <ion-input type="tel" maxlength='10' placeholder="*Whatsapp Number" [(ngModel)]='signup.phonenumber' name='phonenumber'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-icon name="ios-mail-outline" item-left></ion-icon></ion-label>
+        <ion-input type="text" placeholder="Email ID " [(ngModel)]='signup.email' name='email'></ion-input>
+      </ion-item>
+<!--
+	  <ion-item>
+        <ion-label><ion-icon name="ios-pin" item-left></ion-icon></ion-label>
+        <ion-input type="tel" maxlength='6' placeholder="Your Pin Code " [(ngModel)]='signup.pin' name='pin'></ion-input>
+      </ion-item>
+
+
+
+
+-->
+
+
+
+      <!-- <ion-item>
+        <ion-label fixed>{{ 'NAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item> -->
+
+      <!--
+      Want to add a Username? Here you go:
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+      </ion-item>
+      -->
+
+     <!--  <ion-item>
+        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item> -->
+
+      <div>
+        <button ion-button color="primary" round block>Next</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,40 @@
+<!-- <ion-header>
+
+  <ion-navbar color="darkblue">
+  	<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-content>
+
+<video src = "{{video?.video}}#t=0.1" controls="controls" controlsList="nofullscreen nodownload noremoteplayback" style="width: 100%;"></video> 
+
+<div padding-horizontal>
+	<ol>
+		<li>
+			<h1>Complete Your Profile</h1>
+			<p>Your business detail </p>
+			<p>Your service location </p>
+			<p>Your ID proof </p>
+			<p>Your award & certification detail </p>
+
+		</li>
+		<li>
+			<h1>Profile Verification and Approval</h1>
+			<p>Your profile verification and approval by admin</p>
+		</li>
+		<li>
+			<h1>Purchase Credit</h1>
+			<p> Start business without any credit purchase</p>
+			<p> No Leads purchase, pay minimum only for job done </p>
+		</li>
+	</ol>
+	<div text-center>
+		<button ion-button round block (click)="createProfile()">Create Your Profile</button>
+	</div>
+</div>
+</ion-content>

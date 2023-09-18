@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Bank Details</ion-title>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+	<ion-list>
+		
+		<ion-item>
+			<ion-label><ion-icon name="ios-podium-outline" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Bank Name" [(ngModel)]='bankname' name='bankname'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-person-outline" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="Bank A/C. Name" [(ngModel)]='bankactname' name='bankactname'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon></ion-label>
+			<ion-input type="tel" placeholder="Account Number" [(ngModel)]='accountnumber' name='accountnumber'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="IFSC Code" [(ngModel)]='ifsccode' name='ifsccode'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label><ion-icon name="ios-card" item-left></ion-icon></ion-label>
+			<ion-input type="text" placeholder="PAN ID" [(ngModel)]='pan_id' name='pan_id'></ion-input>
+		</ion-item>
+		<div>
+        <button ion-button color="primary" round block (click)="saveBankdetails(this.attb_id)">Update</button>
+      </div>
+      <div class="sk_1" text-center (click)="skip()">Skip </div>
+	</ion-list>
+</ion-content>

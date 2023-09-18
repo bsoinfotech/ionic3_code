@@ -1,0 +1,45 @@
+page-job1 {
+.mypadding{ padding: 10px;}
+.banners{height: 125px; background-color: #072472;}
+.swiper-container-horizontal > .swiper-pagination-bullets{}
+
+.card{margin: 0; width: 100%; min-height: 70px; background: #a6e181d2; box-shadow:none;}
+.card-content{padding: 5px; font-size: 1.3rem; min-height: 70px;}
+ion-card img{width: 65px; margin: 0 auto; height: 65px;}
+.card p{font-size: 1.2rem; margin: 10px 0}
+.grid{padding:0}
+.swiper-slide img{width: 100%;}
+#notifi-btn {
+   position: relative;
+   padding-right: 12px;
+}
+
+#notifi-badge {
+   position: absolute;
+   top: -5px;
+   right: 0px;
+   text-align: center;
+   border-radius: 50%;
+   font-size: 11px;
+   height: 25px;
+   width:25px;
+   padding: 0px;
+   padding-top: 8px;
+}
+
+}
+.tabs .tab-button[aria-selected=true] .tab-button-icon,.tabs .tab-button[aria-selected=true] .tab-button-text{color: #000;}
+.toolbar-title-md{font-weight: normal; font-size: 1.5rem}
+.footer_block ion-icon{display: block;    margin-top: 3px;
+    padding-bottom: 4px;
+    min-width: 2.4rem;
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform-origin: 50% 150%;
+    transform-origin: 50% 150%;}
+.footer_block {background-color: #488aff;text-align: center; font-size: 1.2rem!important; padding-bottom: 1px!important;  color: rgba(255, 255, 255, 0.7);}
+.footer_block .active, .footer_block .active ion-icon{color: #000;}

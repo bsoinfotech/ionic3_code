@@ -1,0 +1,155 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>details</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+<ion-header >
+
+	<ion-navbar color="darkblue">
+	  <ion-title>Business Address</ion-title>
+
+
+
+	  <ion-buttons end>
+
+
+  
+		 <button ion-button icon-only (click)="logOut()">
+		  <ion-icon name="Logout"></ion-icon>
+		</button>
+	  </ion-buttons>
+  
+	</ion-navbar>
+	
+  
+  </ion-header>
+
+<ion-content>
+
+	<ion-list>
+		
+		
+	<ion-item  *ngIf="provider_status!='1'">
+	  <ion-label><ion-icon name="ios-code-working" item-left></ion-icon>Business Type</ion-label>
+	  <ion-select [(ngModel)]="busitype" name="busitype" interface="popover" >
+		<!--	<ion-select [(ngModel)]="busitype" name="busitype" interface="popover" (ionChange)='getbusitype()'> -->
+	    <ion-option *ngFor="let b of busitypes" [selected]="b.type_id == busitype" value="{{b.type_id}}">{{b.type_name}}</ion-option>
+	  </ion-select>
+	</ion-item>
+
+	<div text-center *ngIf="provider_status!='1'">
+	<button style="padding: 4px; background-color:#C71585; color: #FFF; border-radius: 4px;line-height: 14px;font-size: 12px;" (click)="callbusiadd(user_id)">Add New Business type</button>
+	</div>
+<!--
+<ion-item>
+	<ion-label ><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+	<ion-input type="text" maxlength='50' placeholder="Shop/Business/Your name (one time setup)" [(ngModel)]='businessname' name='businessname'></ion-input>
+</ion-item>
+<ion-label> You can not change one saved. Your website link will be {{businessname}}</ion-label>
+
+
+<ion-item>
+  <ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Country</ion-label>
+  <ion-select [(ngModel)]="country" name="country" interface="popover" >
+    <ion-option *ngFor="let ccc of counties" [selected]="ccc.id == country" value="{{ccc.id}}" (ionSelect)="getStates(ccc.id)">{{ccc.countryname}}</ion-option>
+  </ion-select>
+</ion-item>
+
+-->
+
+<ion-item>
+	<ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>State/Province</ion-label>
+	<ion-select [(ngModel)]="state" name="state" interface="popover">
+	<ion-option *ngFor="let s of states" [selected]="s.id == state" value="{{s.id}}" >{{s.state}}</ion-option>
+	</ion-select>
+</ion-item>
+
+<ion-item>
+	<ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon></ion-label>
+	<ion-input type="text" placeholder="City" [(ngModel)]='city' name='city'></ion-input>
+</ion-item>
+
+<ion-item>
+	<ion-label><ion-icon name="ios-pin" item-left></ion-icon></ion-label>
+	<ion-input type="tel" maxlength='6' placeholder="Your Pin Code " [(ngModel)]='pincode' name='pincode'></ion-input>
+  </ion-item>
+
+<!----
+		<ion-item>
+			<ion-label>Set Delivery Area</ion-label>
+		 		<ion-toggle [(ngModel)]="check_service_area" slot="check_service_area"  checked ></ion-toggle>
+		</ion-item>
+
+		<ion-item>
+			<ion-label><ion-icon name="ios-code-working" item-left></ion-icon>Product Image Quality</ion-label>
+			<ion-select [(ngModel)]="photo_quality" name="photo_quality" interface="action-sheet" >
+				<ion-option *ngFor="let pq of imagequalitys" value="{{pq.id}}">{{pq.note}}</ion-option>
+			</ion-select>
+		</ion-item>
+	-->
+
+	<ion-item>
+		<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+		<ion-input type="textarea" rows={6} cols={20} placeholder="Business Address1" [(ngModel)]='address1' name='address1'></ion-input>		
+	</ion-item>
+	<ion-item>
+		<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+		<ion-input type="textarea" rows={6} cols={20} placeholder="Business Address2" [(ngModel)]='address2' name='address2'></ion-input>		
+	</ion-item>
+
+	<ion-item>
+		<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+		<ion-input type="text" placeholder="Land Mark" [(ngModel)]='landmark' name='landmark'></ion-input>
+	</ion-item>
+<!--
+	<ion-item>
+		<ion-label><ion-icon name="ios-call-outline" item-left></ion-icon></ion-label>
+		<ion-input type="tel" maxlength='10' placeholder="Business Phone" [(ngModel)]='busi_phone' name='busi_phone'></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label><ion-icon name="logo-whatsapp" item-left></ion-icon></ion-label>
+		<ion-input type="tel" maxlength='10' placeholder="Business Whatsapp " [(ngModel)]='busi_whatsapp' name='busi_whatsapp'></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+		<ion-input type="text" placeholder="Business Email" [(ngModel)]='busi_email' name='busi_email'></ion-input>
+	</ion-item>
+-->
+</ion-list>
+<!--
+<ion-col col-12 text-centre>
+
+	<button ion-button round block (click)="get_loc_rad()">Set Google Location and Service Area <ion-icon ></ion-icon> </button>
+   </ion-col>
+
+-->
+
+
+
+</ion-content>
+
+<ion-footer>
+	<div>
+	  <ion-row>
+		  <!--
+		<ion-col col-6>
+		 <button ion-button color="primary" icon-end block  (click)="logOut()">logOut <ion-icon ></ion-icon> </button>
+	   </ion-col>
+		  -->
+
+	   <ion-col col-12 text-center>
+		<button ion-button color="primary" icon-end block (click)="updateAddress(this.attb_id)">NEXT <ion-icon ></ion-icon> </button>
+	   </ion-col>
+	 </ion-row>
+  </div>
+  </ion-footer>

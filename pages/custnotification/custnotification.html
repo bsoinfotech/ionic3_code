@@ -1,0 +1,107 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	
+    <ion-title>Notification</ion-title>
+    <ion-buttons end (click)="dismiss()">
+     <button  ion-button small >Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+    <ion-item *ngFor="let not of notifications" [ngClass]="{'readnotification':(not.status=='true')}">
+  
+      <ion-avatar item-start>
+        <img src="assets/img/alarm.png">
+      </ion-avatar>
+      <p>{{not.message}}</p>
+      <ion-note>{{not.date}}</ion-note>
+	  
+	<!--  
+	// <button ion-button small clear (click)="viewProject(not.order_num,not.id)" item-end>View</button>
+	// biplab phase2 0804
+	-->
+      <button ion-button small clear (click)="viewProject(not.order_num,not.id,not.ref5)" item-end>View</button>
+
+    </ion-item>
+	</ion-list>
+	<div text-center *ngIf="nval==false">
+		<img src="assets/img/alarm.png">
+		<h2>No New Notifications !</h2>
+		<p>Check this section for general notifications.</p>
+	</div>
+
+
+
+
+
+	<!-- <ion-card>
+	
+		<ion-card-content>
+			<ion-grid>
+				<ion-row class="bor1" *ngFor="let not of notifications">
+					 <ion-col  col-12>
+						<p>{{not.message}}</p>
+					</ion-col> 
+					<ion-col (click)="viewProject(not.order_num)" col-4>
+						<button ion-button block small clear>View</button>
+					</ion-col>
+				</ion-row>
+
+				<ion-row class="bor1" *ngIf="nval==false">
+					<h3>No notifications</h3>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card> -->
+
+
+	<!-- <ion-card>
+		<ion-card-header>
+			Plumber Service
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<p>Booking Inprogress</p>
+					</ion-col>
+					<ion-col>
+						<button ion-button block small clear>View Project</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-header>
+			AC Repair Service
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<p>Booking Inprogress</p>
+					</ion-col>
+					<ion-col>
+						<button ion-button block small clear>View Project</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card> -->
+
+</ion-content>
+<ion-footer>
+
+ <!-- <<button ion-button full (click)="refresh_screen()">Back</button> -->
+ 
+</ion-footer>

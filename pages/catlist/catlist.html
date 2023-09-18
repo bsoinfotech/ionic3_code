@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+
+    <ion-title>Add Category</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-notifications-outline"></ion-icon><ion-badge color="danger">02</ion-badge>
+      </button>
+    </ion-buttons> -->
+    <ion-buttons end>
+      <button ion-button small (click)="dismiss()">Back</button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<!-- <ion-searchbar placeholder="Search by business category"></ion-searchbar> -->
+
+
+<ion-list >
+  <ion-list-header>
+   <small>Add Category From Existing Inventory </small> 
+  </ion-list-header>
+
+  <div padding text-center>
+    <button ion-button round (click)="checkinventory()">Go To Inventory</button>
+  
+  </div>
+<!--
+  <ion-grid>
+    <ion-item>
+      <ion-label stacked>Select Category</ion-label>
+        <ion-select [(ngModel)]="catid" name="catid" interface="popover">
+          <ion-option *ngFor="let cat of categories" value="{{cat.cat_id}}">{{cat.cat_name}}</ion-option>
+        </ion-select>
+    </ion-item>
+  </ion-grid>
+-->
+
+      
+   
+
+
+</ion-list>
+
+<div>
+  <br>
+  <ion-col col-12 text-center style=color:Red;  >
+    Category not found in inventory? click below Button to create new category
+    
+  </ion-col>
+</div>
+
+<div padding text-center>
+  <button ion-button round (click)="AddCategory()">Create New Category</button>
+
+</div>
+
+
+
+
+</ion-content>
+
+
+
+<ion-footer>
+  <div>
+    <ion-row>
+
+     <ion-col col-12 text-right>
+      <button ion-button color="primary" icon-end block (click)="saveCategory()">Save <ion-icon ></ion-icon> </button>
+     </ion-col>
+   </ion-row>
+</div>
+</ion-footer>

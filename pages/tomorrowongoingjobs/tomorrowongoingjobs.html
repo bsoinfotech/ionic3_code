@@ -1,0 +1,86 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<ion-buttons left>
+   <button ion-button clear color="light" icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+  </ion-buttons>
+    <ion-title>Complete Jobs</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid>
+		<ion-row>
+			<!-- <ion-col (click)="goacceptedPage()">
+				Accepted
+			</ion-col> -->
+			<ion-col (click)="gotodayPage()">
+				Open Jobs
+			</ion-col>
+			<ion-col>
+				Complete Jobs
+			</ion-col>
+			<ion-col (click)="gocancelPage()">
+				Closed/Cancelled
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<ion-grid class="table" padding-top>
+
+				<ion-row class="bg_h1">
+					<ion-col col-3>
+						Scheduled On
+					</ion-col>
+					<!-- <ion-col col-2>
+						Order No.
+					</ion-col>
+					-->
+					<ion-col col-4>
+						Order Dtls
+					</ion-col>
+					<ion-col col-3>
+						Status
+					</ion-col>
+					<ion-col col-2>
+
+					</ion-col>
+
+				</ion-row>
+
+				<ion-row *ngFor="let tomorrow of tomorrowjob" class="tablerow">
+					<ion-col col-3>
+						{{tomorrow.order_est_sdttm}}
+					</ion-col>
+					<!--<ion-col col-2>
+						{{tomorrow.order_num}}
+					</ion-col>
+					-->
+					<ion-col col-4>
+						{{tomorrow.description | slice:0:30}} - {{tomorrow.order_num}}
+					</ion-col>
+					<ion-col col-3>
+						{{tomorrow.status}}
+					</ion-col>
+
+					<ion-col col-2 *ngIf="tomorrow.flag=='1'">
+						<button style="padding: 5px; background-color: red; color: #FFFF; border-radius: 7px;line-height: 17px;font-size: 13px;" (click)="goviewproject(tomorrow.order_num)">Assign Agent</button>
+					</ion-col>
+					<ion-col col-2 *ngIf="tomorrow.flag=='0'">
+						<button style="padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 13px;" (click)="goviewproject(tomorrow.order_num)">View Job</button>
+					</ion-col>
+				</ion-row>
+				<ion-row *ngIf="nval1==false">
+					<ion-col col-12 style="text-align: center; color: red; font-weight: bold;">
+						No Jobs Available
+					</ion-col>
+				</ion-row>
+
+</ion-grid>
+
+
+</ion-content>

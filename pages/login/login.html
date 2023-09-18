@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar [hideBackButton]="false">
+       
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="logo">
+    <img src="assets/imgs/logo.png">
+  </div>
+  
+  
+   <h6 style="color:#FFF"> Existing Account ?</h6>
+   <br>
+  <form>
+    <ion-list>
+
+
+      <ion-item>
+      <ion-label><ion-icon name="ios-pin-outline" item-left></ion-icon>Select Country</ion-label>
+      <ion-select [(ngModel)]="account.isd_code" name="account.isd_code" interface="popover">
+          
+        <ion-option *ngFor="let ci of counties" value="{{ci.isd_code}}">{{ci.countryname}}</ion-option>
+      </ion-select>
+      </ion-item>
+
+      <ion-item>
+       
+		<ion-label><ion-icon name="ios-call-outline" item-left></ion-icon></ion-label>
+        <ion-input type="tel" placeholder="Whatsapp Number" [(ngModel)]="account.phone" name="phone" maxlength="10"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label><ion-icon name="ios-call-outline" item-left></ion-icon></ion-label>
+        <ion-input type="number" placeholder="Contact Number" [(ngModel)]="account.password"></ion-input>
+      </ion-item> -->
+
+     <!--  <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item> -->
+
+      <!--
+      Want to use a Username instead of an Email? Here you go:
+
+      <ion-item>
+        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+      </ion-item>
+      -->
+
+      <!-- <ion-item>
+        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item> -->
+
+      <div>
+        <button ion-button color="primary" round block (click)="doUserLogin();" >{{ 'LOGIN_BUTTON' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+
+  <div class="orpart">
+    <span>OR</span>
+  </div>
+  <!--  biplab phase2 0813 --social login not working 
+  <div class="sociallinks">
+    <button ion-button round icon-only clear>
+      <img (click)="doSocialLogin();" src="assets/imgs/facebook.png">
+</button> 
+<button ion-button round icon-only clear>
+  <img (click)="googleLogin();" src="assets/imgs/google.png">
+</button>
+  </div>
+  -->
+  
+  
+  <div text-center padding>
+   <h6 style="color:#FFF"> New Account?</h6>
+   
+  <button ion-button color="primary" clear (click)="signupTapped(this.utype)">Sign Up </button>
+</div>
+</ion-content>

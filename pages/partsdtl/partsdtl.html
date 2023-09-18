@@ -1,0 +1,84 @@
+<!--
+  Generated template for the Teamscreen2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+ 
+  <ion-navbar color="darkblue">
+    <ion-title>{{this.cat_name}} -Part(s) Cost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<!--
+        <ion-row class="bg_h1">
+          <ion-col col-5>
+           Parts Name
+          </ion-col>
+      
+          <ion-col col-3>
+           Parts Cost (Rs)
+          </ion-col>
+
+           <ion-col col-3>
+            Labour Cost (Rs)
+          </ion-col>
+             
+        </ion-row>
+		-->
+		
+		
+	<ion-grid class="tablerow" *ngFor="let out of viewparts">
+
+
+		
+		<ion-row class="bg_h1" *ngIf="out.record_type==0" >
+          <ion-col col-5>
+           {{out.parts_name}}
+          </ion-col>
+          <ion-col col-3>
+            {{out.parts_cost}}
+          </ion-col>
+           <ion-col col-3>
+            {{out.labour_cost}}
+          </ion-col>
+		</ion-row>
+		
+		<ion-row *ngIf="out.record_type==1" >
+			<ion-col text-center style="color:red">
+			<span style="background:#000; padding: 4px 10px; color: #fff; border-radius: 6px; font-size: 14px; font-weight: bold;">{{out.parts_name}}</span>
+			</ion-col>  
+		</ion-row>
+		
+		
+		
+		<ion-row *ngIf="out.record_type==2" >
+			<ion-col text-center style="color:red">
+			<span style="background:#00FF00; padding: 4px 10px; color: #fff; border-radius: 6px; font-size: 14px; font-weight: bold;">{{out.parts_name}}</span>
+			</ion-col>  
+		</ion-row>
+		
+		
+		        <ion-row *ngIf="out.record_type==3" >
+          <ion-col col-5>
+           {{out.parts_name}}
+          </ion-col>
+          <ion-col col-3>
+            {{out.parts_cost}}
+          </ion-col>
+           <ion-col col-3>
+            {{out.labour_cost}}
+          </ion-col>
+        </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <button ion-button full (click)="refresh_screen()">Back</button>
+  
+
+</ion-footer>

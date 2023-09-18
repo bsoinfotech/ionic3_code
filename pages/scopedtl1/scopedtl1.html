@@ -1,0 +1,148 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Detail-View/Modify/Add</ion-title>
+    <ion-buttons end>
+      <button ion-button small (click)="dismiss()">Back</button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+     <button ion-button full (click)="add_header()">Add Section Header</button>     
+  </ion-row>
+  <ion-grid *ngIf="header_flag=='1'">
+    <ion-row class="but_11">
+    <ion-item>	 
+      <hr style="border: 1px solid blue;" />
+      <ion-textarea rows="3" cols="55" placeholder="Add Section Header" [(ngModel)]='header' name="header"></ion-textarea>
+      </ion-item>
+      <div text-center >
+        <button ion-button round (click)="save_header()">Save </button>
+      </div>
+    </ion-row>
+
+  </ion-grid>
+
+
+  <ion-row>
+    <button ion-button full (click)="add_detail()">Add Section Detail</button>     
+ </ion-row>
+ <ion-grid *ngIf="detail_flag=='1'">
+  <ion-row class="but_11">
+    <ion-item>
+			<ion-label stacked>Select Section Header</ion-label>
+			  <ion-select [(ngModel)]="sec_hdr" name="sec_hdr" interface="popover">
+			    <ion-option *ngFor="let s of sec_header" value="{{s.id}}" (ionSelect)="getheaderdtl(s.id)">{{s.note}}</ion-option>
+			  </ion-select>
+		</ion-item>
+    <ion-item>	 
+      <hr style="border: 1px solid blue;" />
+      <ion-textarea auto-grow="true" placeholder="Add Section Detail" [(ngModel)]='detail' name="detail"></ion-textarea>
+      </ion-item>
+      
+      <div text-center >
+        <button slot="end" ion-button round (click)="save_detail()">Save </button>
+      </div>
+  <!--
+
+     <ion-textarea rows="5" cols="55" placeholder="Add Section Detail" [(ngModel)]='detail' name="detail"></ion-textarea>
+    <ion-col col-9>
+      <ion-textarea class="detail" rows="3" cols="100" placeholder="Add Section Detail" [(ngModel)]='detail' name="detail"></ion-textarea>      
+    </ion-col>  
+    <ion-col col-3>  
+      <button ion-button  color="Blue"  (click)="save_detail()">Save </button>
+    </ion-col> 
+  -->
+  </ion-row>
+</ion-grid>
+
+  <br>
+
+  <div *ngIf="import_default_data=='0'||import_default_data=='1'">
+      
+    <!--
+      <video height="220" controls *ngIf="video_path!=''">
+        <source src="{{video_path}}" type="video/mp4" />
+      </video> 
+      <div *ngIf="image_path!=''">
+        <img alt="No Image" src={{image_path}} />
+      </div>
+    -->
+    <h4>Section Overview? </h4>
+    <ion-textarea rows="3" cols="100" placeholder="Section Overview" [(ngModel)]='note' name="note"></ion-textarea>
+   
+
+    <div  *ngFor="let sh of scope_dtl; let i = index" >
+   
+      <div >
+       
+
+        <div *ngIf="sh.subcatid1>0 && sh.subcatid2==0" >
+
+
+                    
+          <ion-textarea class="header" rows="3" cols="55" placeholder="Enter Section Header" [(ngModel)]='sh.note' name="sh.note"></ion-textarea>  
+          <!--
+          <video height="220" controls *ngIf="sh.video_path!=''">
+            <source src="{{sh.video_path}}" type="video/mp4" />
+          </video> 
+          <div *ngIf="sh.image_path!=''">
+            <img alt="No Image" src={{sh.image_path}} />
+          </div>
+          -->      
+
+        </div>
+
+      
+          <div  *ngIf="sh.subcatid1>0 && sh.subcatid2>0" >
+
+            <div *ngIf="sh.section_layout==1||sh.section_layout==2||sh.section_layout==3||sh.section_layout==4||sh.section_layout==5||sh.section_layout==6||sh.section_layout==7">
+              <!--
+              <ion-item>
+                  <ion-textarea class="detail" rows="2" cols="100" placeholder="Enter Section Detail" [(ngModel)]='sh.note' name="sh.note"></ion-textarea>  
+                              
+              </ion-item>
+              -->
+
+
+              <ion-item>	 
+                <hr style="border: 1px solid blue;" />
+                <ion-textarea class="detail" rows="5" cols="55" placeholder="Enter Section Detail" [(ngModel)]='sh.note' name="sh.note"></ion-textarea>
+              </ion-item>
+              <!--
+              <div >
+                <video height="220" controls *ngIf="sh.video_path!=''">
+                  <source src="{{sh.video_path}}" type="video/mp4" />
+                </video> 
+              </div>
+            -->
+
+            </div> 
+    
+            <ion-item *ngIf="sh.section_layout==11"> 
+              <hr style="border: 1px solid blue;" />
+              <ion-textarea class="detail" rows="4" cols="55" placeholder="Enter Section Detail" [(ngModel)]='sh.note' name="sh.note"></ion-textarea>
+            </ion-item>
+<!--
+            <ion-row *ngIf="sh.section_layout==11">
+              <ion-textarea class="detail" rows="2" cols="100" placeholder="Enter Section Detail" [(ngModel)]='sh.note' name="sh.note"></ion-textarea>  
+            </ion-row> 
+-->
+              
+
+          </div>  
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+<div *ngIf="scope_id!=''">
+  <button ion-button full (click)="save_data()">Save</button>
+</div> 
+</ion-footer>

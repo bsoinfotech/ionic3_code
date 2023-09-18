@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Set your delivery location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<h2>Where do you need the service ?</h2>
+	
+<ion-list radio-group [(ngModel)]="location">
+  <div class="new_block1"  *ngFor="let a of useraddress; let i =index">
+  <ion-item>
+    <ion-label>{{a.location_type}}</ion-label>
+	<!-- //a.id added by biplab phase2 0804 -->
+    <ion-radio value="{{a.location_type}}@{{a.address1}}@{{a.address2}}@{{a.lattitude}}@{{a.longitude}}@{{a.id}}"></ion-radio>
+  </ion-item>
+
+  <ion-card-content>
+    {{a.address1}} {{a.address2}}
+  </ion-card-content>
+ 
+<ion-row>
+    <ion-col (click)="gotoAddAddress(a.id,a.lattitude,a.longitude,a.address1)">
+      <button ion-button icon-start clear small >
+        <ion-icon name="ios-create"></ion-icon>
+        <div>Modify</div>
+      </button>
+    </ion-col>
+   
+    <ion-col center text-right (click)="deleteAddAddress(a.id,i)">
+      <button color="danger" ion-button icon-start clear small >
+        <ion-icon name="ios-trash"></ion-icon>
+        <div>Delete</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  </div>
+</ion-list>
+
+<ion-row>
+  <ion-col text-center>
+<button icon-start ion-button round outline (click)="gotoNewAddress('add')"><ion-icon name="ios-add-circle"></ion-icon> Add a new address</button>
+</ion-col>
+</ion-row>
+
+
+</ion-content>
+ <ion-footer>
+ <!-- <button ion-button full (click)="gotoNetScreen()">Save your delivery address</button> -->
+</ion-footer> 

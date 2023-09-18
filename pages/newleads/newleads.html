@@ -1,0 +1,95 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+  	<!-- <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button> -->
+    <ion-buttons left>
+   <button ion-button clear color="light" icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+  </ion-buttons>
+    <ion-title>New Leads</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid>
+		<ion-row>
+			<!-- <ion-col (click)="goleadsmangement()">
+				All Leads
+			</ion-col> -->
+			<ion-col>
+				New ( {{allleadcount}} )
+			</ion-col>
+			<ion-col (click)="gopendingLead()">
+				Pending<span>&nbsp;</span>
+			</ion-col>
+			<ion-col (click)="gocancelLead()">
+				Cancelled
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<!-- <div padding-top text-center><small><b>Note:</b> Click on the Order Number to view project.</small></div> -->
+<ion-grid class="table" padding-top>
+
+				<ion-row  class="bg_h1">
+					<ion-col col-4>
+						Est. Start Date
+					</ion-col>
+					<ion-col col-3>
+						Order Dtl.
+					</ion-col>
+					<!-- <ion-col col-3>
+						Order Desc
+					</ion-col> -->
+					<ion-col col-2>
+						Bid Reqd
+					</ion-col>
+					<ion-col col-3>
+						Point to Point Dist.
+					</ion-col>
+				</ion-row>
+
+				<div *ngFor="let ord of orderdetails" class="tablerow">
+				<ion-row>
+					<ion-col col-4>
+						{{ord.order_est_sdttm}} - {{ord.status}}
+					</ion-col>
+					<ion-col col-3>
+						{{ord.description}} - {{ord.order_num}}
+					</ion-col>
+					<!-- <ion-col col-3>
+						{{ord.description | slice:0:30}}
+					</ion-col> -->
+					<ion-col col-2>
+						{{ord.bid}}
+					</ion-col>
+					<ion-col col-3>
+						({{ord.cust_sp_dist}}) KM
+					 <button style="padding: 3px; background-color:#006400; color: #FFF; border-radius: 4px;line-height: 12px;font-size: 12px;" (click)="openAnyPage(ord.cust_lat,ord.cust_lng)">Google Map</button>
+						
+					</ion-col>
+
+				</ion-row>
+				<ion-row >
+					<ion-col col-7>
+						{{ord.address}}
+					</ion-col>
+					<ion-col col-5>
+						<!-- <b *ngIf="ord.bid=='N'" >View Project</b> -->
+						<button ion-button small color="secondary" (click)="goviewLead(ord.order_num,ord.bid)" >View Project</button>
+					</ion-col>
+					
+				</ion-row>
+			</div>
+
+			<div *ngIf="nval==false">
+				<ion-row>
+					<ion-col col-12 style="color: red;">No Leads</ion-col>
+				</ion-row>
+			</div>
+						

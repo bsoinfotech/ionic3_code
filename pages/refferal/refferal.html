@@ -1,0 +1,59 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Invitation Code</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col  col-12></ion-col>
+          <ion-col  col-12 text-center>
+            {{refermsg}}
+          <!--  If you referred by someone, you must have received an invitation code, please enter the invitation code and get Rs 100 in your Wallet ?
+             <img src="https://bsoinfotech.com/servicefinder/uploads/invite_others.JPG" style="width: 320px; height: 80px;margin: 1px 1px;" >
+             -->
+          </ion-col>
+           <ion-col text-center col-12>
+            <button  ion-button small   (click)="gorefferalPopup()">Enter Invitation Code</button>
+          </ion-col>
+             <ion-col  col-12><hr></ion-col>
+          <ion-col  col-12 text-center>
+            {{refermsg1}}
+
+          </ion-col>
+           <ion-col text-center  col-12>
+             <button  ion-button small   (click)="gornextPopup()">{{refermsg2}} </button>
+          </ion-col>
+
+          <ion-col  col-12></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br/>
+
+
+
+
+<!-- <ion-list>
+  <ion-item>
+    <ion-label>Please enter the reference code if you refered by some one</ion-label>
+    <ion-input type="text" [(ngModel)]="refferalcode" name="refferalcode"></ion-input>
+  </ion-item>
+
+	<ion-item>
+	  <ion-label>Click here if you don't have a reference code</ion-label>
+	  <ion-checkbox [(ngModel)]="nocode" name="nocode" value="0"></ion-checkbox>
+	</ion-item>
+
+</ion-list>
+<div padding>
+  <button block (click)="goNext()">Next</button>
+</div> -->
+
+
+</ion-content>

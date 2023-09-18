@@ -1,0 +1,56 @@
+<!--
+  Generated template for the WalletPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  color="darkblue">
+    <ion-title>Wallet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-grid class="table">
+         <ion-row class="tablerow">
+           <ion-col col-6> Balance (in Rs)</ion-col>
+           <ion-col col-6> Hold Amount (in Rs)</ion-col>
+         </ion-row>
+
+         <ion-row class="tablerow">
+           <ion-col col-6> <b>{{balanceamount}}</b></ion-col>
+           <ion-col col-6> <b>{{clearence}}</b></ion-col>
+         </ion-row>
+</ion-grid>
+<h3 style="text-align: center;">Wallet transaction detail</h3>
+<ion-grid class="table">
+         <ion-row *ngFor="let wal of walletamount">
+           <ion-col col-6> {{wal.created_dttm}}</ion-col>
+           <ion-col style="border-right: 0px;" col-6><button ion-button >Details</button> </ion-col>
+            <ion-col col-6> {{wal.Note}}</ion-col>
+           <ion-col col-6> <b>{{wal.amount}}</b></ion-col>
+
+         </ion-row>
+
+
+</ion-grid>
+
+
+
+</ion-content>
+
+<!-- <ion-footer>
+
+  <ion-grid class="footer_block">
+    <ion-row>
+           <ion-col col-3 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-briefcase"></ion-icon> Job</ion-col>
+            <ion-col col-3 (click)="goNextpage('TeamPage')" > <ion-icon name="ios-people-outline" ></ion-icon> Team</ion-col>
+             <ion-col col-3 (click)="goNextpage('WalletPage')" class="active"> <ion-icon name="ios-cash-outline" ></ion-icon> Wallet</ion-col>
+              <ion-col col-3 (click)="goNextpage('ProfilePage')" > <ion-icon name="ios-person-outline" ></ion-icon> Profile</ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-footer> -->

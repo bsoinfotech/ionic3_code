@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-searchbar name="itemssearch" [ngModel]="itemssearch" (ngModelChange)="getItems($event)" placeholder="Serach for Categories"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-list>
+    <button ion-item  *ngFor="let c of searchcats" (click)="gotService(c.id)">
+      <ion-avatar item-start>
+        <img src="{{c.catpicture}}" />
+      </ion-avatar>
+      <h2>{{c.cat_name}}</h2>
+      <p>{{c.cat_name}}</p>
+     </button>
+  </ion-list>
+</ion-content>

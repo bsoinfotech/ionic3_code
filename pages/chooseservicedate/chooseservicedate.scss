@@ -1,0 +1,16 @@
+page-chooseservicedate {
+h5{font-weight: normal;
+    margin:15px 75px !important;}
+/*ion-slide {
+    width: 18%!important;
+}*/
+.slid_active{background: #042e53;
+    color: #fff;    border-radius: 10px;}
+.block{border:1px solid #ccc; padding: 8px; border-radius: 8px; width: 100%;}
+.block.active{border:1px solid #4A8BFC; color: #4A8BFC; font-weight: bold;}
+.block .day{font-size: 13px;}
+
+}
+.picker-wrapper{ height: 70% !important; }
+.picker-toolbar{background: #042e54 !important;}
+.picker-button{color: #fff !important;}

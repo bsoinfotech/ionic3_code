@@ -1,0 +1,19 @@
+page-login {
+.content{background:#042e54;}
+.scroll-content{ padding: 16px 50px;}
+.logo{ width: 50%; margin: 20px auto; margin-top: 80px; }
+.item{padding: 0 10px; margin-bottom: 10px; border-radius: 30px;}
+.list .item-block .item-inner{border-bottom: none;}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{border:none;box-shadow:none;}
+.item ion-icon[item-left]{margin: 0}
+.label{margin: 13px}
+.text-input{margin: 5px 0px}
+.button-round{padding: 2.3rem 2.6rem}
+.orpart{background: url(../assets/imgs/line-bg.png) center repeat-x; width: 100%; text-align: center; margin: 30px 0;}
+.orpart span{border: 1px solid #fff; border-radius: 50%; color: #fff; padding: 10px; background: #042e54}
+.sociallinks{ width: 100%; text-align: center; }
+.sociallinks .button-round{width: 48px; height: 48px; border-radius: 50%;}
+.toolbar-background { background: transparent; ion-color-base: transparent !important;}
+.header::after{background-image:none;}
+.back-button-icon{color:#fff;}
+}

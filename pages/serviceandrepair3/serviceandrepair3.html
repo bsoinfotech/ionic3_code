@@ -1,0 +1,153 @@
+<ion-header>
+
+   <ion-navbar color="darkblue">
+    <ion-title>{{scatname}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<h6 text-center>{{scatnextscreendesc}}</h6>
+
+	<ion-grid *ngFor="let cat of catinfo;let i=index;" [ngClass]="{'top_bg':(cat.scatshowqty=='n' && cat.scatpicture=='')}">
+  <ion-row >
+    <ion-col  col-8><b>{{cat.scatname}} </b></ion-col>
+	<!--
+     <ion-col col-5 text-center>
+	 -->
+	 <ion-col col-24 text-center>
+         <div  *ngIf="cat.scatshowqty=='y'">
+               <div class="qty"> <div>  <ion-icon name="md-remove" (click)="decreaseCount(this?.qty,cat.id,i)"></ion-icon></div>
+               <div class="cou_1">{{cat.qty}}</div>
+                <div> <ion-icon name="md-add" (click)="updateCount(this?.qty,cat.id,i)"></ion-icon></div>
+           </div>
+         </div>
+		 
+		 <div  *ngIf="cat.scatshowqty=='c'">
+		 <!--
+{{cat.id}}	---	 {{i}} --{{this?.subradios}}
+			<ion-checkbox [(ngModel)]="subradios"  name="subradios"color="dark" ></ion-checkbox>  -->
+			
+
+			<ion-checkbox color="Red" (click)="selectMember(cat,cat.id,i)" [(ngModel)]="cat.checked"></ion-checkbox>
+
+  
+  
+         </div>
+
+     </ion-col>
+	 
+	 
+	  <!-- 
+	  
+	  ============================================================================
+	  <ion-checkbox [(ngModel)]="subradios"  name="subradios"color="dark" (ionChange)="updateqtycount(this?.subradios,'0',cat.id,i)"></ion-checkbox>
+				
+	     <ion-item>
+     <ion-label>Cucumber</ion-label>
+     <ion-checkbox [(ngModel)]="cucumber" (ionChange)="updateCucumber()"></ion-checkbox>
+   </ion-item>
+	  ============================================================================
+		 
+		 <div  *ngIf="cat.scatshowqty=='c'">
+	 <ion-col col-16 text-right>
+		 <ion-checkbox [(ngModel)]="subradios"  name="subradios"color="dark" (ionChange)="updateqtycount(subradios,'0',cat.id,i)"></ion-checkbox>
+	</ion-col>
+         </div>
+
+     -->
+	 
+	 
+	 
+	 
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==0">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 120px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+       <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==20">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 20px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+       <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==40">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 40px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==60">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 60px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==80">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 80px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==100">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 100px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==120">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 120px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==140">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 140px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==160">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 160px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==180">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 180px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==200">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 200px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==220">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 220px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==240">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 240px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==260">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 260px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==280">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 280px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==300">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 300px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==320">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 320px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==340">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 340px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   	   <ion-col col-12 *ngIf="cat.scatpicture!='' && cat.ref1==360">
+       <img class="sctimg" src="{{cat.scatpicture}}" style="height: 360px; width: 100%;    border-radius: 5px;"> 
+       </ion-col>
+	   
+
+
+		<ion-col class="bor_bo nn_2" col-12 *ngIf="(cat.scattotalprice>=cat.scatprice) && (cat.scatprice!=0)"><b>Current Price :</b> {{cat.currentprice}} {{cat.scatdisunitname}} </ion-col>
+		<ion-col class="bor_bo nn_2" col-12  *ngIf="(cat.scattotalprice<cat.scatprice) && (cat.scatprice!=0)"><b>Current Price :</b> <span style="text-decoration: line-through;color: red;">{{cat.scatprice}}</span> {{cat.currentprice}} {{cat.scatdisunitname}}</ion-col>
+
+
+
+
+  </ion-row>
+  
+</ion-grid>
+
+ 
+
+</ion-content>
+
+
+<ion-footer>
+
+ <button ion-button full (click)="checkpartscost(this.userid,this.catid)">Check Part(s) Cost</button>
+ <ion-grid> 
+ 
+<ion-col text-center style="color:red">
+<span style="background:#000; padding: 4px 10px; color: #fff; border-radius: 6px; font-size: 14px; font-weight: bold;">Service Sarkar Commision</span>
+</ion-col>
+<br>
+		<ion-col class="bor_bo nn_2" color="primary" col-12 ><b>On Service :</b> {{service_comm}}%  <b>& On Parts:</b> {{parts_comm}}% </ion-col>
+</ion-grid> 
+	
+  <button ion-button full (click)="gotoNetScreen(this.catid)">BACK TO HOME</button>
+</ion-footer>

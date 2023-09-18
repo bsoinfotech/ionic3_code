@@ -1,0 +1,384 @@
+<ion-header>
+
+	<ion-navbar color="darkblue">
+		<button ion-button icon-only menuToggle>
+		 <ion-icon name="ios-menu"></ion-icon>
+	   </button>
+	   <ion-title>Job Details</ion-title>
+	   <ion-buttons end>
+		 <button ion-button small (click)="refresh_screen()">Home</button>
+	 </ion-buttons>
+	 </ion-navbar>
+
+
+  <ion-toolbar color="light" class="tabstoolbar">
+      <ion-grid class="top_grid">
+		<ion-row>
+			<ion-col>
+				View Project
+			</ion-col>
+			<ion-col (click)="govieworderPage(this.order_num)">
+				View Order
+			</ion-col>
+			<ion-col (click)="goinvoicePage(this.order_num)">
+				Invoice/Rate Card
+			</ion-col>
+			<ion-col (click)="gopaymentPage(this.order_num)">
+				Payment
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+	<ion-segment [(ngModel)]="pet">
+<!-- biplab phase2 0817	
+    <ion-segment-button value="order"> 
+      View Order
+    </ion-segment-button>
+
+    <ion-segment-button value="Reschedule">
+     Reschedule
+    </ion-segment-button>
+     <ion-segment-button value="Cancel">
+      Cancel 
+    </ion-segment-button>
+-->	 
+    <!-- <ion-segment-button value="Payment">
+      Payment
+    </ion-segment-button> -->
+
+
+  </ion-segment>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'order'">
+   <div padding>
+	<ol>
+		<li *ngFor="let vp of viewproject">
+			<h1>{{vp.status}}</h1>
+						<p></p>
+		</li>
+</ol>
+<ion-grid class="box_gri">
+					<ion-row>
+					<ion-col col-6>
+
+					<h5>{{viewprojectstatus?.category}} </h5>
+				</ion-col>
+				<ion-col col-6 text-right>
+					<!-- {{viewprojectstatus?.mod_dttm}} -->
+				</ion-col>
+
+				<ion-col col-4 >
+						Scheduled Time :
+					</ion-col>
+					<ion-col col-8>
+						
+						<strong>{{viewprojectstatus?.order_est_sdttm}}</strong>
+					</ion-col>
+
+				<ion-col col-12>
+					<p>{{viewprojectstatus?.note_sp}}</p>
+					<hr>
+				</ion-col>
+
+				</ion-row>
+				<!-- Customer rating and feedback added		-->	
+				<ion-row *ngIf="(viewprojectstatus?.jobstatus==80)">				
+										
+					<ion-col col-12 *ngIf="viewprojectstatus?.agent_id>0">  
+						Agent : <b>{{viewprojectstatus?.agent_id}} - {{viewprojectstatus?.agent_name}}</b>
+					</ion-col>
+
+					<ion-col col-12>
+						Customer Rating: <b>{{viewprojectstatus?.rating}}</b>						
+					</ion-col>
+
+					<ion-col col-12>
+						Customer Feedback: <b>{{viewprojectstatus?.feedback}}</b>
+					</ion-col>
+		
+				</ion-row>
+				<!-- Customer rating and feedback added		-->	
+				<ion-row *ngIf="(viewprojectstatus?.jobstatus==50) || (viewprojectstatus?.jobstatus==60) || (viewprojectstatus?.jobstatus==70)">
+					<ion-col col-3>
+						<img src="{{viewprojectstatus?.image}}">
+						<span>{{viewprojectstatus?.provider}}</span>
+					</ion-col>
+
+					<ion-col col-6>
+						<span>{{viewprojectstatus?.address1}}</span>
+						<span>{{viewprojectstatus?.address2}}</span>
+						
+					
+					
+					</ion-col>
+
+					<ion-col col-3>
+						<!-- <button ion-button class="callbtn" clear item-end (click)="calltoProvider(viewprojectstatus?.phonenumber)"></button> -->
+
+							<a href="tel:{{viewprojectstatus?.phonenumber}}" class="callbtn"><ion-icon name="ios-call"></ion-icon></a>
+							<br>
+							<br>
+							
+							<br>
+							<!--
+							<a href="#" onclick="window.open('http://maps.google.com/maps?z=12&t=m&q=loc:22.58888+88.3020', '_system', 'location=yes');" >Map</a> 
+							
+							<a href="#" onclick="window.open(viewprojectstatus?.gurl, '_system', 'location=yes');" >Map</a> 
+							<a href="#" onclick="window.open('http://maps.google.com/maps?z=12&t=m&q=loc:'.viewprojectstatus?cust_lat.'+.88.3020', '_system', 'location=yes');" >Map</a> 
+							
+							<a ng-href="#" onclick="window.open(viewprojectstatus?.gurl, '_system', 'location=yes');" >Map</a> 
+							
+							<a href="#" onclick="window.open(viewprojectstatus?.gurl, '_system', 'location=yes');" >Map</a> 
+							
+							<a href="#" click="window.open({{gurl}}, '_system', 'location=yes');" >Map</a> 
+							
+							              <a href="#" ng-href="gurl" onclick="window.open(this.href, '_system', 'location=yes')">
+											{{gurl}}
+											</a
+							-->		
+
+  <!--Basic: auto-select the icon based on the platform 
+  <ion-icon name="navigate" (click)="openAnyPage()">
+  <a href="#" (click)="openAnyPage()">Map</a>
+  </ion-icon>
+  -->
+  <button style="padding: 3px; background-color:#006400; color: #FFF; border-radius: 4px;line-height: 12px;font-size: 12px;" (click)="openAnyPage()">Google Map</button>
+  <!--
+    <ion-icon name="navigate" (click)="openAnyPage()">  
+	<button style="padding: 2px; background-color: #488aff; color: #FFF; border-radius: 3px;line-height: 8px;font-size: 8px;" (click)="openAnyPage()">Google Map</button>
+	</ion-icon>
+	-->
+  
+<!--
+<div padding text-center>
+<button ion-button full (click)="gotomap(this.order_num)">Direction</button>
+</div>
+-->
+  <!--
+  
+    <ion-icon ios="ios-navigate" md="md-navigate" (click)="openAnyPage(gurl)">
+
+		<a href="#" (click)="openAnyPage(gurl)">Map</a>
+  </ion-icon>
+  
+  
+
+
+
+  Advanced: explicity set the icon for each platform 
+  <ion-icon ios="ios-navigate" md="md-navigate">
+  
+  </ion-icon>
+  -->
+              
+							
+											
+											
+										
+											
+			   
+			   
+					</ion-col>
+					
+		
+				</ion-row>
+         
+
+				
+				<ion-row *ngIf="(viewprojectstatus?.act_name!='')">
+					<ion-col text-center *ngIf="viewprojectstatus?.showdata!='true'">
+						 <button ion-button (click)="goPopuppage(this.order_num,viewprojectstatus?.random)">{{viewprojectstatus?.act_name}}</button>
+					</ion-col>
+				</ion-row>
+
+
+				<ion-row *ngIf="viewprojectstatus?.jobstatus==50">
+
+					<ion-col text-center *ngIf="viewprojectstatus?.showdata!='true'">
+						 <button style="padding: 8px; background-color:#DC143C; color: #FFF; border-radius: 8px;line-height: 16px;font-size: 16px;" (click)="cannotstartjob()">Delay in Job Start</button>
+					</ion-col>				
+
+				
+				</ion-row> 
+				
+				
+
+				<ion-row *ngIf="viewprojectstatus?.jobstatus==60">
+					<ion-col text-center>
+					 <button ion-button (click)="confirmcomplete(this.order_num)">Complete the job</button>
+					</ion-col>				
+				</ion-row>
+
+				<ion-row *ngIf="viewprojectstatus?.jobstatus==60">
+
+					<ion-col text-center>
+						 <button style="padding: 8px; background-color:#DC143C; color: #FFF; border-radius: 8px;line-height: 16px;font-size: 16px;" (click)="workinprogress()">Work In Progress </button>
+					</ion-col>				
+
+				
+				</ion-row> 				
+				
+
+
+	</ion-grid>
+
+<ion-grid class="box_gri">		
+				<ion-row *ngIf="(viewprojectstatus?.showagent=='1')">	
+				<ion-col col-6>
+				<b><h6>Agent detail </h6> </b>
+				</ion-col>
+				
+				<!-- <button ion-button color="darkblue" (click)="doAccept(this.order_num,'120','true')">Assign/Change Agent</button> 
+				// #488aff
+				-->
+				
+				
+				<button style="padding: 4px; background-color: #006400; color: #FFF; border-radius: 4px;line-height: 12px;font-size: 12px;" (click)="doAccept(this.order_num,'120','true')">Assign/Change Agent</button>						
+				
+				
+					<!--<ion-col col-3 *ngIf="viewprojectstatus?.agent_id>0">
+						<button ion-button color="darkblue" (click)="doAccept(this.order_num,'120','true')">Assign/Change Agent</button> 
+						 <ion-col no-border><button ion-button color="darkblue" full (click)="doAccept(orderheader?.order_num,orderheader?.sp_price,orderheader?.popupstatus)">Assign/Change Agent</button></ion-col>
+						
+					</ion-col>	
+					-->
+				</ion-row>
+				<br>
+				
+				<ion-row *ngIf="(viewprojectstatus?.showagent=='1')">
+					<ion-col col-3 *ngIf="viewprojectstatus?.agent_id>0">  
+					
+						<img src="{{viewprojectstatus?.agent_photo}}">						
+					</ion-col>
+					
+					<ion-col col-7>						
+						{{viewprojectstatus?.agent_name}}
+						
+						
+					</ion-col>
+					
+					
+					<ion-col col-2 *ngIf="viewprojectstatus?.agent_id>0">  
+						<a href="tel:{{viewprojectstatus?.agent_phone}}" class="callbtn"><ion-icon name="ios-call"></ion-icon></a>		
+						
+					</ion-col>	
+					
+
+				
+				</ion-row>
+				
+				<ion-row *ngIf="(viewprojectstatus?.showagent=='1')">
+				
+				
+				<ion-col col-10 *ngIf="viewprojectstatus?.agent_id>0"> 
+						
+						Rating: <b>{{viewprojectstatus?.agent_rating}}</b>
+					</ion-col>
+					
+				</ion-row>
+</ion-grid>
+
+		
+
+
+		
+		
+	</div>
+	
+	<div>
+		<ion-grid class="box_gri">
+					
+					<ion-row>
+					<ion-col text-center style="padding: 5px; background-color:#32CD32; color: #FFF; border-radius: 5px;line-height: 13px;font-size: 13px;" >
+										-:Notice Board:- 
+						<!--  <button style="padding: 5px; background-color:#32CD32; color: #FFF; border-radius: 5px;line-height: 13px;font-size: 13px;" >-:Notice Board:- </button> -->
+					</ion-col>	
+					
+					</ion-row>
+					
+					<ion-grid class="box_gri" *ngFor="let nt of notice">	
+					
+						<ion-row >
+							<ion-col col-3 style="padding: 4px; background-color:#EEE8AA; border-radius: 4px;line-height: 12px;font-size: 12px;">
+								<img src="{{nt?.profile_image}}">
+								<span>{{nt?.user_name}}</span>
+							</ion-col>
+
+							<ion-col col-9 style="padding: 4px; background-color:#EEE8AA; border-radius: 4px;line-height: 12px;font-size: 12px;">
+								<span>{{nt?.create_dttm}}</span>
+								<span>{{nt?.note}}</span>
+							</ion-col>
+							
+						
+						</ion-row>
+					</ion-grid>
+		</ion-grid>
+	
+	</div>
+
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'Reschedule'">
+<div padding *ngIf="viewprojectstatus?.showdata=='true'">
+<ion-list>
+
+<ion-item *ngIf="startdateflag==true">
+  <ion-label color="darkblue">Start Date :</ion-label>
+  <ion-datetime displayFormat="DD/MMMM/YYYY" [min]="startdate" [(ngModel)]="startdate" name="startdate" max="2025-10-31" placeholder="Select Start Date" [max]="fdate"></ion-datetime>
+</ion-item>
+
+<ion-item *ngIf="startdateflag==true">
+  <ion-label color="darkblue">Start Time :</ion-label>
+  <ion-datetime displayFormat="hh:mm a" [(ngModel)]="starttime" name="starttime" placeholder="Select Start Time" minuteValues="0,30"></ion-datetime>
+</ion-item>
+
+<ion-item *ngIf="enddateflag==true">
+  <ion-label color="darkblue">End Date :</ion-label>
+  <ion-datetime displayFormat="DD/MMMM/YYYY" [min]="enddate" [(ngModel)]="enddate" name="enddate" max="2025-10-31" placeholder="Select End Date"></ion-datetime>
+</ion-item>
+
+<ion-item *ngIf="enddateflag==true">
+  <ion-label color="darkblue">End Time :</ion-label>
+  <ion-datetime displayFormat="hh:mm a" [(ngModel)]="endtime" name="endtime" placeholder="Select End Time"></ion-datetime>
+</ion-item>
+
+
+</ion-list>
+
+<div padding text-center>
+<button ion-button full (click)="gotoNetScreen()">Reschedule</button>
+</div>
+
+</div>
+
+
+
+
+
+  </ion-list>
+  <ion-list *ngSwitchCase="'Cancel'">
+  	<ion-col col-12 *ngIf="viewprojectstatus?.showdata=='true'">
+
+    		<button ion-button color="danger" (click)="doCanceljob(this.order_num)">Cancel</button>
+    	</ion-col>
+  </ion-list>
+  <!-- <ion-list *ngSwitchCase="'Payment'">
+    		
+
+  </ion-list> -->
+</div>
+
+
+
+
+
+		
+</ion-content>
+
+		

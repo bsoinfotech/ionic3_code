@@ -1,0 +1,107 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Service Location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <!-- <h6 style="color:blue" ;text-left>Add additional detail to find you quickly.</h6> -->
+<h5 text-left style="color:blue" >Add additional detail to find you quickly.</h5>
+<!-- <hr style="border: 1px solid blue;" /> -->
+<ion-grid>
+
+  <ion-row>
+
+<ion-item>
+
+  <ion-textarea rows="3" cols="55" placeholder="location" [(ngModel)]='address1' name="address1"></ion-textarea>
+
+</ion-item>
+
+
+		<!-- <ion-textarea placeholder="location" [(ngModel)]='address1' name="address1"></ion-textarea> -->
+  <!--
+   <div *ngIf="address1!=''">
+   <ion-item>
+	<ion-label><ion-icon name="paper" item-left></ion-icon></ion-label>
+	<ion-textarea placeholder="location" [(ngModel)]='address1' name="address1"></ion-textarea>
+</ion-item>
+
+	</div>
+	-->
+
+  </ion-row>
+
+</ion-grid>
+<ion-grid>
+
+  <ion-row>
+    <ion-col col-12 no-padding >
+    <h6 text-left style="color:blue" >Enter Flat / Building / Street</h6>
+    </ion-col>
+    <ion-col col-12 no-padding >
+<!--   <hr style="border: 1px solid blue;" /> -->
+   </ion-col>
+    <ion-col col-12 no-padding >
+      <ion-input  type="text" placeholder="Flat / Building / Street" [(ngModel)]="address2" name="address2" ></ion-input>
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+<ion-grid>
+    <ion-row>
+
+      <ion-col col-12 no-padding >
+      <h6 text-left style="color:blue" >Select address type</h6>
+      </ion-col>
+
+<!--	<ion-col col-12 no-padding ><p style="line-height: 16px;color:blue;" ><b>Select address type </b></p></ion-col> -->
+
+  </ion-row>
+
+  <ion-row radio-group [(ngModel)]="servicelocation" name="servicelocation" (ionChange)="getLocationtype($event)">
+    <ion-col col-4 no-padding >
+      <ion-item>
+	<ion-label>Home</ion-label>
+    <ion-radio value="1" item-left checked></ion-radio>
+  </ion-item>
+
+    </ion-col>
+    <ion-col col-4 no-padding >
+      <ion-item>
+    <ion-label>Office</ion-label>
+    <ion-radio value="2" item-left></ion-radio>
+  </ion-item>
+    </ion-col>
+
+    <ion-col col-4 no-padding >
+      <ion-item>
+    <ion-label>Other</ion-label>
+    <ion-radio value="3" item-left></ion-radio>
+  </ion-item>
+    </ion-col>
+
+  </ion-row>
+  <ion-row>
+    <ion-col no-padding >
+      <ion-input *ngIf="showoinput" type="text" placeholder="Enter Other Type" [(ngModel)]="othertype" name="othertype" ></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 no-padding >
+      <div #map id="map" style="height: 120px"></div>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+ </ion-content>
+
+<ion-footer>
+  <button ion-button full (click)="gotoNetScreen(this.id)">Save address </button>
+</ion-footer>

@@ -1,0 +1,17 @@
+page-profile-status {
+    .profile-banner{height: 200px; background: #4a8bfc; text-align: center; color: #fff; padding: 20px 0;}
+    .pro-pic{width:80px; height: 80px; border-radius: 50%;}
+    h2{font-weight: normal; font-size: 20px; margin-top: 0.5rem; margin-bottom: 0.5rem}
+    p{font-size: 15px; font-weight: normal;}
+    ion-list ion-icon{color: #4a8bfc; font-size: 26px;}
+    .cl{clear: both;}
+    ion-list span.count{width: 21px; height: 21px; line-height: 21px; display: inline-block; font-size: 12px; text-align: center; background: #b3d3ec; border-radius: 50%}
+    ion-list .label{line-height: 32px; margin: 5px 15px;}
+    .item{padding-left: 0}
+    .bu_show{display:none !important;}
+    
+    }
+    
+    .loading-wrapper{padding:0px !important;}
+    .loading-content img {width: 35px;}
+

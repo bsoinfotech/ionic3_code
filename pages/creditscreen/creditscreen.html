@@ -1,0 +1,69 @@
+<!--
+  Generated template for the CreditscreenPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  color="darkblue">
+  		<button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>Credit Purchase</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-grid class="nogrid">
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button color="darkblue" small>Current Balance : {{currentpackage}} Rs</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <button block ion-button small (click)="goExpenses()">Expenses Hist</button>
+      </ion-col>
+      <ion-col text-center>
+        <button block ion-button small (click)="goRecharge()">Recharges Hist</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<div *ngFor="let ps of purchagedscreen" class="package">
+<ion-list radio-group [(ngModel)]="package">
+  <ion-item>
+    <ion-label>{{ps.package_name}} <span style="float:right">Rs.{{ps.total_cost}}/-</span></ion-label>
+    <ion-radio value="{{ps.package_id}}" item-start></ion-radio>
+  </ion-item>
+  
+</ion-list>
+<ion-grid *ngIf="ps.remarks!=''">
+      <ion-row>
+        <ion-col col-3 text-right>
+          <b>Remarks :</b>
+        </ion-col>
+        <ion-col>
+          {{ps.remarks}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</div>
+
+
+
+ <ion-slides pager>
+
+  <ion-slide *ngFor="let im of images">
+    <img src="{{im.image}}">
+  </ion-slide>
+
+</ion-slides>
+
+</ion-content>
+<ion-footer>
+    <button ion-button full (click)="goNextpage()">Next</button>
+</ion-footer>

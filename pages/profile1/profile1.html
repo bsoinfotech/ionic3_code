@@ -1,0 +1,151 @@
+<ion-header >
+
+  <ion-navbar color="darkblue">
+    <ion-title>Business Contact Detail</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+
+
+
+
+
+  <div class="profile-banner">
+  <ion-row>
+
+
+  
+  <ion-col col-6 no-padding > 
+    <h6>Your Profile Photo</h6>
+    <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+    <span item-left style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+  
+  </ion-col>
+  
+  <ion-col col-6 no-padding > 
+    <h6>Your Business Logo</h6>
+
+    <img (click)="presentActionSheet_logo()" src="{{busi_logo}}" class="pro-pic">
+    <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet_logo()" ></ion-icon></span>
+
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-12  > 
+    <span item-left  style=" color: rgb(194, 8, 8); border-radius: 6px; font-size: 15px; font-weight: bold;">{{credit_bal}}
+     <b>NOTE:</b> <small>Need good internet connection and image size <1 MB</small>
+  </span>
+
+  </ion-col>
+</ion-row>
+
+</div>
+
+
+<!--
+
+    <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+  <span item-left style="    margin-left: 4px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+
+
+<div class="profile-banner">
+  <h4>Your Business Logo</h4>
+  <img (click)="presentActionSheet_logo()" src="{{busi_logo}}" class="pro-pic">
+  <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet_logo()" ></ion-icon></span>
+  
+  </div>
+-->
+
+
+
+
+  <ion-item>
+		<ion-label><ion-icon name="ios-call-outline" item-left></ion-icon></ion-label>
+		<ion-input type="tel"  maxlength='10' placeholder="Business Phone" [(ngModel)]='busi_phone' name='busi_phone'></ion-input>
+    
+	</ion-item>
+
+	<ion-item>
+		<ion-label><ion-icon name="logo-whatsapp" item-left></ion-icon></ion-label>
+		<ion-input type="tel" maxlength='10' placeholder="Business Whatsapp " [(ngModel)]='busi_whatsapp' name='busi_whatsapp'></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+		<ion-input type="text" placeholder="Business Email" [(ngModel)]='busi_email' name='busi_email'></ion-input>
+	</ion-item>
+
+  <ion-item *ngIf="verifystatus!='1'">
+    <ion-label ><ion-icon name="ios-code-working" item-left></ion-icon></ion-label>
+    <ion-input type="text" maxlength='30' placeholder="Your Shop/Business Name" [(ngModel)]='businessname' name='businessname'></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="verifystatus=='1'">
+    
+    Business Name:<b> {{businessname}}</b> <br>
+
+    
+  </ion-item>
+  <div >
+<div *ngIf="verifystatus=='1'">
+  <span item-left  style=" color: rgb(9, 206, 94); border-radius: 6px; font-size: 16px; ">
+    &nbsp;&nbsp;&nbsp; {{site_link}}
+</span>
+</div>
+
+    <!--
+    <ion-row>
+
+     
+
+    <ion-col col-12 no-padding > 
+     <b> Your Business website will be:</b>
+    
+    </ion-col>
+    
+  </ion-row>
+<ion-row>
+    <ion-col col-12  > 
+      <span item-left  style="background:rgb(7, 196, 23); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 15px; font-weight: bold;">{{credit_bal}}
+       {{base_link}}{{businessname}}
+    </span>
+  
+    </ion-col>
+  </ion-row>
+-->
+  <ion-row>
+    <ion-col col-12  > 
+      <span item-left  style=" color: rgb(194, 8, 8); border-radius: 6px; font-size: 15px; font-weight: bold;">{{credit_bal}}
+       <b>NOTE:</b> <small>You can't change the Shop/Business Name once saved</small>
+    </span>
+  
+    </ion-col>
+  </ion-row>
+  </div>
+
+
+
+
+</ion-content>
+
+<ion-footer>
+  <div>
+    <ion-row>
+      <!--
+      <ion-col col-6>
+       <button ion-button color="primary" icon-end block  (click)="back()">BACK <ion-icon ></ion-icon> </button>
+     </ion-col>
+
+      -->
+
+     <ion-col col-12 text-center>
+      <button ion-button color="primary" icon-end block (click)="saveProfile()">NEXT <ion-icon ></ion-icon> </button>
+     </ion-col>
+   </ion-row>
+</div>
+</ion-footer>

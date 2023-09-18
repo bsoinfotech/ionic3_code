@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title> ID proof photos with address </ion-title>
+     <ion-buttons end>
+      <button class="bg_but" ion-button icon-only (click)="goProfile()">
+       Profile
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+	<p>Upload 3 photos
+    1) your Selfi
+    2) Front side of Aadhaar Card/Passport/Voter Card
+    3) Back Side of Aadhaar Card/Passport/Voter Card </p>
+	<span class="nn_1" *ngIf="imagecount>0">{{imagecount}} Photos</span>
+
+	<ion-grid>
+  
+  <ion-row>
+  	 <ion-col col-4 class="fir_1"  (click)="presentActionSheet()"> <ion-icon name="add"></ion-icon></ion-col>
+    <ion-col col-4  *ngFor="let img of images;  let i = index;">
+    	<div>
+          <!-- <ion-icon name="md-trash" (click)="deleteImage(i)"></ion-icon> -->
+		<img src="{{img.images}}" style="width: 100px; height: 100px;margin: 10px 5px;" (click)="showFullview(img.images)">
+	</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+	
+
+</ion-content>

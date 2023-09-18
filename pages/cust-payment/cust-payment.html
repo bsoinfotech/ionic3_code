@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar  color="darkblue">
+    <ion-title>Payment Screen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+		<p text-center><b>Order# : {{order_num}}</b></p>
+    <p text-center><b>{{order_desc}}</b></p>
+
+	  <div class="top_bg1">
+      <strong>Confirm the amount</strong>
+    </div>
+		<ion-input [(ngModel)]="price" placeholder="Enter Price" name="price"></ion-input>
+
+    <!-------------------------------------------------------------->
+    <div class="top_bg1" >
+    	<strong>{{title}}</strong>
+    </div>
+
+    <ion-row *ngIf="showpromosection=='0'">
+        <ion-col  col-12><small>No Valid Coupon/Gift Card   </small></ion-col>
+    </ion-row>
+
+      <ion-grid *ngFor="let cat of promoinfo;let i=index;" [ngClass]="{'':(cat.show_promo=='Y')}">
+
+        <ion-row *ngIf="cat.showpromoline=='1'">
+          <ion-col  col-9><b>Code :{{cat.promo_code}} </b></ion-col>
+            <button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+            (click)="applypromo(this.order_num,cat.promo_code,cat.promo_amt)">Apply</button>
+        </ion-row>
+
+        <ion-row *ngIf="cat.desc1!='' && cat.showpromoline=='1'">
+            <ion-col  col-7><small>{{cat.desc1}}  </small></ion-col>
+            <ion-col  col-5><small>Redeem Rs {{cat.promo_amt}} </small></ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+
+
+      <!------------------------------------------------------------->
+    		<ion-list radio-group [(ngModel)]="paymenttype">
+
+
+            <div class="top_bg1">
+              <strong>Select the payment mode</strong>
+            </div>
+
+
+				  <ion-item *ngFor="let pay of payments">
+				    <ion-label>{{pay.paymode_desc}}</ion-label>
+				    <ion-radio value="{{pay.id}}"></ion-radio>
+				  </ion-item>
+			</ion-list>
+
+		<div text-center><button ion-button  (click)="payment(this.order_num)">Next</button></div>
+</ion-content>

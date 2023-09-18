@@ -1,0 +1,15 @@
+page-selectdate {
+.content{background:#f6f6f6;}
+h2{text-align: center; color: #042e54; font-size: 1.5rem; margin: 15px 0 !important;}
+.datebox{width: 100%; margin-bottom: 25px;}
+.daybox,.timebox{margin-right:10px; float: left; width: 17.5%; text-align: center;padding:10px; border-radius: 5px; border:2px solid #e5e5e5; background: #fff; margin-bottom: 5px;}
+.timebox{width: 45.95%}
+.daybox:nth-child(5){margin-right: 0;}
+.daybox.active,.timebox.active{color:#488aff; border-color: #488aff;}
+.daybox.active1,.timebox.active1{color:#488aff; border-color: #488aff;}
+.daybox.active2,.timebox.active2{color:#488aff; border-color: #488aff;}
+.daybox.active3,.timebox.active3{color:#488aff; border-color: #488aff;}
+.daybox.active4,.timebox.active4,.timebox.active5,.timebox.active6,.timebox.active7,.timebox.active8,.timebox.active9,.timebox.active10,.timebox.active11,.timebox.active12,.timebox.active13,.timebox.active14,.timebox.active15,.timebox.active16{color:#488aff; border-color: #488aff;}
+.cl{clear: both;}
+
+}

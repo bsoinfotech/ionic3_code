@@ -1,0 +1,66 @@
+<ion-navbar class="modal-wrapper" *navbar>
+  <ion-title>Sample Modal</ion-title>
+</ion-navbar>
+<ion-content padding class="sample-modal-page">
+	<div class="modal-content">
+  <h2 style="margin-top: 5px;">{{msg}}
+    <!--
+<button ion-button color="light" clear icon-only small float-right class="closebtn" (click)="dismiss()">
+  <ion-icon name="close-circle"></ion-icon>
+</button>
+-->
+  	</h2>
+
+
+<ion-grid>
+
+
+
+  <div *ngIf="chk_pin=='1'">
+      <p>{{label2}}</p>
+    <ion-list>
+      <ion-item>
+          <ion-input type="tel" maxlength='6' placeholder="Pin Code" [(ngModel)]='pin' name='pin'></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </div>
+  <div *ngIf="chk_email=='1'">
+  		<p>{{label1}}</p>
+  	<ion-list>
+  	  <ion-item>
+  	   <!-- <ion-textarea type="email" [(ngModel)]="email" name="email"></ion-textarea> -->
+        <ion-input type="text" placeholder="E-mail" [(ngModel)]='email' name='email'></ion-input>
+  	  </ion-item>
+
+  	</ion-list>
+  </div>
+
+
+
+</ion-grid>
+
+
+
+<ion-row *ngIf="(action =='2')">
+  <!-- <button ion-button full (click)="save(userid,email,pin)">Save</button>
+    -->
+    <button ion-button full (click)="save(userid,email,pin)">Save</button>
+  <br>
+  <br>
+   <button ion-button full (click)="dismiss()">Skip For Now</button>
+</ion-row>
+
+<ion-row *ngIf="(action =='3')">
+
+
+ <button ion-button full (click)="save(userid,email,pin)">Save</button>
+
+</ion-row>
+
+
+
+
+
+  </div>
+</ion-content>

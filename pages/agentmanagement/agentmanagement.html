@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Agent Management</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+		<div class="but_11" (click)="addAgent()">Add Agent</div>
+
+			<ion-grid class="table" padding-top>
+
+				<ion-row class="bg_h1">
+					<ion-col col-2>
+						Agent photo
+					</ion-col>
+					<ion-col col-3>
+						Agent Name
+					</ion-col>
+					<ion-col col-3>
+						Phone
+					</ion-col>
+					
+					<ion-col col-4>
+						
+					</ion-col>
+					
+					
+				</ion-row>
+
+	
+
+
+				
+				<ion-row *ngFor="let agent of agentdetails" class="tablerow">
+					<ion-col col-2>
+						<img style="height: 65px; width: 100%;" src="{{agent.agent_photo}}">
+					</ion-col>
+					<ion-col col-3>
+						{{agent.agent_name}}
+					</ion-col>
+					<ion-col col-3>
+						{{agent.agent_phone}} 
+						<a href="tel:{{agent.agent_phone}}" class="callbtn" > 
+						<ion-icon name="ios-call"></ion-icon></a>
+					</ion-col>
+					
+					<ion-col col-4 text-left>
+						<button style="padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 12px;" (click)="viewDetails(agent.agent_id)">View </button> 
+						<button style="padding: 5px; background-color: #488aff; color: #FFF; border-radius: 7px;line-height: 17px;font-size: 12px;" (click)="editDetails(agent.agent_id)">Edit </button><br><br>
+						<b>Status :</b> {{agent.status}}
+					</ion-col>
+				</ion-row>
+				
+				<ion-row *ngIf="nval==false">
+					<ion-col col-12 style="text-align: center; color: red; font-weight: bold;">
+						No Agents Available
+					</ion-col>
+				</ion-row>
+
+
+				
+			
+			
+
+
+
+
+</ion-grid>
+
+
+</ion-content>

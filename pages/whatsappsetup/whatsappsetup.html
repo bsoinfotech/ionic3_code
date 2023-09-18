@@ -1,0 +1,121 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Link your Whatsapp Number </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!--
+<ion-card>
+  <ion-card-content>
+    <p>{{this.customernote}} </p>
+  </ion-card-content>
+</ion-card>   
+
+<ion-icon name="logo-whatsapp"></ion-icon>
+<img src="assets/img/whatsapp4.png" > 
+  -->
+
+<ion-row *ngIf="(connect_status=='1')">
+  <ion-col col-2>
+    <img style="height: 40px; width: 80%;" src="assets/img/whatsapp4.png">
+  </ion-col>
+  <ion-col col-5>
+    <a > <h5> {{wa_number}}</h5></a>
+  </ion-col>
+  <ion-col col-5>
+    <a > <h5> {{connect_status_msg}}</h5></a>
+    
+  </ion-col>
+  
+  
+  <!--
+  <ion-col col-8 >
+    <ion-icon name="logo-whatsapp">{{wa_number}}</ion-icon> 
+ 
+  </ion-col>
+  <ion-col col-4 >
+    <a >
+       <h5> {{connect_status_msg}} </h5> 
+   </a>
+  </ion-col>
+  -->
+
+</ion-row>
+<ion-row>
+  <a >
+    &nbsp;&nbsp;<b>Instance : {{instance_id}} </b> &nbsp;-<b> Active</b>   
+ </a>
+</ion-row>
+<ion-row>
+  &nbsp;&nbsp;{{message}}
+</ion-row>
+
+
+<ion-row *ngIf="(connect_status=='2')">
+  <a >
+    <img src="assets/img/whatsapp4.png">  
+  </a>
+<a >
+    <h5> {{wa_number}} </h5> 
+</a>
+<a >
+  <h5> &nbsp; {{connect_status_msg}} </h5> 
+</a>
+  {{message}}
+</ion-row>
+
+<ion-row *ngIf="(connect_status=='0')">
+  <a >
+    <img src="assets/img/whatsapp4.png">  
+  </a>
+  <a >
+    <h4> {{wa_number}} </h4> &nbsp;&nbsp; <h4> {{connect_status_msg}} </h4> 
+  </a>
+  {{message}}
+
+</ion-row>
+
+
+
+
+<ion-card>
+  <ion-card-content no-padding>
+  	<img class="wat_1" src="{{image}}">
+  </ion-card-content>
+</ion-card>
+
+<ion-row *ngIf="(video!='')">
+  <video src = "{{video}}#t=0.1" controls="controls" controlsList="nofullscreen nodownload noremoteplayback" style="width: 100%;height: 300px;"></video>
+  </ion-row>
+
+<div text-center>
+     <ion-col col-12 *ngIf="this.id!=''">
+       <button style="padding: 6px; background-color:#006400; color: #FFF; border-radius: 6px;line-height: 15px;font-size: 15px;" (click)="sendQRCode(user_id,email,wa_number)">{{button_label}}</button>
+     </ion-col>
+</div>
+
+
+
+
+
+</ion-content>
+<ion-footer>
+
+  <ion-grid class="footer_block">
+    <div text-center>
+
+      		<ion-col col-12 *ngIf="this.id!=''">
+       		<!-- <b style="text-align: center;">{{viewproject?.mod_dttm}}</b> -->
+
+       	<button class="next_buton1" (click)="gotService()">Back</button>
+       	</ion-col>
+
+
+   </div>
+</ion-grid>
+
+</ion-footer>

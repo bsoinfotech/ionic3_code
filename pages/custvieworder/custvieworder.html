@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>View Order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-grid>
+	<ion-row>
+		<ion-col col-5><b>Order No</b></ion-col>
+		<ion-col col-7>{{orderhdr?.order_num}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5><b>Bid Requrd</b></ion-col>
+		<ion-col col-7>{{orderhdr?.bid}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="(orderhdr?.startscreen=='Y') || (orderhdr?.startscreen=='y')">
+		<ion-col col-5><b>Est Job Starting Dt &amp; Tm</b></ion-col>
+		<ion-col col-7>{{orderhdr?.order_est_sdttm}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="(orderhdr?.endscreen=='Y') || (orderhdr?.endscreen=='y')">
+		<ion-col col-5><b>Est Job End Dt &amp; Tm</b></ion-col>
+		<ion-col col-7>{{orderhdr?.order_est_edttm}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5><b>Company Price</b></ion-col>
+		<ion-col col-7>{{orderhdr?.comp_price}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5><b>Provider Price</b></ion-col>
+		<ion-col col-7>{{orderhdr?.service_price}}</ion-col>
+	</ion-row>
+	<ion-row *ngIf="orderhdr?.leadstatus!='0'">
+		<ion-col col-5><b>Lead Status</b></ion-col>
+		<ion-col col-7>{{orderhdr?.leadstatus}}</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col col-5><b>Order Status</b></ion-col>
+		<ion-col col-7>{{viewprojectstatus}}</ion-col>
+	</ion-row>
+</ion-grid>
+
+
+<ion-grid>
+
+	<ion-row style="background: #042e54; color: #fff">
+		<ion-col col-4>Item Desc</ion-col>
+		<ion-col col-2>Qty</ion-col>
+		<ion-col col-3>Company Price</ion-col>
+		<ion-col col-3>Provider Price</ion-col>
+	</ion-row>
+
+ <div class="ne_11"  *ngFor="let od of orderdtl">
+	 
+	<ion-row>
+
+		<ion-col col-4>{{od.custnote}}</ion-col>
+		<ion-col col-2 text-center>{{od.itemqty}}</ion-col>
+		<ion-col col-3 text-center>{{od.comp_item_price}}</ion-col>
+
+		<ion-col col-3 text-center>{{od.sp_item_price}}</ion-col>
+
+			<ion-col col-6 text-center *ngIf="(od.delivery_date!='') && (od.flowcountno=='5')">
+			 Delivery Date : <span>{{od.delivery_date}}</span></ion-col>
+		<ion-col col-6 text-center *ngIf="(od.delivery_date!='') && (od.flowcountno=='5')">
+			Status : <span> {{od.delivery_status}}</span> </ion-col>
+	</ion-row>
+</div>
+	
+	
+
+
+
+</ion-grid>
+
+<div style="text-align: center;">
+		<p *ngIf="orderhdr?.note_title!=''">{{orderhdr?.note_title}}</p>
+	    <p *ngIf="orderhdr?.note_value!=''">{{orderhdr?.note_value}}</p>
+	</div>
+
+</ion-content>

@@ -1,0 +1,117 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Update Agent</ion-title>
+
+     <ion-buttons end>
+     <button ion-button small (click)="dismiss()">Back</button>
+ </ion-buttons>
+  </ion-navbar>
+
+</ion-header> 
+<ion-content>
+	<ion-list>
+
+		<ion-row>
+
+			<ion-col>
+		<ion-item style="color: #000;">
+		
+		<h5>Agency Name: ({{agencyid}})-{{agencyname}}</h5>
+
+
+		</ion-item>
+
+		<ion-input type="hidden" placeholder="Agency ID" [(ngModel)]='agencyid' name='agencyid' readonly></ion-input>
+		
+			<ion-input type="hidden" placeholder="Agent Name" [(ngModel)]='agencyname' name='agencyname' readonly></ion-input>
+	</ion-col>
+
+	
+		
+</ion-row>
+
+
+<!--
+		<ion-item>
+			
+			<ion-input type="text" placeholder="Category" [(ngModel)]='category' name='category' readonly></ion-input>
+			<ion-input type="hidden" [(ngModel)]='cat_id' name='cat_id'></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Sub Cat1</ion-label>
+			  <ion-select [(ngModel)]="subcat1" name="subcat1" interface="popover">
+			    <ion-option *ngFor="let subcat1 of subcategorylist1" value="{{subcat1.value_id}}" 	[selected]="subcat1==subcat1.value_id">{{subcat1.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Sub Cat2</ion-label>
+			  <ion-select [(ngModel)]="subcat2" name="subcat2" interface="popover">
+			    <ion-option *ngFor="let subcat2 of subcategorylist2" value="{{subcat2.value_id}}" (ionSelect)="getCat(subcat2.value_id)" [selected]="subcat2==subcat2.value_id">{{subcat2.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+-->
+
+	<ion-col>
+		<ion-item >
+			<ion-input type="text" placeholder="Agent Name" [(ngModel)]='agentname' name='agentname'></ion-input>
+		</ion-item>
+	</ion-col>
+
+	<ion-item>
+		<ion-input type="text" placeholder="Phone" [(ngModel)]='phone' name='phone'></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<div (click)="agentPhoto()">
+			<ion-icon name="camera"></ion-icon> Agent photo
+		</div>
+		<img src="{{agent_photo}}" class="up_img">
+	</ion-item>
+	<ion-item>
+		<div (click)="agentIDproof()"> 
+			<ion-icon name="camera"></ion-icon> Agent ID proof
+		</div>
+		<img src="{{agent_id_proof}}" class="up_img">
+
+	</ion-item>
+<!--
+		<ion-item>
+			<ion-label stacked>UOM</ion-label>
+			  <ion-select [(ngModel)]="uom" name="uom" interface="popover">
+			    <ion-option *ngFor="let um of getuom" value="{{um.value_id}}">{{um.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+
+<ion-item>
+			
+			<ion-input type="text" placeholder="Experience" [(ngModel)]='experience' name='experience'></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Experience Level</ion-label>
+			  <ion-select [(ngModel)]="exp_level" name="exp_level" interface="popover">
+			    <ion-option *ngFor="let exp of getexp_level" value="{{exp.value_id}}">{{exp.value_desc}}</ion-option>
+			  </ion-select>
+		</ion-item>
+	
+
+
+
+		  <h6>&nbsp; Specialisation</h6>
+  <ion-item *ngFor="let member of getspecial">
+    <ion-label>{{member?.exp_attb_desc || 'N/A'}}</ion-label>
+    <ion-checkbox *ngIf="member.specialstatus=='false'" color="dark" (click)="selectMember(member)" [(ngModel)]="member.checked"></ion-checkbox>
+    <ion-checkbox *ngIf="member.specialstatus=='true'" color="dark" (click)="removeSpec(member?.exp_attb_id)" checked="true"></ion-checkbox>
+  </ion-item>
+
+-->		
+	  <div>
+	  	 
+       <div align="center"> <button ion-button color="primary" round  (click)="updateAgentDetails()">Update</button></div>
+      </div>
+	</ion-list>
+</ion-content>

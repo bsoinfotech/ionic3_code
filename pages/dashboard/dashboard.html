@@ -1,0 +1,264 @@
+<ion-header>
+	<ion-navbar color="darkblue">
+	
+  <!--
+	   <button ion-button icon-only menuToggle>
+		<ion-icon name="ios-menu"></ion-icon>
+	  </button>
+  -->
+ 
+
+  
+	  
+		<!--
+
+			  <ion-buttons left>
+	<button ion-button  icon-only (click)="refresh_screen()">
+		 <ion-icon name="Home"></ion-icon>
+	   </button>
+   </ion-buttons>
+		<button ion-button  icon-only (click)="refresh_screen()">
+			<ion-icon name="Home"></ion-icon>
+		  </button>
+		<img src={{busi_logo}} alt="">
+	<h4> {{company_name}}  </h4>	
+		-->
+
+		<ion-buttons slot="start">
+
+			
+		<img src="{{busi_logo}}" class="up_img">	
+
+
+	</ion-buttons>
+	
+	<ion-title >		 
+		<h4><b>
+			{{company_name}}
+			</b>
+		</h4>
+	</ion-title>
+
+	   <ion-buttons end>  
+		<button ion-button icon-only (click)="refresh_screen();">		 
+			<ion-icon name="refresh-circle"></ion-icon>
+		  </button>	
+		<button id="notifi-btn" ion-button icon-only (click)="gotoProviderPage();">
+		  <ion-icon name="notifications-outline"></ion-icon>
+		  <ion-badge id="notifi-badge">{{not_count}}</ion-badge>
+		</button>
+		 <button ion-button icon-only (click)="logOut();">
+		  <ion-icon name="exit"></ion-icon>
+		</button>		
+		<!--
+		<button ion-button icon-only (click)="exitapp();">
+			<ion-icon name="exit"></ion-icon>
+		  </button>
+		-->
+
+	</ion-buttons>
+
+	
+  
+	</ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+<!--
+	<div class="col-auto">
+		<h6 style="text-align: left;color:#080809;">Sub:<b><a class="package_name">{{package_name}}</a></b>  &nbsp;&nbsp; Valid Till:&nbsp;<b><a class="valid_till">{{valid_till}}</a></b>       
+		  &nbsp;<a class="uplan" (click)="gotoplan()">Upgrade</a></h6>
+	  </div>
+-->
+
+
+	<ion-grid no-padding>
+
+		<ion-row no-padding>
+			<ion-col col-12 no-padding>
+				<h6> Share More to Get More Customers</h6>
+			</ion-col>
+		</ion-row>
+		<ion-row no-padding>
+			<ion-col text-left no-padding>
+				<small> Share your own website link on Social media </small>
+				&nbsp; 
+
+				<button style="padding: 3px;color: blue; border-radius: 4px;line-height: 12px;font-size: 12px;" (click)="openAnyPage(sitelink)">{{sitelink}}</button>
+		 
+				&nbsp; 
+				<button ion-button icon-only (click)="shareInfo(this.company_id,'WA')">
+					<ion-icon name="logo-whatsapp"></ion-icon>
+				  </button>
+
+			</ion-col>
+		</ion-row>
+
+		
+<!--
+		<ion-row no-padding>
+			
+		
+ 				<a class="button" href="{{sitelink}}" target="_blank" (click)="window.open({{sitelink}}, '_system', 'location=yes')">{{sitelink}}</a> &nbsp; &nbsp;
+				<button ion-button icon-only (click)="shareInfo(this.referalcode,this.price)">
+					<ion-icon name="logo-whatsapp"></ion-icon>
+				  </button>
+
+				  	<a href="#" click="window.open({{sitelink}}, '_system', 'location=yes');" >{{sitelink}}</a> 
+					  		  <a href="#" click="window.open('https://www.google.com', '_system', 'location=yes'); return false;">
+			Open Google
+		</a>
+
+		<button ion-button block clear (click)="openWebpage(sitelink)">Open Webpage</button>
+		<button style="padding: 3px; background-color:#f1f5f1; color: rgb(14, 74, 240); border-radius: 4px;line-height: 10px;font-size: 10px;" (click)="openAnyPage()">{{sitelink}}</button>
+		
+
+		<button style="padding: 3px;color: blue; border-radius: 4px;line-height: 12px;font-size: 12px;" (click)="openAnyPage(sitelink)">{{sitelink}}</button>
+		 
+		&nbsp; &nbsp;
+		<button ion-button icon-only (click)="shareInfo(this.referalcode,this.price)">
+			<ion-icon name="logo-whatsapp"></ion-icon>
+		  </button>
+	
+
+		</ion-row>  
+-->
+	</ion-grid>
+
+	<ion-grid no-padding>
+
+	<div class="banners3">
+		<ion-slides pager>
+	
+	  <ion-slide *ngFor="let b of banners">
+			<ion-row *ngIf="(b.status !='0')">	
+				
+				<img src="{{b.image}}" style="width:100%; height: 200px;" >
+				<!--
+<img src="{{b.image}}" style="width:180px; height: 180px;margin-left:80px;" (click)="gotoSubCat(b.cat_id,b.ref1,b.status,b.endpoint)">
+				-->
+					
+				
+			</ion-row>
+	  </ion-slide>
+	
+	</ion-slides>
+	</div>
+
+
+
+</ion-grid>
+
+	  <ion-grid no-padding>
+
+		<ion-row>
+			<ion-col text-center (click)="backlog_ord('1')">
+			  <div class="box color11">
+			  <!--	<img src="assets/img/icons-male-user.png"> -->
+			  Backlog	: ({{out_data?.backlogord}})
+		
+			  </div>
+			</ion-col>
+			<ion-col text-center (click)="today_ord('2')">
+			  <div class="box color12">
+				Today's Order	: ({{out_data?.todayord}})
+			  </div>
+			</ion-col>
+		  </ion-row>
+		
+		<ion-row >
+		  <ion-col text-center (click)="reopened_ord('R')">
+			<div class="box color13">
+			Reopened Order:  ({{reopened}})
+		  </div>
+		  </ion-col>
+		  <ion-col text-center (click)="tomorrow_ord('3')">
+			<div class="box color14">
+			  Future Order :	 ({{out_data?.tomorroword}})
+		  </div>
+		  </ion-col>
+		</ion-row>
+
+		<ion-row >
+			<ion-col text-center (click)="gotoPage1()">
+			  <div class="box color1">
+				Jobs  ({{todaycount}})
+			</div>
+			</ion-col>
+			<ion-col text-center (click)="gotoPage2()">
+			  <div class="box color1">
+				Leads  ({{allleadcount}})
+			</div>
+			</ion-col>
+		  </ion-row>
+
+  
+	</ion-grid>
+  
+  
+  
+<div class="mypadding">
+  
+	<ion-grid>
+		<ion-row>
+		  <ion-col col-4 *ngFor="let c of menu_hdr">
+			  <ion-card class="block" text-center (click)="loadpage(c.id,c.pagename,company_id,userid,c.cat_id,c.ref2,c.ref3,c.input1,c.input2,c.input3,c.input4,c.input5,'','','')">
+				  <ion-card-content>
+
+					  <img src="{{c.pagepicture}}">
+					  <p>{{c.pagedesc}}</p>
+				  </ion-card-content>
+			  </ion-card>
+		  </ion-col>
+	  
+		</ion-row>
+	  
+	  </ion-grid>
+	  
+</div>
+  
+  <!--
+		  <ion-row>
+			  <ion-col text-center>
+				  {{text2}}
+			  </ion-col>
+		  </ion-row>
+  -->
+  
+
+  
+		
+		  
+  
+  </ion-content>
+  <!--
+<ion-footer>
+  <ion-grid class="footer_block">
+    <ion-row>
+      <ion-col col-4 (click)="goNextpage('OngoingjobsPage')">  <ion-icon name="ios-home"></ion-icon>Home</ion-col>
+      <ion-col col-4> <ion-icon name="ios-help-circle" (click)="goNextpage('CustomercarePage')"></ion-icon> Help</ion-col>
+      <ion-col col-4> <ion-icon name="ios-briefcase" (click)="refresh_screen()"></ion-icon> Refresh</ion-col>
+     
+
+    </ion-row>
+</ion-grid>
+
+</ion-footer>
+-->
+
+<ion-footer>
+	<ion-grid class="footer_block">
+	  <ion-row>
+	
+		<ion-col col-10><b> Your Plan : {{pp_plan_name}} ({{pp_plan_status}}) </b></ion-col>
+		<ion-col col-2 style="color:#f71515" (click)="gotoplan()">
+		Buy Plan</ion-col>
+		
+  
+	  </ion-row>
+  </ion-grid>
+  
+  </ion-footer>
+
+

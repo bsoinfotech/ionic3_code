@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Set location at Google Map
+    </ion-title>
+
+    <!--
+    <ion-buttons end>
+
+	  Get current location
+      <button ion-button icon-only (click)='choosePosition()'>
+         <ion-icon name="ios-locate-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-item>
+    <ion-input type="text" [(ngModel)]='loc' name='loc'></ion-input>
+  </ion-item> -->
+
+
+ <ion-item >
+    <ion-col col-12 no-padding >
+
+   <h6 style="color:#4b4b4b;font-size:14px" ><b>Search your location by society,landmark</b></h6>
+   <h6 style="color:#4b4b4b;font-size:10px">(Example: Salt Lake,Sector V)</h6>
+  </ion-col>
+       <ion-searchbar  [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()" placeholder="" name="autocomplete.query" [ngModelOptions]="{standalone: true}"></ion-searchbar>
+   </ion-item>
+
+    <ion-list class="location_search" [hidden]="value">
+        <ion-item  *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+		   {{ item }}
+        </ion-item>
+    </ion-list>
+
+    <div class="orpart">
+      <span>OR</span>
+    </div>
+    <div text-center>
+      <button ion-button (click)='choosePosition()'>
+         <ion-icon name="ios-locate-outline"></ion-icon> Use current location
+      </button>
+    </div>
+
+
+
+ <ion-col col-12>
+     <div #mapele id="mapele" style="height:60%;"></div>
+	 <!--
+<p><img src="assets/img/map_icon.png" style="width: 20px;"  alt=""> </p>
+		<p style="line-height: 20px;" >{{item}}</p>
+-->
+ </ion-col>
+</ion-content>
+
+<ion-footer>
+	<div>
+	  <ion-row>
+		<ion-col col-6>
+		 <button ion-button color="primary" icon-end block  (click)="dismiss()">BacK <ion-icon ></ion-icon> </button>
+	   </ion-col>
+	   <ion-col col-6 text-right>
+		<button ion-button color="primary" icon-end block (click)="useLocation(this.id)">Next <ion-icon ></ion-icon> </button>
+	   </ion-col>
+	 </ion-row>
+  </div>
+  </ion-footer>

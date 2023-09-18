@@ -1,0 +1,129 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title> Edit Your Campaign/Broadcast</ion-title>
+
+ 
+  </ion-navbar>
+
+ 
+</ion-header>
+
+
+
+<ion-content>
+  <h6> You can change only variable {{<span>{{1}}</span>}}...{{<span>{{7}}</span>}} value</h6>
+
+
+  <div class="mypadding">
+  
+    <ion-grid style="background:#fff; padding: 4px 6px; color: rgb(1, 1, 8); border-radius: 6px; margin-bottom: 6px;" *ngFor="let c1 of pushCmsg">
+     
+      <ion-row  >
+      
+        <ion-col col-9 no-padding *ngIf="c1.status=='1'">      
+          <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c1.title}}
+          </span>
+          </ion-col>
+        
+        <ion-col col-8 >         
+          <strong>
+            Body:
+          </strong>   
+          <small>
+            {{c1.ebody}}
+          </small>
+
+        </ion-col>
+        
+        <ion-col col-4 *ngIf="c1.comm_type=='S'">  
+          <div>
+
+          </div>
+        </ion-col>
+        <ion-col col-4 *ngIf="c1.comm_type!='S'">  
+          <div>
+          <span item-right>
+            <div class="profile-banner">
+              <b><small>Set image</small></b>
+            <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+            <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+            </div>
+          </span>
+          </div>
+        </ion-col>
+
+
+      </ion-row>
+
+        <ion-row *ngIf="c1.dl1>0">  
+          <ion-col col-2> {{<span>{{1}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl1}}'  placeholder='Variable1' [(ngModel)]='c1.dv1' name='c1.dv1'></ion-input>
+          </ion-col>
+        </ion-row>
+          <ion-row *ngIf="c1.dl2>0 "> 
+            <ion-col col-2> {{<span>{{2}}</span>}}:</ion-col>
+            <ion-col col-10>
+          <!--
+            <ion-textarea *ngIf="ref1" rows="2" cols="75"   maxlength='{{c1.dl2}}'  placeholder='value2' [(ngModel)]='c1.dv2' name='c1.dv2'></ion-textarea>
+          -->
+          <ion-input type="text" maxlength='{{c1.dl2}}'  placeholder='Variable2' [(ngModel)]='c1.dv2' name='c1.dv2'></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="c1.dl3>0">  
+          <ion-col col-2> {{<span>{{3}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl3}}'  placeholder='Variable3' [(ngModel)]='c1.dv3' name='c1.dv3'></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="c1.dl4>0">  
+          <ion-col col-2> {{<span>{{4}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl4}}'  placeholder='Variable4' [(ngModel)]='c1.dv4' name='c1.dv4'></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="c1.dl5>0">  
+          <ion-col col-2> {{<span>{{5}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl5}}'  placeholder='Variable5' [(ngModel)]='c1.dv5' name='c1.dv5'></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="c1.dl6>0">  
+          <ion-col col-2> {{<span>{{6}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl6}}'  placeholder='Variable6' [(ngModel)]='c1.dv6' name='c1.dv6'></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="c1.dl7>0">  
+          <ion-col col-2> {{<span>{{7}}</span>}}:</ion-col>
+          <ion-col col-10> 
+            <ion-input type="text" maxlength='{{c1.dl7}}'  placeholder='Variable7' [(ngModel)]='c1.dv7' name='c1.dv7'></ion-input>
+          </ion-col>
+        </ion-row>
+
+ <br>
+ <br>
+ <button ion-button full (click)="save_record(c1.temp_id,c1.company_id,c1.comm_type,c1.image,c1.dl1,c1.dl2,c1.dl3,c1.dl4,c1.dl5,c1.dl6,c1.dl7,
+  c1.dv1,c1.dv2,c1.dv3,c1.dv4,c1.dv5,c1.dv6,c1.dv7)">Save</button>
+
+    </ion-grid>
+
+  
+   
+
+    </div>
+
+
+
+</ion-content>
+
+<ion-footer>
+ <!--
+<button ion-button full (click)="save_record(c1.temp_id,c1.company_id,c1.comm_type,c1.image,c1.dl1,c1.dl2,c1.dl3,c1.dl4,c1.dl5,c1.dl6,c1.dl7,
+  c1.dv1,c1.dv2,c1.dv3,c1.dv4,c1.dv5,c1.dv6,c1.dv7)">Save</button>
+ --> 
+</ion-footer>

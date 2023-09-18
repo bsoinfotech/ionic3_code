@@ -1,0 +1,102 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+     <button ion-button icon-only menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title> Campaign & Broadcasting</ion-title>
+
+ 
+  </ion-navbar>
+
+  <ion-toolbar>
+
+    <ion-row >
+      <ion-col col-2 > 
+        <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+       
+         <small> Basic details </small>
+    </ion-col>
+    <ion-col col-1 > 
+
+  </ion-col>
+    <ion-col col-3 > 
+      <ion-icon [ngClass]="bu_show"  name="md-checkmark-circle" style="color:rgba(9, 175, 64, 0.897);"></ion-icon>
+    <small> Select Campaign </small>
+    </ion-col>
+    <ion-col col-3 > 
+      <span class="count" [ngClass]="{'bu_show':(1==1)}">3</span>
+      <small> Select Customers</small>
+    </ion-col>
+
+    <ion-col col-3 > 
+      <span class="count" [ngClass]="{'bu_show':(1==1)}">4</span>
+      <small> Preview & Send</small>
+    </ion-col>
+     </ion-row >
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <h4> {{header_msg}}</h4>
+
+
+  <div class="mypadding">
+  
+    <ion-grid>   
+      <ion-row  style="background:#ceb7b7; padding: 4px 6px; color: rgb(1, 1, 8); border-radius: 6px; margin-bottom: 6px;" *ngFor="let c1 of pushCmsg">
+      
+        <ion-col col-9 no-padding *ngIf="c1.status=='1'">      
+          <span item-left  style="background:rgb(5, 145, 17); padding: 4px 6px; color: #fff; border-radius: 6px; font-size: 12px; font-weight: bold;">{{c1.title}}
+          </span>
+          </ion-col>
+
+            <ion-col  col-3 no-padding *ngIf="c1.status=='1'">
+              <button style="padding: 5px; background-color:#006400; color: #FFF; border-radius: 5px;line-height: 14px;font-size: 14px;"
+                    (click)="savesetup(c1.temp_id,user_id,c1.company_id,c1.comm_type,c1.title,c1.body,c1.image)">Select</button>                   
+            </ion-col>
+        
+        <ion-col col-8 >         
+          <strong>
+            Campaign:
+          </strong>   
+          <small>
+            {{c1.body}}
+          </small>
+          <div *ngIf="c1.allow_edit=='1'">
+                <button ion-button small (click)="editmsg(comm_type)" style="color: #f00; background: url(assets/img/edit.png) center right no-repeat;">Edit</button>
+          </div>
+        </ion-col>
+      
+        <ion-col col-4 *ngIf="comm_type=='W'">
+          <div>
+          <span item-right>
+            <div class="profile-banner">
+              <b><small>Set image</small></b>
+            <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+            <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+            </div>
+          </span>
+          </div>
+        </ion-col>
+        <ion-col col-4 *ngIf="comm_type=='P'">
+          <div>
+          <span item-right>
+            <div class="profile-banner">
+              <b><small>Set image</small></b>
+            <img (click)="presentActionSheet()" src="{{userimage}}" class="pro-pic">
+            <span style="    margin-left: -21px;">  <ion-icon name="camera" (click)="presentActionSheet()" ></ion-icon></span>
+            </div>
+          </span>
+          </div>
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+    
+    </div>
+</ion-content>

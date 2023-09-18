@@ -1,0 +1,99 @@
+
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Bank Transfer Request</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+<!--	<ion-list> -->
+
+    <ion-col>
+      <ion-item >
+      <ion-input type="text" placeholder="PAN ID" [(ngModel)]='pan_id' name='pan_id'></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <div class="orpart">
+      <span>Enter GooglePay Number</span>
+    </div>
+    <ion-item>
+      <ion-label><ion-icon name="logo-google" item-left></ion-icon></ion-label>
+      <ion-input type="text" placeholder="GooglePay Number " [(ngModel)]='googlepay' name='googlepay'></ion-input>
+    </ion-item>
+    <div class="orpart">
+      <span>OR</span>
+    </div>
+
+    <ion-col>
+      <ion-item >
+        <ion-input type="text" placeholder="Bank Name" [(ngModel)]='bankname' name='bankname'></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-input type="text" placeholder="Bank A/C. Name" [(ngModel)]='bankactname' name='bankactname'></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item >
+      	<ion-input type="tel" placeholder="Account Number" [(ngModel)]='accountnumber' name='accountnumber'></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item >
+        <ion-input type="text" placeholder="IFSC Code" [(ngModel)]='ifsccode' name='ifsccode'></ion-input>
+      </ion-item>
+    </ion-col>
+
+
+<b><h5>Enter amount you want to transfer</h5></b>
+    <ion-item>
+      <ion-label><ion-icon name="ios-card" item-left></ion-icon></ion-label>
+      <ion-input type="number" placeholder="Enter amount" [(ngModel)]='amt' name='amt'></ion-input>
+    </ion-item>
+
+		<div>
+        <button ion-button color="primary" round block (click)="savetransferdata()">Submit</button>
+      </div>
+    <!--  <div class="sk_1" text-center (click)="skip()">Skip </div> -->
+
+      <div class="sk_1" text-center style="border-bottom: 1px solid #666">
+      <b><h6>Transfer amount under clearance </h6></b>
+      </div >
+
+      <ion-row >
+      <ion-col col-4>
+      Trans_Date
+      </ion-col>
+      <ion-col col-4>
+      Trans_num
+      </ion-col>
+      <ion-col col-4>
+        Amt - Status
+      </ion-col>
+      </ion-row >
+
+      <ion-row  class="tablerow" *ngFor="let ord of pending_trans">
+          <ion-col col-4>
+          {{ord.create_date}}
+          </ion-col>
+          <ion-col col-4>
+          {{ord.id}}
+          </ion-col>
+          <ion-col col-4>
+         {{ord.amt}} - {{ord.status}}
+          </ion-col>
+
+      </ion-row>
+
+
+      <div class="orpart">
+        <span>Note</span>
+      </div>
+      <h6>{{note}}</h6>
+<!--	</ion-list> -->
+</ion-content>

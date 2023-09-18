@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Customer Care</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content text-center>
+<div class="customerbanner">
+
+</div>
+<div padding>
+<h4 padding>Call Us</h4>
+<h6 padding>{{ref1}}</h6>
+<p padding>Any questions or inquiries call below number. </p>
+
+
+<a href="tel:{{ccnumber}}" ><button ion-button icon-start color="darkblue">
+<!--   <a href="tel:8585880400" class="callbtn"><button ion-button icon-start color="darkblue"> -->
+  <ion-icon name="ios-call"></ion-icon>
+  {{ccnumber}}
+</button></a>
+
+</div>
+
+<div padding>
+<h4 padding>Whatsapp Us</h4>
+
+		<!--	<a href="https://wa.me/918420682536?text=Hello%20world">Link</a>
+
+		<a href="https://api.whatsapp.com/send?phone=918420682536">Link</a>
+		-->
+
+		<a href="https://api.whatsapp.com/send?phone=91{{whatsappno}}">
+		<img src="assets/img/whatsapp.png">
+		</a>
+
+		<h6 padding>Email: servicesarkar18@gmail.com</h6>
+
+</div>
+
+
+</ion-content>

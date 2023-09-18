@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="darkblue">
+    <ion-title>Enter Job Completion Note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+	<!--
+	<ion-item>
+    <ion-label color="darkblue" floating>Enter Job Completion Code</ion-label>
+    <ion-input type="text" [(ngModel)]='random' name='random'></ion-input>
+	</ion-item>
+	-->
+
+	
+	<ion-item>	 
+	<hr style="border: 1px solid blue;" />
+	<ion-textarea rows="4" cols="55" placeholder="Enter Job Completion Note" [(ngModel)]='compnote' name="compnote"></ion-textarea>
+	</ion-item>
+	
+</ion-list>
+
+<div padding text-center>
+  <button ion-button small (click)="dismiss()">Back</button>
+  <button ion-button small (click)="addNewOrder()">Submit</button>
+
+</div>
+</ion-content>

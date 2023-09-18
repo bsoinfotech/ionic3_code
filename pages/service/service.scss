@@ -1,0 +1,26 @@
+page-service {
+  .item-profile {
+    width: 100%;
+    height: 145px;
+    background:#f00;
+  }
+  .item-profile img{ width: 100%; height: 100%; }
+  .item-detail {
+    width: 100%;
+    background: white;
+    position: absolute;
+    padding: 16px 25px;
+  }
+  .service-type{background: #e5eaee; padding: 20px 25px;}
+  .service-box{border: 2px solid #e5e5e5; background: #fff; padding: 10px 25px; border-radius: 10px;}
+  .service-box h2{color: #00498b; text-align: center; font-size: 1.5rem;}
+  .mybtn{color: #000; border: 1px solid #b8b8b8; background: url(../assets/imgs/arrow.png) 95% center no-repeat;}
+  .btnbox,.pricebox{border: 1px solid #b8b8b8; border-radius: 5px; padding: 10px; margin-bottom: 10px;}
+  .pricebox{margin-top: 35px;}
+  .btnbox .btnicon{ width: 20%; float: left; }
+  .btnicon img{width: 45px; height: 45px;}
+  .btnbox .btntitle{width: 80%; float: right;}
+  .btntitle h4{font-size: 16px; color: #00498b; margin-top: 0; margin-bottom: 5px;}
+  .pricebox h2{font-size: 16px; color: #00498b; margin-top: 0; margin-bottom: 5px; text-align: center; text-decoration: underline;}
+  .cl{clear: both;}
+}
